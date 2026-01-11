@@ -5,7 +5,7 @@ import GridOverlay from './GridOverlay';
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen w-full overflow-hidden bg-background noise-texture">
+    <section className="relative min-h-screen w-full overflow-auto bg-background noise-texture">
       {/* Base dark gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-black via-black to-[#0a0a0a]" />
       

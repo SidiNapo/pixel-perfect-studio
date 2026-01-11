@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion';
 import HeroBadge from './HeroBadge';
-import EmailSignup from './EmailSignup';
+import SEOAnalyzer from './seo/SEOAnalyzer';
 
 export default function HeroContent() {
   return (
-    <div className="relative z-10 flex flex-col justify-center min-h-screen px-6 lg:px-12 xl:px-24 pt-24 pb-12 lg:pb-0">
-      <div className="max-w-2xl">
+    <div className="relative z-10 flex flex-col justify-center min-h-screen px-6 lg:px-12 xl:px-24 pt-24 pb-12">
+      <div className="w-full max-w-4xl">
         <HeroBadge />
         
         <motion.h1
@@ -33,7 +33,7 @@ export default function HeroContent() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.8 }}
         >
-          <EmailSignup />
+          <SEOAnalyzer />
         </motion.div>
       </div>
     </div>
