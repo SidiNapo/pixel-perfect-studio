@@ -2,7 +2,6 @@ import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import FeaturesSection from '@/components/home/FeaturesSection';
 import TestimonialsSection from '@/components/home/TestimonialsSection';
-import PricingSection from '@/components/home/PricingSection';
 import Footer from '@/components/Footer';
 
 const Home = () => {
@@ -12,7 +11,6 @@ const Home = () => {
       <HeroSection />
       <FeaturesSection />
       <TestimonialsSection />
-      <PricingSection />
       <Footer />
     </main>
   );
