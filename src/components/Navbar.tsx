@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
+import logo from '@/assets/e-seomax-logo.png';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -14,11 +14,10 @@ export default function Navbar() {
   }, []);
 
   const navItems = [
-    { label: 'Features', hasDropdown: true },
-    { label: 'Developers', hasDropdown: false },
-    { label: 'Company', hasDropdown: true },
-    { label: 'Blog', hasDropdown: false },
-    { label: 'Changelog', hasDropdown: false },
+    { label: 'Home' },
+    { label: 'Blog' },
+    { label: 'About Us' },
+    { label: 'Contact Us' },
   ];
 
   return (
@@ -34,9 +33,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center">
-            <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center glow-purple-sm">
-              <div className="w-4 h-4 rounded-full bg-primary animate-pulse-glow" />
-            </div>
+            <img src={logo} alt="E-SEOMAX" className="h-10 w-auto" />
           </div>
 
           {/* Nav Items */}
@@ -47,19 +44,12 @@ export default function Navbar() {
                 className="flex items-center gap-1 text-[15px] text-white/70 hover:text-white transition-colors duration-200"
               >
                 {item.label}
-                {item.hasDropdown && <ChevronDown className="w-4 h-4" />}
               </button>
             ))}
           </div>
 
-          {/* CTA Button */}
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.98 }}
-            className="px-5 py-2.5 bg-primary text-white text-sm font-medium rounded-lg glow-purple-sm hover:bg-primary/90 transition-all duration-200"
-          >
-            Join waitlist
-          </motion.button>
+          {/* Empty div for layout balance */}
+          <div className="w-10" />
         </div>
       </div>
     </motion.nav>
