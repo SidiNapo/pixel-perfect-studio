@@ -215,8 +215,8 @@ export default function SEOAnalyzer() {
                 icon={FileText}
                 delay={0.2}
                 metrics={[
-                  { label: 'Title Tag', value: `${results.onPage.titleTag.length} chars`, passed: results.onPage.titleTag.passed },
-                  { label: 'Meta Description', value: `${results.onPage.metaDescription.length} chars`, passed: results.onPage.metaDescription.passed },
+                  { label: 'Title Tag', value: `${results.onPage.titleTag.length} chars`, passed: results.onPage.titleTag.passed, subtitle: results.onPage.titleTag.value },
+                  { label: 'Meta Description', value: `${results.onPage.metaDescription.length} chars`, passed: results.onPage.metaDescription.passed, subtitle: results.onPage.metaDescription.value.substring(0, 80) + (results.onPage.metaDescription.value.length > 80 ? '...' : '') },
                   { label: 'H1 Tags', value: results.onPage.h1Count, passed: results.onPage.h1Count === 1 },
                   { label: 'Images Missing Alt', value: `${results.onPage.imageAltTexts.missing}/${results.onPage.imageAltTexts.total}`, passed: results.onPage.imageAltTexts.missing === 0 },
                   { label: 'Canonical URL', value: results.onPage.canonicalUrl.present ? 'Present' : 'Missing', passed: results.onPage.canonicalUrl.present },

@@ -6,6 +6,7 @@ interface MetricItem {
   label: string;
   value: string | number;
   passed?: boolean;
+  subtitle?: string;
 }
 
 interface SEOMetricCardProps {
@@ -37,19 +38,26 @@ export default function SEOMetricCard({ title, icon: Icon, metrics, delay = 0 }:
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.3, delay: delay + 0.1 * index }}
-            className="flex items-center justify-between py-2 border-b border-white/5 last:border-0"
+            className="flex flex-col py-2 border-b border-white/5 last:border-0"
           >
-            <span className="text-sm text-muted-foreground">{metric.label}</span>
-            <div className="flex items-center gap-2">
-              <span className="text-sm font-medium text-foreground">{metric.value}</span>
-              {metric.passed !== undefined && (
-                metric.passed ? (
-                  <Check className="w-4 h-4 text-green-500" />
-                ) : (
-                  <X className="w-4 h-4 text-red-500" />
-                )
-              )}
+            <div className="flex items-center justify-between">
+              <span className="text-sm text-muted-foreground">{metric.label}</span>
+              <div className="flex items-center gap-2">
+                <span className="text-sm font-medium text-foreground">{metric.value}</span>
+                {metric.passed !== undefined && (
+                  metric.passed ? (
+                    <Check className="w-4 h-4 text-green-500" />
+                  ) : (
+                    <X className="w-4 h-4 text-red-500" />
+                  )
+                )}
+              </div>
             </div>
+            {metric.subtitle && (
+              <p className="mt-1 text-xs text-muted-foreground/70 italic truncate" title={metric.subtitle}>
+                "{metric.subtitle}"
+              </p>
+            )}
           </motion.div>
         ))}
       </div>
