@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, Loader2, Settings, FileText, Type, RefreshCw } from 'lucide-react';
+import { Search, Loader2, Settings, FileText, Type, RefreshCw, Globe, Shield, Link2 } from 'lucide-react';
 import { SEOResults } from './types';
 import SEOScoreCard from './SEOScoreCard';
 import SEOMetricCard from './SEOMetricCard';
@@ -40,7 +40,7 @@ export default function SEOAnalyzer() {
     }
     
     if (!validateUrl(url)) {
-      setError('Please enter a valid URL');
+      setError('Please enter a valid URL (must start with http:// or https://)');
       return;
     }
 
@@ -137,6 +137,25 @@ export default function SEOAnalyzer() {
         )}
       </AnimatePresence>
 
+      {/* Loading State */}
+      <AnimatePresence>
+        {isLoading && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            className="mt-12 text-center"
+          >
+            <div className="inline-flex items-center gap-3 px-6 py-4 bg-white/5 rounded-2xl border border-purple-500/20">
+              <Loader2 className="w-6 h-6 animate-spin text-purple-400" />
+              <span className="text-muted-foreground">
+                Crawling and analyzing website... This may take a few seconds.
+              </span>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Results Section */}
       <AnimatePresence>
         {results && (
@@ -147,8 +166,20 @@ export default function SEOAnalyzer() {
             transition={{ duration: 0.5 }}
             className="mt-12"
           >
-            {/* Analyze Again Button */}
-            <div className="flex justify-end mb-6">
+            {/* Analyzed URL & Analyze Again Button */}
+            <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <Globe className="w-4 h-4" />
+                <span>Analyzed: </span>
+                <a 
+                  href={results.url} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-purple-400 hover:text-purple-300 underline"
+                >
+                  {results.url}
+                </a>
+              </div>
               <motion.button
                 onClick={handleAnalyzeAgain}
                 whileHover={{ scale: 1.05 }}
@@ -171,10 +202,10 @@ export default function SEOAnalyzer() {
                 icon={Settings}
                 delay={0.1}
                 metrics={[
-                  { label: 'Page Load Speed', value: results.technical.pageSpeed.value, passed: results.technical.pageSpeed.passed },
-                  { label: 'Mobile-Friendly', value: results.technical.mobileFriendly.value, passed: results.technical.mobileFriendly.passed },
                   { label: 'HTTPS Status', value: results.technical.https.value, passed: results.technical.https.passed },
-                  { label: 'Robots.txt', value: results.technical.robotsTxt.value, passed: results.technical.robotsTxt.passed },
+                  { label: 'Mobile-Friendly', value: results.technical.mobileFriendly.value, passed: results.technical.mobileFriendly.passed },
+                  { label: 'robots.txt', value: results.technical.robotsTxt.value, passed: results.technical.robotsTxt.passed },
+                  { label: 'sitemap.xml', value: results.technical.sitemapXml.value, passed: results.technical.sitemapXml.passed },
                 ]}
               />
 
@@ -186,9 +217,9 @@ export default function SEOAnalyzer() {
                 metrics={[
                   { label: 'Title Tag', value: `${results.onPage.titleTag.length} chars`, passed: results.onPage.titleTag.passed },
                   { label: 'Meta Description', value: `${results.onPage.metaDescription.length} chars`, passed: results.onPage.metaDescription.passed },
-                  { label: 'H1 Tags', value: results.onPage.h1Count },
-                  { label: 'Images Missing Alt', value: `${results.onPage.imageAltTexts.missing}/${results.onPage.imageAltTexts.total}` },
-                  { label: 'Internal Links', value: results.onPage.internalLinks },
+                  { label: 'H1 Tags', value: results.onPage.h1Count, passed: results.onPage.h1Count === 1 },
+                  { label: 'Images Missing Alt', value: `${results.onPage.imageAltTexts.missing}/${results.onPage.imageAltTexts.total}`, passed: results.onPage.imageAltTexts.missing === 0 },
+                  { label: 'Canonical URL', value: results.onPage.canonicalUrl.present ? 'Present' : 'Missing', passed: results.onPage.canonicalUrl.present },
                 ]}
               />
 
@@ -198,10 +229,24 @@ export default function SEOAnalyzer() {
                 icon={Type}
                 delay={0.3}
                 metrics={[
-                  { label: 'Word Count', value: results.content.wordCount.toLocaleString() },
-                  { label: 'Keyword Density', value: results.content.keywordDensity },
-                  { label: 'Readability Score', value: `${results.content.readabilityScore}/100` },
-                  { label: 'Content Quality', value: results.content.contentQuality },
+                  { label: 'Word Count', value: results.content.wordCount.toLocaleString(), passed: results.content.wordCount >= 300 },
+                  { label: 'Readability Score', value: `${results.content.readabilityScore}/100`, passed: results.content.readabilityScore >= 50 },
+                  { label: 'Content Quality', value: results.content.contentQuality, passed: results.content.contentQuality !== 'Poor' },
+                  { label: 'Thin Content', value: results.content.isThinContent ? 'Yes' : 'No', passed: !results.content.isThinContent },
+                ]}
+              />
+
+              {/* Links & Open Graph */}
+              <SEOMetricCard
+                title="Links & Social"
+                icon={Link2}
+                delay={0.35}
+                metrics={[
+                  { label: 'Internal Links', value: results.onPage.internalLinks, passed: results.onPage.internalLinks >= 3 },
+                  { label: 'External Links', value: results.onPage.externalLinks },
+                  { label: 'OG Title', value: results.openGraph.hasOgTitle ? 'Present' : 'Missing', passed: results.openGraph.hasOgTitle },
+                  { label: 'OG Description', value: results.openGraph.hasOgDescription ? 'Present' : 'Missing', passed: results.openGraph.hasOgDescription },
+                  { label: 'OG Image', value: results.openGraph.hasOgImage ? 'Present' : 'Missing', passed: results.openGraph.hasOgImage },
                 ]}
               />
 
@@ -211,6 +256,45 @@ export default function SEOAnalyzer() {
               {/* Recommendations */}
               <SEORecommendationsCard recommendations={results.recommendations} delay={0.5} />
             </div>
+
+            {/* Score Breakdown */}
+            {results.scoreBreakdown && results.scoreBreakdown.length > 0 && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.6 }}
+                className="mt-6 p-6 rounded-2xl bg-white/5 backdrop-blur-xl border border-purple-500/20"
+              >
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="p-2 rounded-lg bg-gradient-to-br from-purple-500/20 to-purple-600/20">
+                    <Shield className="w-5 h-5 text-purple-400" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-foreground">Score Breakdown</h3>
+                  <span className="ml-auto text-sm text-muted-foreground">
+                    {results.score}/100 points
+                  </span>
+                </div>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                  {results.scoreBreakdown.map((item, index) => (
+                    <div 
+                      key={item.category}
+                      className="p-3 rounded-lg bg-white/5 border border-white/10"
+                    >
+                      <div className="text-xs text-muted-foreground mb-1">{item.category}</div>
+                      <div className="flex items-baseline gap-1">
+                        <span className={`text-lg font-bold ${item.points === item.maxPoints ? 'text-green-400' : item.points === 0 ? 'text-red-400' : 'text-yellow-400'}`}>
+                          {item.points}
+                        </span>
+                        <span className="text-xs text-muted-foreground">/ {item.maxPoints}</span>
+                      </div>
+                      <div className="text-xs text-muted-foreground mt-1 truncate" title={item.details}>
+                        {item.details}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            )}
           </motion.div>
         )}
       </AnimatePresence>
