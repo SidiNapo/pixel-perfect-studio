@@ -180,42 +180,57 @@ async function extractSEOData(
   console.log('HTML length:', html.length);
   console.log('Firecrawl metadata:', JSON.stringify(metadata));
 
-  // ===== TITLE TAG (with multiple fallbacks) =====
-  // Try multiple patterns for title extraction
-  const titlePatterns = [
-    /<title[^>]*>([^<]+)<\/title>/i,
-    /<title[^>]*>([\s\S]*?)<\/title>/i,
-  ];
-  
+  // ===== TITLE TAG (strict priority: <title> first) =====
+  // Priority 1: Extract <title> from HTML head using multiple patterns
   let title = '';
-  for (const pattern of titlePatterns) {
-    const match = html.match(pattern);
-    if (match && match[1]) {
-      title = match[1].replace(/<[^>]+>/g, '').trim();
-      if (title) break;
-    }
+  
+  // Pattern 1: Standard title tag (handles most cases including multi-line)
+  const titleMatch1 = html.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
+  if (titleMatch1 && titleMatch1[1]) {
+    // Clean up the title: remove inner tags, decode entities, trim whitespace
+    title = titleMatch1[1]
+      .replace(/<[^>]+>/g, '') // Remove any inner HTML tags
+      .replace(/&nbsp;/g, ' ')
+      .replace(/&amp;/g, '&')
+      .replace(/&lt;/g, '<')
+      .replace(/&gt;/g, '>')
+      .replace(/&quot;/g, '"')
+      .replace(/&#39;/g, "'")
+      .replace(/&apos;/g, "'")
+      .replace(/&#(\d+);/g, (_, code) => String.fromCharCode(parseInt(code)))
+      .replace(/&#x([a-fA-F0-9]+);/g, (_, code) => String.fromCharCode(parseInt(code, 16)))
+      .replace(/\s+/g, ' ') // Normalize whitespace
+      .trim();
   }
   
-  // Fallback to OG title
+  console.log('Title from <title> tag:', title, 'Length:', title.length);
+  
+  // Priority 2: Fallback to OG title only if <title> is empty
   if (!title) {
     const ogTitlePatterns = [
       /<meta[^>]*property=["']og:title["'][^>]*content=["']([^"']+)["']/i,
       /<meta[^>]*content=["']([^"']+)["'][^>]*property=["']og:title["']/i,
     ];
-    title = extractMetaContent(html, ogTitlePatterns);
+    const ogTitle = extractMetaContent(html, ogTitlePatterns);
+    if (ogTitle) {
+      title = ogTitle.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").trim();
+      console.log('Title from og:title:', title);
+    }
   }
   
-  // Fallback to Firecrawl metadata
+  // Priority 3: Fallback to Firecrawl metadata only if still empty
   if (!title && metadata.title) {
-    title = metadata.title;
+    title = metadata.title.trim();
+    console.log('Title from Firecrawl metadata.title:', title);
   }
   if (!title && metadata.ogTitle) {
-    title = metadata.ogTitle;
+    title = metadata.ogTitle.trim();
+    console.log('Title from Firecrawl metadata.ogTitle:', title);
   }
   
   const titleLength = title.length;
   const titlePassed = titleLength >= 30 && titleLength <= 60;
-  console.log('Extracted title:', title, 'Length:', titleLength);
+  console.log('Final extracted title:', title, 'Length:', titleLength);
 
   // ===== META DESCRIPTION (with multiple fallbacks) =====
   const metaDescPatterns = [
@@ -283,19 +298,72 @@ async function extractSEOData(
   const h3Matches = html.match(/<h3[^>]*>/gi) || [];
   const h3Count = h3Matches.length;
 
-  // ===== IMAGES =====
+  // ===== IMAGES (Improved: avoid false positives for decorative images) =====
   const imgMatches = html.match(/<img[^>]*>/gi) || [];
-  const totalImages = imgMatches.length;
+  let totalContentImages = 0;
   let missingAlt = 0;
   
   imgMatches.forEach(img => {
-    const hasAlt = /alt=["'][^"']+["']/i.test(img);
-    const emptyAlt = /alt=["']\s*["']/i.test(img);
-    if (!hasAlt || emptyAlt) {
+    // Skip tracking pixels and tiny images (1x1, spacer images, etc.)
+    const widthMatch = img.match(/width=["']?(\d+)/i);
+    const heightMatch = img.match(/height=["']?(\d+)/i);
+    const width = widthMatch ? parseInt(widthMatch[1]) : null;
+    const height = heightMatch ? parseInt(heightMatch[1]) : null;
+    
+    // Skip tiny images (likely tracking pixels)
+    if ((width !== null && width <= 3) || (height !== null && height <= 3)) {
+      return; // Skip tracking pixels
+    }
+    
+    // Check for src attribute - skip if empty or data:image/gif (tracking)
+    const srcMatch = img.match(/src=["']([^"']+)["']/i);
+    if (!srcMatch || !srcMatch[1]) {
+      return; // No src, skip
+    }
+    
+    const src = srcMatch[1];
+    // Skip common tracking/spacer patterns
+    if (src.includes('data:image/gif') || 
+        src.includes('spacer.gif') || 
+        src.includes('blank.gif') ||
+        src.includes('pixel.gif') ||
+        src.includes('1x1') ||
+        src.includes('tracking') ||
+        src.includes('beacon')) {
+      return;
+    }
+    
+    // Check if explicitly decorative
+    const hasAriaHidden = /aria-hidden=["']true["']/i.test(img);
+    const hasRolePresentation = /role=["']presentation["']/i.test(img);
+    const hasRoleNone = /role=["']none["']/i.test(img);
+    
+    // Skip decorative images (explicitly marked as such)
+    if (hasAriaHidden || hasRolePresentation || hasRoleNone) {
+      return; // Decorative, intentionally hidden from AT
+    }
+    
+    // This is a content image that should be counted
+    totalContentImages++;
+    
+    // Check for alt attribute
+    const hasAltAttr = /\salt\s*=/i.test(img);
+    
+    if (!hasAltAttr) {
+      // No alt attribute at all - this is an issue
       missingAlt++;
+    } else {
+      // Has alt attribute - check if it's empty (which is VALID for decorative)
+      // alt="" is a valid way to mark decorative images, so we DON'T count it as missing
+      const emptyAltMatch = img.match(/alt=["']\s*["']/i);
+      // Only count as missing if alt attribute exists but has only whitespace AND
+      // the image seems like it should have meaningful alt text based on context
+      // Actually, alt="" is intentionally empty = decorative = valid, so we skip
+      // We only flag truly missing alt (no attribute) above
     }
   });
-  console.log('Images:', totalImages, 'Missing alt:', missingAlt);
+  
+  console.log('Total content images:', totalContentImages, 'Missing alt:', missingAlt, 'Skipped decorative/tracking:', imgMatches.length - totalContentImages);
 
   // ===== LINKS (Fixed: proper domain matching) =====
   const linkMatches = html.match(/<a[^>]+href=["']([^"'#]+)["'][^>]*>/gi) || [];
@@ -479,16 +547,16 @@ async function extractSEOData(
   }
 
   // Image Alt Text (10 points max)
-  if (totalImages === 0) {
-    scoreBreakdown.push({ category: 'Image Alt Text', points: 10, maxPoints: 10, details: 'No images to check' });
+  if (totalContentImages === 0) {
+    scoreBreakdown.push({ category: 'Image Alt Text', points: 10, maxPoints: 10, details: 'No content images to check' });
     totalPoints += 10;
   } else if (missingAlt === 0) {
-    scoreBreakdown.push({ category: 'Image Alt Text', points: 10, maxPoints: 10, details: 'All images have alt text' });
+    scoreBreakdown.push({ category: 'Image Alt Text', points: 10, maxPoints: 10, details: 'All content images have alt text' });
     totalPoints += 10;
   } else {
-    const altPercentage = Math.round(((totalImages - missingAlt) / totalImages) * 100);
+    const altPercentage = Math.round(((totalContentImages - missingAlt) / totalContentImages) * 100);
     const altPoints = Math.round((altPercentage / 100) * 10);
-    scoreBreakdown.push({ category: 'Image Alt Text', points: altPoints, maxPoints: 10, details: `${missingAlt}/${totalImages} images missing alt` });
+    scoreBreakdown.push({ category: 'Image Alt Text', points: altPoints, maxPoints: 10, details: `${missingAlt}/${totalContentImages} content images missing alt` });
     totalPoints += altPoints;
   }
 
@@ -604,7 +672,7 @@ async function extractSEOData(
       title: 'Images Missing Alt Text',
       description: 'Some images lack alt text, hurting accessibility and image SEO.',
       severity: missingAlt > 5 ? 'High' : 'Medium',
-      evidence: `${missingAlt} out of ${totalImages} images are missing alt attributes`,
+      evidence: `${missingAlt} out of ${totalContentImages} content images are missing alt attributes`,
       fix: 'Add descriptive alt text to all images that describes their content.',
     });
   }
@@ -756,7 +824,7 @@ async function extractSEOData(
       h1First,
       h2Count,
       h3Count,
-      imageAltTexts: { total: totalImages, missing: missingAlt },
+      imageAltTexts: { total: totalContentImages, missing: missingAlt },
       internalLinks,
       externalLinks,
     },
