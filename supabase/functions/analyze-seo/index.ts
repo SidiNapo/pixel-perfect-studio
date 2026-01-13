@@ -19,6 +19,17 @@ interface SEORecommendation {
   example?: string;
 }
 
+interface FirecrawlMetadata {
+  title?: string;
+  description?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: string;
+  viewport?: string;
+  canonical?: string;
+  robots?: string;
+}
+
 interface SEOAnalysisResult {
   success: boolean;
   error?: string;
@@ -76,31 +87,40 @@ function isValidUrl(url: string): boolean {
   }
 }
 
-// Safely fetch a resource with timeout
-async function safeFetch(url: string, timeoutMs: number = 5000): Promise<{ ok: boolean; status?: number }> {
+// Safely fetch a resource with timeout - use GET for better compatibility
+async function safeFetch(url: string, timeoutMs: number = 8000): Promise<{ ok: boolean; status?: number }> {
   try {
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), timeoutMs);
     
+    // Use GET instead of HEAD - some servers don't handle HEAD properly
     const response = await fetch(url, {
-      method: 'HEAD',
+      method: 'GET',
       signal: controller.signal,
-      headers: { 'User-Agent': 'SEOAnalyzer/1.0' },
+      headers: { 
+        'User-Agent': 'Mozilla/5.0 (compatible; SEOAnalyzer/1.0; +https://e-seomax.com)',
+        'Accept': 'text/plain, text/html, application/xml, */*'
+      },
+      redirect: 'follow',
     });
     
     clearTimeout(timeout);
-    return { ok: response.ok, status: response.status };
-  } catch {
+    return { ok: response.ok && response.status === 200, status: response.status };
+  } catch (error) {
+    console.log(`safeFetch failed for ${url}:`, error);
     return { ok: false };
   }
 }
 
-// Extract text content from HTML
+// Extract text content from HTML for word count
 function extractTextContent(html: string): string {
   return html
     .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
     .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
     .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
+    .replace(/<header[^>]*>[\s\S]*?<\/header>/gi, ' ')
+    .replace(/<footer[^>]*>[\s\S]*?<\/footer>/gi, ' ')
+    .replace(/<nav[^>]*>[\s\S]*?<\/nav>/gi, ' ')
     .replace(/<[^>]+>/g, ' ')
     .replace(/&nbsp;/g, ' ')
     .replace(/&amp;/g, '&')
@@ -108,6 +128,7 @@ function extractTextContent(html: string): string {
     .replace(/&gt;/g, '>')
     .replace(/&quot;/g, '"')
     .replace(/&#39;/g, "'")
+    .replace(/&#\d+;/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
 }
@@ -122,7 +143,6 @@ function calculateReadability(text: string): number {
   const avgWordsPerSentence = words.length / sentences.length;
   
   // Simplified readability: shorter sentences = higher readability
-  // Ideal: 15-20 words per sentence
   const score = Math.round(100 - Math.abs(avgWordsPerSentence - 17) * 3);
   return Math.max(0, Math.min(100, score));
 }
@@ -135,42 +155,127 @@ function getContentQuality(wordCount: number, readability: number): 'Excellent' 
   return 'Poor';
 }
 
-// Extract SEO data from HTML
-async function extractSEOData(html: string, url: string): Promise<SEOAnalysisResult['data']> {
-  const urlObj = new URL(url);
-  const domain = urlObj.hostname;
-  const baseUrl = `${urlObj.protocol}//${domain}`;
+// Helper: Extract attribute value from meta tag
+function extractMetaContent(html: string, patterns: RegExp[]): string {
+  for (const pattern of patterns) {
+    const match = html.match(pattern);
+    if (match && match[1]) {
+      return match[1].trim();
+    }
+  }
+  return '';
+}
 
-  // ===== TITLE TAG =====
-  const titleMatch = html.match(/<title[^>]*>([^<]*)<\/title>/i);
-  const title = titleMatch ? titleMatch[1].trim() : '';
+// Extract SEO data from HTML with Firecrawl metadata fallbacks
+async function extractSEOData(
+  html: string, 
+  url: string, 
+  metadata: FirecrawlMetadata = {}
+): Promise<SEOAnalysisResult['data']> {
+  const urlObj = new URL(url);
+  const hostname = urlObj.hostname.toLowerCase();
+  const origin = urlObj.origin;
+
+  console.log('Extracting SEO data for hostname:', hostname);
+  console.log('HTML length:', html.length);
+  console.log('Firecrawl metadata:', JSON.stringify(metadata));
+
+  // ===== TITLE TAG (with multiple fallbacks) =====
+  // Try multiple patterns for title extraction
+  const titlePatterns = [
+    /<title[^>]*>([^<]+)<\/title>/i,
+    /<title[^>]*>([\s\S]*?)<\/title>/i,
+  ];
+  
+  let title = '';
+  for (const pattern of titlePatterns) {
+    const match = html.match(pattern);
+    if (match && match[1]) {
+      title = match[1].replace(/<[^>]+>/g, '').trim();
+      if (title) break;
+    }
+  }
+  
+  // Fallback to OG title
+  if (!title) {
+    const ogTitlePatterns = [
+      /<meta[^>]*property=["']og:title["'][^>]*content=["']([^"']+)["']/i,
+      /<meta[^>]*content=["']([^"']+)["'][^>]*property=["']og:title["']/i,
+    ];
+    title = extractMetaContent(html, ogTitlePatterns);
+  }
+  
+  // Fallback to Firecrawl metadata
+  if (!title && metadata.title) {
+    title = metadata.title;
+  }
+  if (!title && metadata.ogTitle) {
+    title = metadata.ogTitle;
+  }
+  
   const titleLength = title.length;
   const titlePassed = titleLength >= 30 && titleLength <= 60;
+  console.log('Extracted title:', title, 'Length:', titleLength);
 
-  // ===== META DESCRIPTION =====
-  const metaDescMatch = html.match(/<meta[^>]*name=["']description["'][^>]*content=["']([^"']*)["'][^>]*>/i) ||
-                        html.match(/<meta[^>]*content=["']([^"']*)["'][^>]*name=["']description["'][^>]*>/i);
-  const metaDescription = metaDescMatch ? metaDescMatch[1].trim() : '';
+  // ===== META DESCRIPTION (with multiple fallbacks) =====
+  const metaDescPatterns = [
+    /<meta[^>]*name=["']description["'][^>]*content=["']([^"']+)["']/i,
+    /<meta[^>]*content=["']([^"']+)["'][^>]*name=["']description["']/i,
+    /<meta[^>]*name=["']Description["'][^>]*content=["']([^"']+)["']/i,
+    /<meta[^>]*content=["']([^"']+)["'][^>]*name=["']Description["']/i,
+  ];
+  
+  let metaDescription = extractMetaContent(html, metaDescPatterns);
+  
+  // Fallback to OG description
+  if (!metaDescription) {
+    const ogDescPatterns = [
+      /<meta[^>]*property=["']og:description["'][^>]*content=["']([^"']+)["']/i,
+      /<meta[^>]*content=["']([^"']+)["'][^>]*property=["']og:description["']/i,
+    ];
+    metaDescription = extractMetaContent(html, ogDescPatterns);
+  }
+  
+  // Fallback to Firecrawl metadata
+  if (!metaDescription && metadata.description) {
+    metaDescription = metadata.description;
+  }
+  if (!metaDescription && metadata.ogDescription) {
+    metaDescription = metadata.ogDescription;
+  }
+  
   const metaDescLength = metaDescription.length;
   const metaDescPassed = metaDescLength >= 120 && metaDescLength <= 160;
+  console.log('Extracted meta description:', metaDescription.substring(0, 100), 'Length:', metaDescLength);
 
   // ===== CANONICAL URL =====
-  const canonicalMatch = html.match(/<link[^>]*rel=["']canonical["'][^>]*href=["']([^"']*)["'][^>]*>/i) ||
-                         html.match(/<link[^>]*href=["']([^"']*)["'][^>]*rel=["']canonical["'][^>]*>/i);
-  const canonicalUrl = canonicalMatch ? canonicalMatch[1].trim() : '';
+  const canonicalPatterns = [
+    /<link[^>]*rel=["']canonical["'][^>]*href=["']([^"']+)["']/i,
+    /<link[^>]*href=["']([^"']+)["'][^>]*rel=["']canonical["']/i,
+  ];
+  let canonicalUrl = extractMetaContent(html, canonicalPatterns);
+  if (!canonicalUrl && metadata.canonical) {
+    canonicalUrl = metadata.canonical;
+  }
 
   // ===== ROBOTS META =====
-  const robotsMetaMatch = html.match(/<meta[^>]*name=["']robots["'][^>]*content=["']([^"']*)["'][^>]*>/i) ||
-                          html.match(/<meta[^>]*content=["']([^"']*)["'][^>]*name=["']robots["'][^>]*>/i);
-  const robotsMeta = robotsMetaMatch ? robotsMetaMatch[1].trim() : '';
+  const robotsMetaPatterns = [
+    /<meta[^>]*name=["']robots["'][^>]*content=["']([^"']+)["']/i,
+    /<meta[^>]*content=["']([^"']+)["'][^>]*name=["']robots["']/i,
+  ];
+  let robotsMeta = extractMetaContent(html, robotsMetaPatterns);
+  if (!robotsMeta && metadata.robots) {
+    robotsMeta = metadata.robots;
+  }
 
   // ===== HEADINGS =====
-  const h1Matches = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/gi) || [];
+  const h1Matches = html.match(/<h1[^>]*>[\s\S]*?<\/h1>/gi) || [];
   const h1Count = h1Matches.length;
   let h1First = '';
   if (h1Count > 0 && h1Matches[0]) {
     h1First = h1Matches[0].replace(/<[^>]+>/g, '').trim().substring(0, 100);
   }
+  console.log('H1 count:', h1Count, 'First H1:', h1First);
   
   const h2Matches = html.match(/<h2[^>]*>/gi) || [];
   const h2Count = h2Matches.length;
@@ -184,35 +289,66 @@ async function extractSEOData(html: string, url: string): Promise<SEOAnalysisRes
   let missingAlt = 0;
   
   imgMatches.forEach(img => {
-    // Check for alt attribute that has actual content
-    const altMatch = img.match(/alt=["']([^"']*)["']/i);
-    if (!altMatch || altMatch[1].trim() === '') {
+    const hasAlt = /alt=["'][^"']+["']/i.test(img);
+    const emptyAlt = /alt=["']\s*["']/i.test(img);
+    if (!hasAlt || emptyAlt) {
       missingAlt++;
     }
   });
+  console.log('Images:', totalImages, 'Missing alt:', missingAlt);
 
-  // ===== LINKS =====
-  const linkMatches = html.match(/<a[^>]*href=["']([^"']*)["'][^>]*>/gi) || [];
+  // ===== LINKS (Fixed: proper domain matching) =====
+  const linkMatches = html.match(/<a[^>]+href=["']([^"'#]+)["'][^>]*>/gi) || [];
   let internalLinks = 0;
   let externalLinks = 0;
 
   linkMatches.forEach(link => {
-    const hrefMatch = link.match(/href=["']([^"']*)["']/i);
+    const hrefMatch = link.match(/href=["']([^"']+)["']/i);
     if (hrefMatch) {
       const href = hrefMatch[1].trim();
+      
       // Skip anchors, javascript, mailto, tel
-      if (href.startsWith('#') || href.startsWith('javascript:') || 
-          href.startsWith('mailto:') || href.startsWith('tel:')) {
+      if (!href || href.startsWith('#') || href.startsWith('javascript:') || 
+          href.startsWith('mailto:') || href.startsWith('tel:') ||
+          href.startsWith('data:')) {
         return;
       }
       
-      if (href.startsWith('/') || href.includes(domain)) {
-        internalLinks++;
-      } else if (href.startsWith('http://') || href.startsWith('https://')) {
-        externalLinks++;
+      try {
+        // Handle relative URLs
+        if (href.startsWith('/') || href.startsWith('./') || href.startsWith('../')) {
+          internalLinks++;
+          return;
+        }
+        
+        // Handle absolute URLs
+        if (href.startsWith('http://') || href.startsWith('https://') || href.startsWith('//')) {
+          const absoluteHref = href.startsWith('//') ? `https:${href}` : href;
+          const linkUrl = new URL(absoluteHref);
+          const linkHostname = linkUrl.hostname.toLowerCase();
+          
+          // Check if same domain (including www variations)
+          const cleanHostname = hostname.replace(/^www\./, '');
+          const cleanLinkHostname = linkHostname.replace(/^www\./, '');
+          
+          if (cleanLinkHostname === cleanHostname || 
+              linkHostname === hostname ||
+              linkHostname.endsWith('.' + cleanHostname)) {
+            internalLinks++;
+          } else {
+            externalLinks++;
+          }
+        } else if (!href.includes(':')) {
+          // Likely a relative path without leading slash
+          internalLinks++;
+        }
+      } catch (e) {
+        // Invalid URL, skip
+        console.log('Invalid href:', href);
       }
     }
   });
+  console.log('Internal links:', internalLinks, 'External links:', externalLinks);
 
   // ===== CONTENT ANALYSIS =====
   const textContent = extractTextContent(html);
@@ -221,30 +357,53 @@ async function extractSEOData(html: string, url: string): Promise<SEOAnalysisRes
   const isThinContent = wordCount < 300;
   const readabilityScore = calculateReadability(textContent);
   const contentQuality = getContentQuality(wordCount, readabilityScore);
+  console.log('Word count:', wordCount, 'Readability:', readabilityScore);
 
   // ===== TECHNICAL CHECKS =====
   const isHttps = url.startsWith('https://');
-  const hasViewport = !!html.match(/<meta[^>]*name=["']viewport["'][^>]*>/i);
+  
+  // Viewport meta check - multiple patterns
+  const viewportPatterns = [
+    /<meta[^>]*name=["']viewport["'][^>]*>/i,
+    /<meta[^>]*name=["']Viewport["'][^>]*>/i,
+  ];
+  let hasViewport = viewportPatterns.some(p => p.test(html));
+  if (!hasViewport && metadata.viewport) {
+    hasViewport = true;
+  }
+  console.log('Has viewport:', hasViewport);
 
-  // Check robots.txt
-  const robotsTxtUrl = `${baseUrl}/robots.txt`;
+  // Check robots.txt - use origin for correct URL construction
+  const robotsTxtUrl = `${origin}/robots.txt`;
+  console.log('Checking robots.txt:', robotsTxtUrl);
   const robotsTxtResult = await safeFetch(robotsTxtUrl);
   const hasRobotsTxt = robotsTxtResult.ok;
+  console.log('robots.txt found:', hasRobotsTxt, 'status:', robotsTxtResult.status);
 
   // Check sitemap.xml
-  const sitemapUrl = `${baseUrl}/sitemap.xml`;
+  const sitemapUrl = `${origin}/sitemap.xml`;
+  console.log('Checking sitemap:', sitemapUrl);
   const sitemapResult = await safeFetch(sitemapUrl);
   const hasSitemap = sitemapResult.ok;
+  console.log('sitemap.xml found:', hasSitemap, 'status:', sitemapResult.status);
 
   // ===== OPEN GRAPH =====
-  const hasOgTitle = !!html.match(/<meta[^>]*property=["']og:title["'][^>]*>/i);
-  const hasOgDescription = !!html.match(/<meta[^>]*property=["']og:description["'][^>]*>/i);
-  const hasOgImage = !!html.match(/<meta[^>]*property=["']og:image["'][^>]*>/i);
+  const ogTitlePattern = /<meta[^>]*property=["']og:title["'][^>]*>/i;
+  const ogDescPattern = /<meta[^>]*property=["']og:description["'][^>]*>/i;
+  const ogImagePattern = /<meta[^>]*property=["']og:image["'][^>]*>/i;
+  
+  let hasOgTitle = ogTitlePattern.test(html);
+  let hasOgDescription = ogDescPattern.test(html);
+  let hasOgImage = ogImagePattern.test(html);
+  
+  // Use metadata fallbacks
+  if (!hasOgTitle && metadata.ogTitle) hasOgTitle = true;
+  if (!hasOgDescription && metadata.ogDescription) hasOgDescription = true;
+  if (!hasOgImage && metadata.ogImage) hasOgImage = true;
 
   // ===== SCORING SYSTEM (Deterministic) =====
   const scoreBreakdown: { category: string; points: number; maxPoints: number; details: string }[] = [];
   let totalPoints = 0;
-  const maxPoints = 100;
 
   // Title (15 points max)
   if (titleLength > 0 && titlePassed) {
@@ -659,9 +818,9 @@ Deno.serve(async (req) => {
       );
     }
 
-    console.log('Starting SEO analysis for:', formattedUrl);
+    console.log('Analyzing SEO for URL:', formattedUrl);
 
-    // Use Firecrawl to scrape the page
+    // Use Firecrawl to scrape the page - request rawHtml to get full HTML including <head>
     const response = await fetch('https://api.firecrawl.dev/v1/scrape', {
       method: 'POST',
       headers: {
@@ -670,20 +829,23 @@ Deno.serve(async (req) => {
       },
       body: JSON.stringify({
         url: formattedUrl,
-        formats: ['html', 'rawHtml'],
-        onlyMainContent: false, // Need full HTML for SEO analysis
-        waitFor: 5000, // Wait for dynamic content
+        formats: ['rawHtml', 'html'],  // rawHtml first to prioritize full HTML
+        includeTags: ['head', 'body', 'title', 'meta', 'link', 'h1', 'h2', 'h3', 'img', 'a'],
+        onlyMainContent: false,  // CRITICAL: Get full page HTML including <head>
+        waitFor: 3000,
         timeout: 30000,
       }),
     });
 
     const firecrawlData = await response.json();
+    console.log('Firecrawl response status:', response.status);
+    console.log('Firecrawl success:', firecrawlData.success);
 
     // Handle Firecrawl errors - NO FALLBACK DATA
     if (!response.ok || !firecrawlData.success) {
       console.error('Firecrawl API error:', JSON.stringify(firecrawlData));
       
-      let errorMessage = 'Failed to analyze the website.';
+      let errorMessage = 'CRAWL_FAILED_OR_INCOMPLETE_HTML';
       
       if (response.status === 402) {
         errorMessage = 'SEO analysis quota exceeded. Please try again later.';
@@ -701,24 +863,55 @@ Deno.serve(async (req) => {
       );
     }
 
-    // Extract HTML content
+    // Extract HTML content - prioritize rawHtml for complete HTML including <head>
     const html = firecrawlData.data?.rawHtml || firecrawlData.data?.html || '';
     
+    console.log('HTML received, length:', html.length);
+    console.log('HTML contains <head>:', html.toLowerCase().includes('<head'));
+    console.log('HTML contains <title>:', html.toLowerCase().includes('<title'));
+    
     if (!html || html.trim().length < 100) {
-      console.error('Empty or too short HTML response');
+      console.error('CRAWL_FAILED_OR_INCOMPLETE_HTML: Empty or too short HTML response');
       return new Response(
         JSON.stringify({ 
           success: false, 
-          error: 'Could not retrieve page content. The website may be empty, protected, or returning an error page.' 
+          error: 'CRAWL_FAILED_OR_INCOMPLETE_HTML: Could not retrieve page content. The website may be empty, protected, or returning an error page.' 
         }),
         { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       );
     }
 
-    console.log('HTML received, length:', html.length);
+    // Validate we have proper HTML structure
+    const hasHead = html.toLowerCase().includes('<head');
+    const hasBody = html.toLowerCase().includes('<body');
+    
+    if (!hasHead && !hasBody) {
+      console.error('CRAWL_FAILED_OR_INCOMPLETE_HTML: HTML missing head and body tags');
+      return new Response(
+        JSON.stringify({ 
+          success: false, 
+          error: 'CRAWL_FAILED_OR_INCOMPLETE_HTML: The retrieved content is not valid HTML. The crawler may have been blocked.' 
+        }),
+        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
+    }
+
+    // Extract Firecrawl metadata as fallbacks
+    const metadata: FirecrawlMetadata = {
+      title: firecrawlData.data?.metadata?.title,
+      description: firecrawlData.data?.metadata?.description,
+      ogTitle: firecrawlData.data?.metadata?.ogTitle,
+      ogDescription: firecrawlData.data?.metadata?.ogDescription,
+      ogImage: firecrawlData.data?.metadata?.ogImage,
+      viewport: firecrawlData.data?.metadata?.viewport,
+      canonical: firecrawlData.data?.metadata?.canonical,
+      robots: firecrawlData.data?.metadata?.robots,
+    };
+    
+    console.log('Firecrawl metadata extracted:', JSON.stringify(metadata));
 
     // Extract and analyze SEO data
-    const seoData = await extractSEOData(html, formattedUrl);
+    const seoData = await extractSEOData(html, formattedUrl, metadata);
 
     if (!seoData) {
       console.error('Failed to extract SEO data');
@@ -728,7 +921,7 @@ Deno.serve(async (req) => {
       );
     }
 
-    console.log('SEO analysis complete. Score:', seoData.score, 'Issues:', seoData.issues.length);
+    console.log('SEO analysis complete. Score:', seoData.score, 'Title length:', seoData.onPage.titleTag.length, 'Issues:', seoData.issues.length);
 
     return new Response(
       JSON.stringify({ success: true, data: seoData }),
