@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, Loader2, Settings, FileText, Type, RefreshCw } from 'lucide-react';
-import { SEOResults, generateMockResults } from './types';
+import { SEOResults } from './types';
 import SEOScoreCard from './SEOScoreCard';
 import SEOMetricCard from './SEOMetricCard';
 import SEOIssuesCard from './SEOIssuesCard';
 import SEORecommendationsCard from './SEORecommendationsCard';
+import { supabase } from '@/integrations/supabase/client';
 
 export default function SEOAnalyzer() {
   const [url, setUrl] = useState('');
@@ -13,9 +14,17 @@ export default function SEOAnalyzer() {
   const [results, setResults] = useState<SEOResults | null>(null);
   const [error, setError] = useState('');
 
+  const formatUrl = (input: string): string => {
+    let formatted = input.trim();
+    if (!formatted.startsWith('http://') && !formatted.startsWith('https://')) {
+      formatted = `https://${formatted}`;
+    }
+    return formatted;
+  };
+
   const validateUrl = (input: string): boolean => {
     try {
-      const urlObj = new URL(input);
+      const urlObj = new URL(formatUrl(input));
       return urlObj.protocol === 'http:' || urlObj.protocol === 'https:';
     } catch {
       return false;
@@ -31,19 +40,36 @@ export default function SEOAnalyzer() {
     }
     
     if (!validateUrl(url)) {
-      setError('Please enter a valid URL (must include http:// or https://)');
+      setError('Please enter a valid URL');
       return;
     }
 
     setIsLoading(true);
     setResults(null);
 
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2500));
-    
-    const mockResults = generateMockResults(url);
-    setResults(mockResults);
-    setIsLoading(false);
+    try {
+      const { data, error: fnError } = await supabase.functions.invoke('analyze-seo', {
+        body: { url: formatUrl(url) },
+      });
+
+      if (fnError) {
+        console.error('Edge function error:', fnError);
+        setError('Failed to analyze the website. Please try again.');
+        return;
+      }
+
+      if (!data.success) {
+        setError(data.error || 'Failed to analyze the website.');
+        return;
+      }
+
+      setResults(data.data);
+    } catch (err) {
+      console.error('Error analyzing SEO:', err);
+      setError('An unexpected error occurred. Please try again.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
