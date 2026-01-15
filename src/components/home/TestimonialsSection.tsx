@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Quote, Star } from 'lucide-react';
 const testimonials = [{
   name: "Jennifer Morrison",
   role: "CMO at TechFlow Inc.",
@@ -80,7 +80,9 @@ const TestimonialsSection = () => {
             
             <div className="flex-1 text-center md:text-left">
               <div className="flex items-center justify-center md:justify-start gap-1 mb-4">
-                {[...Array(testimonials[currentIndex].rating)].map((_, i) => {})}
+                {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
+                  <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                ))}
               </div>
               
               <p className="text-lg md:text-xl text-foreground mb-6 leading-relaxed">
