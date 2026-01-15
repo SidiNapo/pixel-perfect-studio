@@ -2,8 +2,10 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { Mail, MessageCircle, Twitter, MapPin, Phone, Send } from 'lucide-react';
+import { Mail, MessageCircle, Twitter, MapPin, Phone, Send, Loader2 } from 'lucide-react';
 import ParticleBackground from '@/components/ParticleBackground';
+import { supabase } from '@/integrations/supabase/client';
+import { useToast } from '@/hooks/use-toast';
 
 const contactInfo = [
   {
@@ -33,6 +35,8 @@ const contactInfo = [
 ];
 
 const Contact = () => {
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -41,10 +45,34 @@ const Contact = () => {
   });
   const [focusedField, setFocusedField] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
+
+    try {
+      const { data, error } = await supabase.functions.invoke('send-contact-email', {
+        body: formData
+      });
+
+      if (error) throw error;
+
+      toast({
+        title: "Message Sent!",
+        description: "Thank you for contacting us. We'll get back to you within 24 hours.",
+      });
+
+      // Reset form
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch (error: any) {
+      console.error('Error sending message:', error);
+      toast({
+        title: "Error",
+        description: error.message || "Failed to send message. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -164,6 +192,8 @@ const Contact = () => {
                         className="w-full px-4 py-4 rounded-xl bg-secondary/50 border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all duration-300 text-foreground placeholder-transparent peer"
                         placeholder="Your Name"
                         required
+                        disabled={isSubmitting}
+                        aria-label="Your Name"
                       />
                       <label
                         className={`absolute left-4 transition-all duration-300 pointer-events-none ${
@@ -188,6 +218,8 @@ const Contact = () => {
                         className="w-full px-4 py-4 rounded-xl bg-secondary/50 border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all duration-300 text-foreground placeholder-transparent peer"
                         placeholder="Email Address"
                         required
+                        disabled={isSubmitting}
+                        aria-label="Email Address"
                       />
                       <label
                         className={`absolute left-4 transition-all duration-300 pointer-events-none ${
@@ -212,6 +244,8 @@ const Contact = () => {
                         className="w-full px-4 py-4 rounded-xl bg-secondary/50 border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all duration-300 text-foreground placeholder-transparent peer"
                         placeholder="Subject"
                         required
+                        disabled={isSubmitting}
+                        aria-label="Subject"
                       />
                       <label
                         className={`absolute left-4 transition-all duration-300 pointer-events-none ${
@@ -236,6 +270,8 @@ const Contact = () => {
                         className="w-full px-4 py-4 rounded-xl bg-secondary/50 border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all duration-300 text-foreground placeholder-transparent peer resize-none"
                         placeholder="Your Message"
                         required
+                        disabled={isSubmitting}
+                        aria-label="Your Message"
                       />
                       <label
                         className={`absolute left-4 transition-all duration-300 pointer-events-none ${
@@ -251,12 +287,22 @@ const Contact = () => {
                     {/* Submit Button */}
                     <motion.button
                       type="submit"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="w-full py-4 rounded-xl bg-primary text-primary-foreground font-semibold flex items-center justify-center gap-2 hover:shadow-[0_0_30px_rgba(139,92,246,0.4)] transition-all duration-300"
+                      disabled={isSubmitting}
+                      whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+                      whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
+                      className="w-full py-4 rounded-xl bg-primary text-primary-foreground font-semibold flex items-center justify-center gap-2 hover:shadow-[0_0_30px_rgba(139,92,246,0.4)] transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
                     >
-                      <Send className="w-5 h-5" />
-                      Send Message
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="w-5 h-5 animate-spin" />
+                          Sending...
+                        </>
+                      ) : (
+                        <>
+                          <Send className="w-5 h-5" />
+                          Send Message
+                        </>
+                      )}
                     </motion.button>
                   </div>
                 </form>
