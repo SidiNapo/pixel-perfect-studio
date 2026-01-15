@@ -13,6 +13,10 @@ interface ContactFormRequest {
   message: string;
 }
 
+// Admin email - this should be the email associated with your Resend account
+// Without a verified domain, Resend only allows sending to this email
+const ADMIN_EMAIL = "youssefwin747@gmail.com";
+
 const handler = async (req: Request): Promise<Response> => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
@@ -43,7 +47,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     console.log("Processing contact form:", { name, email, subject });
 
-    // Send confirmation email to user
+    // Send notification email to admin with user's message details
     const res = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
@@ -51,20 +55,40 @@ const handler = async (req: Request): Promise<Response> => {
         Authorization: `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: "E-SEOMAX <onboarding@resend.dev>",
-        to: [email],
-        subject: "We received your message - E-SEOMAX",
+        from: "E-SEOMAX Contact Form <onboarding@resend.dev>",
+        to: [ADMIN_EMAIL],
+        reply_to: email,
+        subject: `[Contact Form] ${subject}`,
         html: `
-          <h1>Thank You, ${name}!</h1>
-          <p>We've received your message about: <strong>${subject}</strong></p>
-          <p>Our team will review it and respond within 24-48 hours.</p>
-          <p>Best regards,<br>The E-SEOMAX Team</p>
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+            <h2 style="color: #8b5cf6;">New Contact Form Submission</h2>
+            <hr style="border: 1px solid #e5e7eb;" />
+            
+            <p><strong>From:</strong> ${name}</p>
+            <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
+            <p><strong>Subject:</strong> ${subject}</p>
+            
+            <h3 style="color: #374151;">Message:</h3>
+            <div style="background: #f9fafb; padding: 16px; border-radius: 8px; border-left: 4px solid #8b5cf6;">
+              <p style="white-space: pre-wrap;">${message}</p>
+            </div>
+            
+            <hr style="border: 1px solid #e5e7eb; margin-top: 24px;" />
+            <p style="color: #6b7280; font-size: 12px;">
+              This message was sent from the E-SEOMAX contact form.<br/>
+              You can reply directly to this email to respond to ${name}.
+            </p>
+          </div>
         `,
       }),
     });
 
     const data = await res.json();
-    console.log("Email sent:", data);
+    console.log("Email sent to admin:", data);
+
+    if (data.statusCode && data.statusCode >= 400) {
+      throw new Error(data.message || "Failed to send email");
+    }
 
     return new Response(
       JSON.stringify({ success: true, message: "Message sent successfully!" }),
