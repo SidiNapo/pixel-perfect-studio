@@ -14,6 +14,18 @@ export const languages = [
 
 export type LanguageCode = typeof languages[number]['code'];
 
+// Function to get the current direction
+export const getDirection = (lang: string): 'ltr' | 'rtl' => {
+  return lang === 'ar' ? 'rtl' : 'ltr';
+};
+
+// Function to update document direction
+export const updateDocumentDirection = (lang: string) => {
+  const dir = getDirection(lang);
+  document.documentElement.setAttribute('dir', dir);
+  document.documentElement.setAttribute('lang', lang);
+};
+
 i18n
   .use(LanguageDetector)
   .use(initReactI18next)
@@ -35,26 +47,18 @@ i18n
     },
   });
 
-// Function to get the current direction
-export const getDirection = (lang: string): 'ltr' | 'rtl' => {
-  return lang === 'ar' ? 'rtl' : 'ltr';
-};
-
-// Function to update document direction
-export const updateDocumentDirection = (lang: string) => {
-  const dir = getDirection(lang);
-  document.documentElement.setAttribute('dir', dir);
-  document.documentElement.setAttribute('lang', lang);
-};
-
 // Listen for language changes
 i18n.on('languageChanged', (lng) => {
   updateDocumentDirection(lng);
 });
 
-// Set initial direction
-if (typeof window !== 'undefined') {
+// Set initial direction after i18n is ready
+if (typeof window !== 'undefined' && i18n.isInitialized) {
   updateDocumentDirection(i18n.language);
+} else {
+  i18n.on('initialized', () => {
+    updateDocumentDirection(i18n.language);
+  });
 }
 
 export default i18n;
