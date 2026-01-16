@@ -62,6 +62,31 @@
     @apply bg-background text-foreground font-sans antialiased;
     font-family: 'Inter', sans-serif;
   }
+
+  /* RTL Support */
+  [dir="rtl"] {
+    font-family: 'Inter', 'Segoe UI', 'Tahoma', sans-serif;
+  }
+
+  /* RTL text alignment fixes */
+  [dir="rtl"] .text-left {
+    text-align: right;
+  }
+
+  [dir="rtl"] .text-right {
+    text-align: left;
+  }
+
+  /* RTL margin/padding logical properties */
+  [dir="rtl"] .ml-auto {
+    margin-left: unset;
+    margin-right: auto;
+  }
+
+  [dir="rtl"] .mr-auto {
+    margin-right: unset;
+    margin-left: auto;
+  }
 }
 
 @layer utilities {

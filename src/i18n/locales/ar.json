@@ -1,0 +1,92 @@
+{
+  "nav": {
+    "home": "الرئيسية",
+    "blog": "المدونة",
+    "about": "من نحن",
+    "contact": "اتصل بنا"
+  },
+  "hero": {
+    "badge": "تحليل SEO مدعوم بالذكاء الاصطناعي",
+    "title": "تحسين محركات البحث الأكثر ذكاءً",
+    "titleLine2": "يبدأ هنا.",
+    "description": "ارفع مستوى ظهور موقعك بسهولة مع الذكاء الاصطناعي، حيث تلتقي التكنولوجيا الذكية بأدوات SEO سهلة الاستخدام."
+  },
+  "seoAnalyzer": {
+    "placeholder": "أدخل رابط موقعك (مثال: https://example.com)",
+    "analyze": "تحليل SEO",
+    "analyzing": "جاري التحليل...",
+    "crawling": "جاري فحص وتحليل الموقع... قد يستغرق هذا بضع ثوانٍ.",
+    "analyzed": "تم التحليل",
+    "analyzeAnother": "تحليل رابط آخر",
+    "errors": {
+      "enterUrl": "الرجاء إدخال رابط URL",
+      "invalidUrl": "الرجاء إدخال رابط صحيح (يجب أن يبدأ بـ http:// أو https://)",
+      "failed": "فشل تحليل الموقع. يرجى المحاولة مرة أخرى.",
+      "unexpected": "حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى."
+    }
+  },
+  "seoResults": {
+    "overallScore": "نتيجة SEO الإجمالية",
+    "excellent": "ممتاز! موقعك محسّن بشكل جيد.",
+    "good": "جيد. تحتاج تحسينات بسيطة.",
+    "needsWork": "يحتاج عملاً. راجع التوصيات.",
+    "poor": "يحتاج تحسيناً كبيراً.",
+    "technicalSeo": "SEO التقني",
+    "onPageSeo": "SEO الصفحة",
+    "contentAnalysis": "تحليل المحتوى",
+    "linksSocial": "الروابط والتواصل",
+    "issuesFound": "المشاكل المكتشفة",
+    "recommendations": "التوصيات",
+    "scoreBreakdown": "تفصيل النتيجة",
+    "points": "نقاط",
+    "metrics": {
+      "httpsStatus": "حالة HTTPS",
+      "mobileFriendly": "متوافق مع الجوال",
+      "robotsTxt": "robots.txt",
+      "sitemapXml": "sitemap.xml",
+      "titleTag": "وسم العنوان",
+      "metaDescription": "وصف Meta",
+      "h1Tags": "وسوم H1",
+      "imagesMissingAlt": "صور بدون Alt",
+      "canonicalUrl": "الرابط القانوني",
+      "wordCount": "عدد الكلمات",
+      "readabilityScore": "درجة القراءة",
+      "contentQuality": "جودة المحتوى",
+      "thinContent": "محتوى ضعيف",
+      "internalLinks": "روابط داخلية",
+      "externalLinks": "روابط خارجية",
+      "ogTitle": "عنوان OG",
+      "ogDescription": "وصف OG",
+      "ogImage": "صورة OG",
+      "present": "موجود",
+      "missing": "مفقود",
+      "chars": "حرف",
+      "yes": "نعم",
+      "no": "لا"
+    }
+  },
+  "features": {
+    "title": "ميزات قوية",
+    "subtitle": "كل ما تحتاجه للسيطرة على تصنيفات البحث"
+  },
+  "pricing": {
+    "title": "أسعار بسيطة",
+    "subtitle": "اختر الخطة المناسبة لاحتياجاتك"
+  },
+  "testimonials": {
+    "title": "ماذا يقول مستخدمونا",
+    "subtitle": "انضم إلى آلاف العملاء الراضين"
+  },
+  "footer": {
+    "company": "الشركة",
+    "legal": "القانونية",
+    "resources": "الموارد",
+    "copyright": "© {{year}} E-SEOMAX. جميع الحقوق محفوظة."
+  },
+  "common": {
+    "learnMore": "اعرف المزيد",
+    "getStarted": "ابدأ الآن",
+    "submit": "إرسال",
+    "loading": "جاري التحميل..."
+  }
+}

@@ -1,11 +1,16 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { Menu, X } from 'lucide-react';
 import logo from '@/assets/e-seomax-logo.png';
+import LanguageSwitcher from './LanguageSwitcher';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,11 +20,16 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [location.pathname]);
+
   const navItems = [
-    { label: 'Home', href: '/' },
-    { label: 'Blog', href: '/blog' },
-    { label: 'About Us', href: '/about' },
-    { label: 'Contact Us', href: '/contact' },
+    { label: t('nav.home'), href: '/' },
+    { label: t('nav.blog'), href: '/blog' },
+    { label: t('nav.about'), href: '/about' },
+    { label: t('nav.contact'), href: '/contact' },
   ];
 
   return (
@@ -37,10 +47,11 @@ export default function Navbar() {
             <img src={logo} alt="E-SEOMAX" className="h-16 md:h-20 w-auto" />
           </Link>
 
+          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <Link
-                key={item.label}
+                key={item.href}
                 to={item.href}
                 className={`text-[15px] transition-colors duration-200 ${
                   location.pathname === item.href
@@ -53,8 +64,42 @@ export default function Navbar() {
             ))}
           </div>
 
-          <div className="w-10" />
+          <div className="flex items-center gap-4">
+            <LanguageSwitcher />
+            
+            {/* Mobile menu button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden p-2 text-white/70 hover:text-white transition-colors"
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
+
+        {/* Mobile Navigation */}
+        <motion.div
+          initial={false}
+          animate={{ height: mobileMenuOpen ? 'auto' : 0, opacity: mobileMenuOpen ? 1 : 0 }}
+          transition={{ duration: 0.3 }}
+          className="md:hidden overflow-hidden"
+        >
+          <div className="py-4 space-y-2 border-t border-white/10">
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                to={item.href}
+                className={`block px-4 py-3 rounded-lg text-[15px] transition-colors duration-200 ${
+                  location.pathname === item.href
+                    ? 'text-primary font-medium bg-primary/10'
+                    : 'text-white/70 hover:text-white hover:bg-white/5'
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </motion.nav>
   );

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, Loader2, Settings, FileText, Type, RefreshCw, Globe, Shield, Link2 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { SEOResults } from './types';
 import SEOScoreCard from './SEOScoreCard';
 import SEOMetricCard from './SEOMetricCard';
@@ -13,6 +14,7 @@ export default function SEOAnalyzer() {
   const [isLoading, setIsLoading] = useState(false);
   const [results, setResults] = useState<SEOResults | null>(null);
   const [error, setError] = useState('');
+  const { t } = useTranslation();
 
   const formatUrl = (input: string): string => {
     let formatted = input.trim();
@@ -35,12 +37,12 @@ export default function SEOAnalyzer() {
     setError('');
     
     if (!url.trim()) {
-      setError('Please enter a URL');
+      setError(t('seoAnalyzer.errors.enterUrl'));
       return;
     }
     
     if (!validateUrl(url)) {
-      setError('Please enter a valid URL (must start with http:// or https://)');
+      setError(t('seoAnalyzer.errors.invalidUrl'));
       return;
     }
 
@@ -54,19 +56,19 @@ export default function SEOAnalyzer() {
 
       if (fnError) {
         console.error('Edge function error:', fnError);
-        setError('Failed to analyze the website. Please try again.');
+        setError(t('seoAnalyzer.errors.failed'));
         return;
       }
 
       if (!data.success) {
-        setError(data.error || 'Failed to analyze the website.');
+        setError(data.error || t('seoAnalyzer.errors.failed'));
         return;
       }
 
       setResults(data.data);
     } catch (err) {
       console.error('Error analyzing SEO:', err);
-      setError('An unexpected error occurred. Please try again.');
+      setError(t('seoAnalyzer.errors.unexpected'));
     } finally {
       setIsLoading(false);
     }
@@ -90,7 +92,7 @@ export default function SEOAnalyzer() {
         <div className="relative flex-1">
           <input
             type="url"
-            placeholder="Enter your website URL (e.g., https://example.com)"
+            placeholder={t('seoAnalyzer.placeholder')}
             value={url}
             onChange={(e) => {
               setUrl(e.target.value);
@@ -99,6 +101,7 @@ export default function SEOAnalyzer() {
             onKeyPress={handleKeyPress}
             disabled={isLoading}
             className="w-full px-6 py-4 bg-white/5 border border-purple-500/30 rounded-2xl text-white placeholder:text-white/40 focus:outline-none focus:border-purple-500/60 focus:bg-white/[0.08] transition-all duration-200 text-base disabled:opacity-50"
+            dir="ltr"
           />
         </div>
         
@@ -112,12 +115,12 @@ export default function SEOAnalyzer() {
           {isLoading ? (
             <>
               <Loader2 className="w-5 h-5 animate-spin" />
-              Analyzing...
+              {t('seoAnalyzer.analyzing')}
             </>
           ) : (
             <>
               <Search className="w-5 h-5" />
-              Analyze SEO
+              {t('seoAnalyzer.analyze')}
             </>
           )}
         </motion.button>
@@ -149,7 +152,7 @@ export default function SEOAnalyzer() {
             <div className="inline-flex items-center gap-3 px-6 py-4 bg-white/5 rounded-2xl border border-purple-500/20">
               <Loader2 className="w-6 h-6 animate-spin text-purple-400" />
               <span className="text-muted-foreground">
-                Crawling and analyzing website... This may take a few seconds.
+                {t('seoAnalyzer.crawling')}
               </span>
             </div>
           </motion.div>
@@ -167,15 +170,16 @@ export default function SEOAnalyzer() {
             className="mt-12"
           >
             {/* Analyzed URL & Analyze Again Button */}
-            <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center justify-between mb-6 flex-wrap gap-4">
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Globe className="w-4 h-4" />
-                <span>Analyzed: </span>
+                <span>{t('seoAnalyzer.analyzed')}: </span>
                 <a 
                   href={results.url} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-purple-400 hover:text-purple-300 underline"
+                  dir="ltr"
                 >
                   {results.url}
                 </a>
@@ -187,7 +191,7 @@ export default function SEOAnalyzer() {
                 className="flex items-center gap-2 px-4 py-2 text-sm text-purple-400 hover:text-purple-300 border border-purple-500/30 rounded-lg hover:border-purple-500/50 transition-all"
               >
                 <RefreshCw className="w-4 h-4" />
-                Analyze Another URL
+                {t('seoAnalyzer.analyzeAnother')}
               </motion.button>
             </div>
 
@@ -198,55 +202,55 @@ export default function SEOAnalyzer() {
 
               {/* Technical SEO */}
               <SEOMetricCard
-                title="Technical SEO"
+                title={t('seoResults.technicalSeo')}
                 icon={Settings}
                 delay={0.1}
                 metrics={[
-                  { label: 'HTTPS Status', value: results.technical.https.value, passed: results.technical.https.passed },
-                  { label: 'Mobile-Friendly', value: results.technical.mobileFriendly.value, passed: results.technical.mobileFriendly.passed },
-                  { label: 'robots.txt', value: results.technical.robotsTxt.value, passed: results.technical.robotsTxt.passed },
-                  { label: 'sitemap.xml', value: results.technical.sitemapXml.value, passed: results.technical.sitemapXml.passed },
+                  { label: t('seoResults.metrics.httpsStatus'), value: results.technical.https.value, passed: results.technical.https.passed },
+                  { label: t('seoResults.metrics.mobileFriendly'), value: results.technical.mobileFriendly.value, passed: results.technical.mobileFriendly.passed },
+                  { label: t('seoResults.metrics.robotsTxt'), value: results.technical.robotsTxt.value, passed: results.technical.robotsTxt.passed },
+                  { label: t('seoResults.metrics.sitemapXml'), value: results.technical.sitemapXml.value, passed: results.technical.sitemapXml.passed },
                 ]}
               />
 
               {/* On-Page SEO */}
               <SEOMetricCard
-                title="On-Page SEO"
+                title={t('seoResults.onPageSeo')}
                 icon={FileText}
                 delay={0.2}
                 metrics={[
-                  { label: 'Title Tag', value: `${results.onPage.titleTag.length} chars`, passed: results.onPage.titleTag.passed, subtitle: results.onPage.titleTag.value },
-                  { label: 'Meta Description', value: `${results.onPage.metaDescription.length} chars`, passed: results.onPage.metaDescription.passed, subtitle: results.onPage.metaDescription.value.substring(0, 80) + (results.onPage.metaDescription.value.length > 80 ? '...' : '') },
-                  { label: 'H1 Tags', value: results.onPage.h1Count, passed: results.onPage.h1Count === 1 },
-                  { label: 'Images Missing Alt', value: `${results.onPage.imageAltTexts.missing}/${results.onPage.imageAltTexts.total}`, passed: results.onPage.imageAltTexts.missing === 0 },
-                  { label: 'Canonical URL', value: results.onPage.canonicalUrl.present ? 'Present' : 'Missing', passed: results.onPage.canonicalUrl.present },
+                  { label: t('seoResults.metrics.titleTag'), value: `${results.onPage.titleTag.length} ${t('seoResults.metrics.chars')}`, passed: results.onPage.titleTag.passed, subtitle: results.onPage.titleTag.value },
+                  { label: t('seoResults.metrics.metaDescription'), value: `${results.onPage.metaDescription.length} ${t('seoResults.metrics.chars')}`, passed: results.onPage.metaDescription.passed, subtitle: results.onPage.metaDescription.value.substring(0, 80) + (results.onPage.metaDescription.value.length > 80 ? '...' : '') },
+                  { label: t('seoResults.metrics.h1Tags'), value: results.onPage.h1Count, passed: results.onPage.h1Count === 1 },
+                  { label: t('seoResults.metrics.imagesMissingAlt'), value: `${results.onPage.imageAltTexts.missing}/${results.onPage.imageAltTexts.total}`, passed: results.onPage.imageAltTexts.missing === 0 },
+                  { label: t('seoResults.metrics.canonicalUrl'), value: results.onPage.canonicalUrl.present ? t('seoResults.metrics.present') : t('seoResults.metrics.missing'), passed: results.onPage.canonicalUrl.present },
                 ]}
               />
 
               {/* Content Analysis */}
               <SEOMetricCard
-                title="Content Analysis"
+                title={t('seoResults.contentAnalysis')}
                 icon={Type}
                 delay={0.3}
                 metrics={[
-                  { label: 'Word Count', value: results.content.wordCount.toLocaleString(), passed: results.content.wordCount >= 300 },
-                  { label: 'Readability Score', value: `${results.content.readabilityScore}/100`, passed: results.content.readabilityScore >= 50 },
-                  { label: 'Content Quality', value: results.content.contentQuality, passed: results.content.contentQuality !== 'Poor' },
-                  { label: 'Thin Content', value: results.content.isThinContent ? 'Yes' : 'No', passed: !results.content.isThinContent },
+                  { label: t('seoResults.metrics.wordCount'), value: results.content.wordCount.toLocaleString(), passed: results.content.wordCount >= 300 },
+                  { label: t('seoResults.metrics.readabilityScore'), value: `${results.content.readabilityScore}/100`, passed: results.content.readabilityScore >= 50 },
+                  { label: t('seoResults.metrics.contentQuality'), value: results.content.contentQuality, passed: results.content.contentQuality !== 'Poor' },
+                  { label: t('seoResults.metrics.thinContent'), value: results.content.isThinContent ? t('seoResults.metrics.yes') : t('seoResults.metrics.no'), passed: !results.content.isThinContent },
                 ]}
               />
 
               {/* Links & Open Graph */}
               <SEOMetricCard
-                title="Links & Social"
+                title={t('seoResults.linksSocial')}
                 icon={Link2}
                 delay={0.35}
                 metrics={[
-                  { label: 'Internal Links', value: results.onPage.internalLinks, passed: results.onPage.internalLinks >= 3 },
-                  { label: 'External Links', value: results.onPage.externalLinks },
-                  { label: 'OG Title', value: results.openGraph.hasOgTitle ? 'Present' : 'Missing', passed: results.openGraph.hasOgTitle },
-                  { label: 'OG Description', value: results.openGraph.hasOgDescription ? 'Present' : 'Missing', passed: results.openGraph.hasOgDescription },
-                  { label: 'OG Image', value: results.openGraph.hasOgImage ? 'Present' : 'Missing', passed: results.openGraph.hasOgImage },
+                  { label: t('seoResults.metrics.internalLinks'), value: results.onPage.internalLinks, passed: results.onPage.internalLinks >= 3 },
+                  { label: t('seoResults.metrics.externalLinks'), value: results.onPage.externalLinks },
+                  { label: t('seoResults.metrics.ogTitle'), value: results.openGraph.hasOgTitle ? t('seoResults.metrics.present') : t('seoResults.metrics.missing'), passed: results.openGraph.hasOgTitle },
+                  { label: t('seoResults.metrics.ogDescription'), value: results.openGraph.hasOgDescription ? t('seoResults.metrics.present') : t('seoResults.metrics.missing'), passed: results.openGraph.hasOgDescription },
+                  { label: t('seoResults.metrics.ogImage'), value: results.openGraph.hasOgImage ? t('seoResults.metrics.present') : t('seoResults.metrics.missing'), passed: results.openGraph.hasOgImage },
                 ]}
               />
 
@@ -269,13 +273,13 @@ export default function SEOAnalyzer() {
                   <div className="p-2 rounded-lg bg-gradient-to-br from-purple-500/20 to-purple-600/20">
                     <Shield className="w-5 h-5 text-purple-400" />
                   </div>
-                  <h3 className="text-lg font-semibold text-foreground">Score Breakdown</h3>
-                  <span className="ml-auto text-sm text-muted-foreground">
-                    {results.score}/100 points
+                  <h3 className="text-lg font-semibold text-foreground">{t('seoResults.scoreBreakdown')}</h3>
+                  <span className="ms-auto text-sm text-muted-foreground">
+                    {results.score}/100 {t('seoResults.points')}
                   </span>
                 </div>
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-                  {results.scoreBreakdown.map((item, index) => (
+                  {results.scoreBreakdown.map((item) => (
                     <div 
                       key={item.category}
                       className="p-3 rounded-lg bg-white/5 border border-white/10"
