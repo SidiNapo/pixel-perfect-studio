@@ -1,0 +1,92 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "blog": "Blog",
+    "about": "À propos",
+    "contact": "Contact"
+  },
+  "hero": {
+    "badge": "Analyse SEO propulsée par l'IA",
+    "title": "Le SEO plus intelligent",
+    "titleLine2": "commence ici.",
+    "description": "Améliorez la visibilité de votre site sans effort grâce à l'IA, où la technologie intelligente rencontre des outils SEO conviviaux."
+  },
+  "seoAnalyzer": {
+    "placeholder": "Entrez l'URL de votre site (ex: https://exemple.com)",
+    "analyze": "Analyser le SEO",
+    "analyzing": "Analyse en cours...",
+    "crawling": "Exploration et analyse du site... Cela peut prendre quelques secondes.",
+    "analyzed": "Analysé",
+    "analyzeAnother": "Analyser une autre URL",
+    "errors": {
+      "enterUrl": "Veuillez entrer une URL",
+      "invalidUrl": "Veuillez entrer une URL valide (doit commencer par http:// ou https://)",
+      "failed": "Échec de l'analyse du site. Veuillez réessayer.",
+      "unexpected": "Une erreur inattendue s'est produite. Veuillez réessayer."
+    }
+  },
+  "seoResults": {
+    "overallScore": "Score SEO Global",
+    "excellent": "Excellent ! Votre site est bien optimisé.",
+    "good": "Bon. Quelques améliorations mineures nécessaires.",
+    "needsWork": "À améliorer. Consultez les recommandations.",
+    "poor": "Nécessite une optimisation significative.",
+    "technicalSeo": "SEO Technique",
+    "onPageSeo": "SEO On-Page",
+    "contentAnalysis": "Analyse du Contenu",
+    "linksSocial": "Liens & Réseaux",
+    "issuesFound": "Problèmes Trouvés",
+    "recommendations": "Recommandations",
+    "scoreBreakdown": "Détail du Score",
+    "points": "points",
+    "metrics": {
+      "httpsStatus": "Statut HTTPS",
+      "mobileFriendly": "Mobile-Friendly",
+      "robotsTxt": "robots.txt",
+      "sitemapXml": "sitemap.xml",
+      "titleTag": "Balise Title",
+      "metaDescription": "Meta Description",
+      "h1Tags": "Balises H1",
+      "imagesMissingAlt": "Images sans Alt",
+      "canonicalUrl": "URL Canonique",
+      "wordCount": "Nombre de mots",
+      "readabilityScore": "Score de lisibilité",
+      "contentQuality": "Qualité du contenu",
+      "thinContent": "Contenu léger",
+      "internalLinks": "Liens internes",
+      "externalLinks": "Liens externes",
+      "ogTitle": "Titre OG",
+      "ogDescription": "Description OG",
+      "ogImage": "Image OG",
+      "present": "Présent",
+      "missing": "Manquant",
+      "chars": "car.",
+      "yes": "Oui",
+      "no": "Non"
+    }
+  },
+  "features": {
+    "title": "Fonctionnalités Puissantes",
+    "subtitle": "Tout ce dont vous avez besoin pour dominer les classements"
+  },
+  "pricing": {
+    "title": "Tarification Simple",
+    "subtitle": "Choisissez le plan adapté à vos besoins"
+  },
+  "testimonials": {
+    "title": "Ce Que Disent Nos Utilisateurs",
+    "subtitle": "Rejoignez des milliers de clients satisfaits"
+  },
+  "footer": {
+    "company": "Entreprise",
+    "legal": "Mentions légales",
+    "resources": "Ressources",
+    "copyright": "© {{year}} E-SEOMAX. Tous droits réservés."
+  },
+  "common": {
+    "learnMore": "En savoir plus",
+    "getStarted": "Commencer",
+    "submit": "Envoyer",
+    "loading": "Chargement..."
+  }
+}

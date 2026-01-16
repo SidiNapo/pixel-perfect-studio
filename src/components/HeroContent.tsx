@@ -1,8 +1,11 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import HeroBadge from './HeroBadge';
 import SEOAnalyzer from './seo/SEOAnalyzer';
 
 export default function HeroContent() {
+  const { t } = useTranslation();
+  
   return (
     <div className="relative z-10 flex flex-col justify-center min-h-screen px-6 lg:px-12 xl:px-24 pt-24 pb-12">
       <div className="w-full max-w-4xl">
@@ -14,9 +17,9 @@ export default function HeroContent() {
           transition={{ duration: 0.7, delay: 0.4 }}
           className="text-5xl md:text-6xl lg:text-[72px] font-extrabold text-foreground leading-[1.08] tracking-[-0.02em] mb-6"
         >
-          Smarter SEO
+          {t('hero.title')}
           <br />
-          Starts Here.
+          {t('hero.titleLine2')}
         </motion.h1>
         
         <motion.p
@@ -25,7 +28,7 @@ export default function HeroContent() {
           transition={{ duration: 0.7, delay: 0.6 }}
           className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-10 max-w-xl"
         >
-          Elevate your site's visibility effortlessly with AI, where smart technology meets user-friendly SEO tools.
+          {t('hero.description')}
         </motion.p>
         
         <motion.div

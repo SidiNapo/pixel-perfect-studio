@@ -1,0 +1,92 @@
+{
+  "nav": {
+    "home": "Home",
+    "blog": "Blog",
+    "about": "About Us",
+    "contact": "Contact Us"
+  },
+  "hero": {
+    "badge": "AI-Powered SEO Analysis",
+    "title": "Smarter SEO",
+    "titleLine2": "Starts Here.",
+    "description": "Elevate your site's visibility effortlessly with AI, where smart technology meets user-friendly SEO tools."
+  },
+  "seoAnalyzer": {
+    "placeholder": "Enter your website URL (e.g., https://example.com)",
+    "analyze": "Analyze SEO",
+    "analyzing": "Analyzing...",
+    "crawling": "Crawling and analyzing website... This may take a few seconds.",
+    "analyzed": "Analyzed",
+    "analyzeAnother": "Analyze Another URL",
+    "errors": {
+      "enterUrl": "Please enter a URL",
+      "invalidUrl": "Please enter a valid URL (must start with http:// or https://)",
+      "failed": "Failed to analyze the website. Please try again.",
+      "unexpected": "An unexpected error occurred. Please try again."
+    }
+  },
+  "seoResults": {
+    "overallScore": "Overall SEO Score",
+    "excellent": "Excellent! Your site is well optimized.",
+    "good": "Good. Minor improvements needed.",
+    "needsWork": "Needs work. Review recommendations.",
+    "poor": "Needs significant optimization.",
+    "technicalSeo": "Technical SEO",
+    "onPageSeo": "On-Page SEO",
+    "contentAnalysis": "Content Analysis",
+    "linksSocial": "Links & Social",
+    "issuesFound": "Issues Found",
+    "recommendations": "Recommendations",
+    "scoreBreakdown": "Score Breakdown",
+    "points": "points",
+    "metrics": {
+      "httpsStatus": "HTTPS Status",
+      "mobileFriendly": "Mobile-Friendly",
+      "robotsTxt": "robots.txt",
+      "sitemapXml": "sitemap.xml",
+      "titleTag": "Title Tag",
+      "metaDescription": "Meta Description",
+      "h1Tags": "H1 Tags",
+      "imagesMissingAlt": "Images Missing Alt",
+      "canonicalUrl": "Canonical URL",
+      "wordCount": "Word Count",
+      "readabilityScore": "Readability Score",
+      "contentQuality": "Content Quality",
+      "thinContent": "Thin Content",
+      "internalLinks": "Internal Links",
+      "externalLinks": "External Links",
+      "ogTitle": "OG Title",
+      "ogDescription": "OG Description",
+      "ogImage": "OG Image",
+      "present": "Present",
+      "missing": "Missing",
+      "chars": "chars",
+      "yes": "Yes",
+      "no": "No"
+    }
+  },
+  "features": {
+    "title": "Powerful Features",
+    "subtitle": "Everything you need to dominate search rankings"
+  },
+  "pricing": {
+    "title": "Simple Pricing",
+    "subtitle": "Choose the plan that fits your needs"
+  },
+  "testimonials": {
+    "title": "What Our Users Say",
+    "subtitle": "Join thousands of satisfied customers"
+  },
+  "footer": {
+    "company": "Company",
+    "legal": "Legal",
+    "resources": "Resources",
+    "copyright": "© {{year}} E-SEOMAX. All rights reserved."
+  },
+  "common": {
+    "learnMore": "Learn More",
+    "getStarted": "Get Started",
+    "submit": "Submit",
+    "loading": "Loading..."
+  }
+}

@@ -1,6 +1,9 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 export default function HeroBadge() {
+  const { t } = useTranslation();
+  
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -12,7 +15,7 @@ export default function HeroBadge() {
         NEW
       </span>
       <span className="text-sm text-primary font-medium">
-        Latest integration just arrived
+        {t('hero.badge')}
       </span>
     </motion.div>
   );
