@@ -6,7 +6,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "@/hooks/useAuth";
 import ScrollToTop from "./components/ScrollToTop";
 import CookieConsent from "./components/CookieConsent";
-import StructuredData from "./components/StructuredData";
+import SEO from "./components/SEO";
+import StructuredDataSchemas from "./components/StructuredDataSchemas";
 import Home from "./pages/Home";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
@@ -34,7 +35,9 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <StructuredData />
+          {/* SEO Components */}
+          <SEO />
+          <StructuredDataSchemas />
           <ScrollToTop />
           <Routes>
             {/* Public Routes */}
