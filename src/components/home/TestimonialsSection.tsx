@@ -2,9 +2,16 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { ChevronLeft, ChevronRight, Quote, Star } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+interface Testimonial {
+  name: string;
+  role: string;
+  content: string;
+  rating?: number;
+}
+
 const TestimonialsSection = () => {
   const { t } = useTranslation();
-  const testimonials = t('testimonials.items', { returnObjects: true });
+  const testimonials = t('testimonials.items', { returnObjects: true }) as Testimonial[];
   const [currentIndex, setCurrentIndex] = useState(0);
   const nextTestimonial = () => {
     setCurrentIndex(prev => (prev + 1) % testimonials.length);
@@ -58,7 +65,7 @@ const TestimonialsSection = () => {
             
             <div className="flex-1 text-center md:text-left">
               <div className="flex items-center justify-center md:justify-start gap-1 mb-4">
-                {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
+                {[...Array(testimonials[currentIndex].rating ?? 5)].map((_, i) => (
                   <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
                 ))}
               </div>
