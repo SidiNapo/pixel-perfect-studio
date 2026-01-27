@@ -6,35 +6,10 @@ import { Mail, MessageCircle, Twitter, MapPin, Phone, Send, Loader2 } from 'luci
 import ParticleBackground from '@/components/ParticleBackground';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
-
-const contactInfo = [
-  {
-    icon: Mail,
-    label: "Email Us",
-    value: "hello@e-seomax.com",
-    description: "We'll respond within 24 hours"
-  },
-  {
-    icon: MessageCircle,
-    label: "Discord Community",
-    value: "discord.gg/eseomax",
-    description: "Join 5,000+ SEO professionals"
-  },
-  {
-    icon: Twitter,
-    label: "Twitter",
-    value: "@eseomax",
-    description: "Follow for daily SEO tips"
-  },
-  {
-    icon: Phone,
-    label: "Phone",
-    value: "+1 (555) 123-4567",
-    description: "Mon-Fri, 9am-6pm EST"
-  }
-];
+import { useTranslation } from 'react-i18next';
 
 const Contact = () => {
+  const { t } = useTranslation();
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
@@ -45,29 +20,63 @@ const Contact = () => {
   });
   const [focusedField, setFocusedField] = useState<string | null>(null);
 
+  const contactInfo = [
+    {
+      icon: Mail,
+      label: t('common.contact.info.email.label'),
+      value: 'hello@e-seomax.com',
+      description: t('common.contact.info.email.description'),
+    },
+    {
+      icon: MessageCircle,
+      label: t('common.contact.info.discord.label'),
+      value: 'discord.gg/eseomax',
+      description: t('common.contact.info.discord.description'),
+    },
+    {
+      icon: Twitter,
+      label: t('common.contact.info.twitter.label'),
+      value: '@eseomax',
+      description: t('common.contact.info.twitter.description'),
+    },
+    {
+      icon: Phone,
+      label: t('common.contact.info.phone.label'),
+      value: '+1 (555) 123-4567',
+      description: t('common.contact.info.phone.description'),
+    },
+  ];
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     try {
-      const { data, error } = await supabase.functions.invoke('send-contact-email', {
+      const { error } = await supabase.functions.invoke('send-contact-email', {
         body: formData
       });
 
       if (error) throw error;
 
       toast({
-        title: "Message Sent!",
-        description: "Thank you for contacting us. We'll get back to you within 24 hours.",
+        title: t('common.contact.toasts.successTitle'),
+        description: t('common.contact.toasts.successDescription'),
       });
 
       // Reset form
       setFormData({ name: '', email: '', subject: '', message: '' });
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error sending message:', error);
+      const message =
+        error instanceof Error
+          ? error.message
+          : typeof error === 'object' && error !== null && 'message' in error
+            ? String((error as { message: unknown }).message)
+            : t('common.contact.toasts.sendFailedFallback');
+
       toast({
-        title: "Error",
-        description: error.message || "Failed to send message. Please try again.",
+        title: t('common.contact.toasts.errorTitle'),
+        description: message,
         variant: "destructive",
       });
     } finally {
@@ -99,14 +108,13 @@ const Contact = () => {
             className="text-center mb-16"
           >
             <span className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
-              Get in Touch
+              {t('common.contact.hero.badge')}
             </span>
             <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-              Let's Start a <span className="text-primary">Conversation</span>
+              {t('common.contact.hero.title')} <span className="text-primary">{t('common.contact.hero.titleHighlight')}</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Have questions about our platform? Want to discuss enterprise solutions? 
-              We'd love to hear from you.
+              {t('common.contact.hero.description')}
             </p>
           </motion.div>
 
@@ -118,7 +126,7 @@ const Contact = () => {
               transition={{ duration: 0.7 }}
             >
               <h2 className="text-2xl font-bold text-foreground mb-8">
-                Reach Out Directly
+                {t('common.contact.sections.reachOutTitle')}
               </h2>
               
               <div className="space-y-6">
@@ -151,12 +159,12 @@ const Contact = () => {
               >
                 <div className="flex items-center gap-3 mb-3">
                   <MapPin className="w-5 h-5 text-primary" />
-                  <h3 className="font-semibold text-foreground">Headquarters</h3>
+                  <h3 className="font-semibold text-foreground">{t('common.contact.location.title')}</h3>
                 </div>
                 <p className="text-muted-foreground">
-                  123 Innovation Drive, Suite 500<br />
-                  San Francisco, CA 94107<br />
-                  United States
+                  {t('common.contact.location.address.line1')}<br />
+                  {t('common.contact.location.address.line2')}<br />
+                  {t('common.contact.location.address.line3')}
                 </p>
               </motion.div>
             </motion.div>
@@ -176,7 +184,7 @@ const Contact = () => {
                   className="relative p-8 rounded-2xl bg-card/80 backdrop-blur-xl border border-border"
                 >
                   <h2 className="text-2xl font-bold text-foreground mb-6">
-                    Send us a Message
+                    {t('common.contact.form.title')}
                   </h2>
 
                   <div className="space-y-6">
@@ -190,10 +198,10 @@ const Contact = () => {
                         onFocus={() => setFocusedField('name')}
                         onBlur={() => setFocusedField(null)}
                         className="w-full px-4 py-4 rounded-xl bg-secondary/50 border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all duration-300 text-foreground placeholder-transparent peer"
-                        placeholder="Your Name"
+                        placeholder={t('common.contact.form.fields.name')}
                         required
                         disabled={isSubmitting}
-                        aria-label="Your Name"
+                        aria-label={t('common.contact.form.fields.name')}
                       />
                       <label
                         className={`absolute left-4 transition-all duration-300 pointer-events-none ${
@@ -202,7 +210,7 @@ const Contact = () => {
                             : 'top-4 text-muted-foreground'
                         }`}
                       >
-                        Your Name
+                        {t('common.contact.form.fields.name')}
                       </label>
                     </div>
 
@@ -216,10 +224,10 @@ const Contact = () => {
                         onFocus={() => setFocusedField('email')}
                         onBlur={() => setFocusedField(null)}
                         className="w-full px-4 py-4 rounded-xl bg-secondary/50 border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all duration-300 text-foreground placeholder-transparent peer"
-                        placeholder="Email Address"
+                        placeholder={t('common.contact.form.fields.email')}
                         required
                         disabled={isSubmitting}
-                        aria-label="Email Address"
+                        aria-label={t('common.contact.form.fields.email')}
                       />
                       <label
                         className={`absolute left-4 transition-all duration-300 pointer-events-none ${
@@ -228,7 +236,7 @@ const Contact = () => {
                             : 'top-4 text-muted-foreground'
                         }`}
                       >
-                        Email Address
+                        {t('common.contact.form.fields.email')}
                       </label>
                     </div>
 
@@ -242,10 +250,10 @@ const Contact = () => {
                         onFocus={() => setFocusedField('subject')}
                         onBlur={() => setFocusedField(null)}
                         className="w-full px-4 py-4 rounded-xl bg-secondary/50 border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all duration-300 text-foreground placeholder-transparent peer"
-                        placeholder="Subject"
+                        placeholder={t('common.contact.form.fields.subject')}
                         required
                         disabled={isSubmitting}
-                        aria-label="Subject"
+                        aria-label={t('common.contact.form.fields.subject')}
                       />
                       <label
                         className={`absolute left-4 transition-all duration-300 pointer-events-none ${
@@ -254,7 +262,7 @@ const Contact = () => {
                             : 'top-4 text-muted-foreground'
                         }`}
                       >
-                        Subject
+                        {t('common.contact.form.fields.subject')}
                       </label>
                     </div>
 
@@ -268,10 +276,10 @@ const Contact = () => {
                         onBlur={() => setFocusedField(null)}
                         rows={5}
                         className="w-full px-4 py-4 rounded-xl bg-secondary/50 border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all duration-300 text-foreground placeholder-transparent peer resize-none"
-                        placeholder="Your Message"
+                        placeholder={t('common.contact.form.fields.message')}
                         required
                         disabled={isSubmitting}
-                        aria-label="Your Message"
+                        aria-label={t('common.contact.form.fields.message')}
                       />
                       <label
                         className={`absolute left-4 transition-all duration-300 pointer-events-none ${
@@ -280,7 +288,7 @@ const Contact = () => {
                             : 'top-4 text-muted-foreground'
                         }`}
                       >
-                        Your Message
+                        {t('common.contact.form.fields.message')}
                       </label>
                     </div>
 
@@ -295,12 +303,12 @@ const Contact = () => {
                       {isSubmitting ? (
                         <>
                           <Loader2 className="w-5 h-5 animate-spin" />
-                          Sending...
+                          {t('common.contact.form.button.sending')}
                         </>
                       ) : (
                         <>
                           <Send className="w-5 h-5" />
-                          Send Message
+                          {t('common.contact.form.button.send')}
                         </>
                       )}
                     </motion.button>

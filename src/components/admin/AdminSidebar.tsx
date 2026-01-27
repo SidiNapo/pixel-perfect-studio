@@ -1,14 +1,18 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 import { LayoutDashboard, FileText, LogOut, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useAuth } from '@/hooks/useAuth';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { getDirection } from '@/i18n';
 
 const AdminSidebar = () => {
   const [collapsed, setCollapsed] = useState(false);
   const { signOut } = useAuth();
   const navigate = useNavigate();
+  const { i18n } = useTranslation();
+  const isRTL = getDirection(i18n.language) === 'rtl';
 
   const handleSignOut = async () => {
     await signOut();
@@ -23,12 +27,13 @@ const AdminSidebar = () => {
   return (
     <aside
       className={cn(
-        'h-screen bg-card border-r border-border flex flex-col transition-all duration-300',
+        'h-screen bg-card border-border flex flex-col transition-all duration-300',
+        isRTL ? 'border-l' : 'border-r',
         collapsed ? 'w-16' : 'w-64'
       )}
     >
       {/* Header */}
-      <div className="p-4 border-b border-border flex items-center justify-between">
+      <div className={`p-4 border-b border-border flex items-center ${isRTL ? 'justify-start flex-row-reverse' : 'justify-between'}`}>
         {!collapsed && (
           <span className="text-lg font-bold text-foreground">
             E-<span className="text-primary">SEOMAX</span>
@@ -40,7 +45,11 @@ const AdminSidebar = () => {
           onClick={() => setCollapsed(!collapsed)}
           className="text-muted-foreground hover:text-foreground"
         >
-          {collapsed ? <ChevronRight className="w-5 h-5" /> : <ChevronLeft className="w-5 h-5" />}
+          {collapsed ? (
+            isRTL ? <ChevronLeft className="w-5 h-5" /> : <ChevronRight className="w-5 h-5" />
+          ) : (
+            isRTL ? <ChevronRight className="w-5 h-5" /> : <ChevronLeft className="w-5 h-5" />
+          )}
         </Button>
       </div>
 
@@ -53,6 +62,7 @@ const AdminSidebar = () => {
             className={({ isActive }) =>
               cn(
                 'flex items-center gap-3 px-3 py-3 rounded-lg transition-all duration-200',
+                isRTL && 'flex-row-reverse',
                 isActive
                   ? 'bg-primary/10 text-primary border border-primary/20'
                   : 'text-muted-foreground hover:bg-secondary hover:text-foreground'
@@ -71,6 +81,7 @@ const AdminSidebar = () => {
           onClick={handleSignOut}
           className={cn(
             'flex items-center gap-3 px-3 py-3 rounded-lg w-full transition-all duration-200',
+            isRTL && 'flex-row-reverse',
             'text-muted-foreground hover:bg-destructive/10 hover:text-destructive'
           )}
         >

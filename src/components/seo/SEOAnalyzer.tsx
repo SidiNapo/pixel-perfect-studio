@@ -92,7 +92,7 @@ export default function SEOAnalyzer() {
         <div className="relative flex-1">
           <input
             type="url"
-            placeholder={t('seoAnalyzer.placeholder')}
+            placeholder={t('hero.placeholder')}
             value={url}
             onChange={(e) => {
               setUrl(e.target.value);
@@ -202,39 +202,39 @@ export default function SEOAnalyzer() {
 
               {/* Technical SEO */}
               <SEOMetricCard
-                title={t('seoResults.technicalSeo')}
+                title={t('analyzer.technicalSeo')}
                 icon={Settings}
                 delay={0.1}
                 metrics={[
-                  { label: t('seoResults.metrics.httpsStatus'), value: results.technical.https.value, passed: results.technical.https.passed },
-                  { label: t('seoResults.metrics.mobileFriendly'), value: results.technical.mobileFriendly.value, passed: results.technical.mobileFriendly.passed },
-                  { label: t('seoResults.metrics.robotsTxt'), value: results.technical.robotsTxt.value, passed: results.technical.robotsTxt.passed },
-                  { label: t('seoResults.metrics.sitemapXml'), value: results.technical.sitemapXml.value, passed: results.technical.sitemapXml.passed },
+                  { label: t('metrics.httpsStatus'), value: results.technical.https.value, passed: results.technical.https.passed },
+                  { label: t('metrics.mobileFriendly'), value: results.technical.mobileFriendly.value, passed: results.technical.mobileFriendly.passed },
+                  { label: t('metrics.robotsTxt'), value: results.technical.robotsTxt.value, passed: results.technical.robotsTxt.passed },
+                  { label: t('metrics.sitemapXml'), value: results.technical.sitemapXml.value, passed: results.technical.sitemapXml.passed },
                 ]}
               />
 
               {/* On-Page SEO */}
               <SEOMetricCard
-                title={t('seoResults.onPageSeo')}
+                title={t('analyzer.onPageSeo')}
                 icon={FileText}
                 delay={0.2}
                 metrics={[
-                  { label: t('seoResults.metrics.titleTag'), value: `${results.onPage.titleTag.length} ${t('seoResults.metrics.chars')}`, passed: results.onPage.titleTag.passed, subtitle: results.onPage.titleTag.value },
-                  { label: t('seoResults.metrics.metaDescription'), value: `${results.onPage.metaDescription.length} ${t('seoResults.metrics.chars')}`, passed: results.onPage.metaDescription.passed, subtitle: results.onPage.metaDescription.value.substring(0, 80) + (results.onPage.metaDescription.value.length > 80 ? '...' : '') },
-                  { label: t('seoResults.metrics.h1Tags'), value: results.onPage.h1Count, passed: results.onPage.h1Count === 1 },
-                  { label: t('seoResults.metrics.imagesMissingAlt'), value: `${results.onPage.imageAltTexts.missing}/${results.onPage.imageAltTexts.total}`, passed: results.onPage.imageAltTexts.missing === 0 },
+                  { label: t('metrics.titleTag'), value: `${results.onPage.titleTag.length} ${t('seoResults.metrics.chars')}`, passed: results.onPage.titleTag.passed, subtitle: results.onPage.titleTag.value },
+                  { label: t('metrics.metaDescription'), value: `${results.onPage.metaDescription.length} ${t('seoResults.metrics.chars')}`, passed: results.onPage.metaDescription.passed, subtitle: results.onPage.metaDescription.value.substring(0, 80) + (results.onPage.metaDescription.value.length > 80 ? '...' : '') },
+                  { label: t('metrics.h1Tags'), value: results.onPage.h1Count, passed: results.onPage.h1Count === 1 },
+                  { label: t('metrics.imagesMissingAlt'), value: `${results.onPage.imageAltTexts.missing}/${results.onPage.imageAltTexts.total}`, passed: results.onPage.imageAltTexts.missing === 0 },
                   { label: t('seoResults.metrics.canonicalUrl'), value: results.onPage.canonicalUrl.present ? t('seoResults.metrics.present') : t('seoResults.metrics.missing'), passed: results.onPage.canonicalUrl.present },
                 ]}
               />
 
               {/* Content Analysis */}
               <SEOMetricCard
-                title={t('seoResults.contentAnalysis')}
+                title={t('analyzer.contentAnalysis')}
                 icon={Type}
                 delay={0.3}
                 metrics={[
-                  { label: t('seoResults.metrics.wordCount'), value: results.content.wordCount.toLocaleString(), passed: results.content.wordCount >= 300 },
-                  { label: t('seoResults.metrics.readabilityScore'), value: `${results.content.readabilityScore}/100`, passed: results.content.readabilityScore >= 50 },
+                  { label: t('metrics.wordCount'), value: results.content.wordCount.toLocaleString(), passed: results.content.wordCount >= 300 },
+                  { label: t('metrics.readabilityScore'), value: `${results.content.readabilityScore}/100`, passed: results.content.readabilityScore >= 50 },
                   { label: t('seoResults.metrics.contentQuality'), value: results.content.contentQuality, passed: results.content.contentQuality !== 'Poor' },
                   { label: t('seoResults.metrics.thinContent'), value: results.content.isThinContent ? t('seoResults.metrics.yes') : t('seoResults.metrics.no'), passed: !results.content.isThinContent },
                 ]}
@@ -246,7 +246,7 @@ export default function SEOAnalyzer() {
                 icon={Link2}
                 delay={0.35}
                 metrics={[
-                  { label: t('seoResults.metrics.internalLinks'), value: results.onPage.internalLinks, passed: results.onPage.internalLinks >= 3 },
+                  { label: t('metrics.internalLinks'), value: results.onPage.internalLinks, passed: results.onPage.internalLinks >= 3 },
                   { label: t('seoResults.metrics.externalLinks'), value: results.onPage.externalLinks },
                   { label: t('seoResults.metrics.ogTitle'), value: results.openGraph.hasOgTitle ? t('seoResults.metrics.present') : t('seoResults.metrics.missing'), passed: results.openGraph.hasOgTitle },
                   { label: t('seoResults.metrics.ogDescription'), value: results.openGraph.hasOgDescription ? t('seoResults.metrics.present') : t('seoResults.metrics.missing'), passed: results.openGraph.hasOgDescription },

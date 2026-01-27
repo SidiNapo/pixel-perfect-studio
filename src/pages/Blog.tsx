@@ -5,20 +5,25 @@ import Footer from '@/components/Footer';
 import { motion } from 'framer-motion';
 import { Calendar, Clock, ArrowRight, Loader2 } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
-import { format } from 'date-fns';
+import { useTranslation } from 'react-i18next';
 
 interface BlogPost {
   id: string;
   title: string;
+  title_fr?: string | null;
   slug: string;
   excerpt: string | null;
+  excerpt_fr?: string | null;
   category: string | null;
+  category_fr?: string | null;
   featured_image: string | null;
   read_time: string | null;
+  read_time_fr?: string | null;
   published_at: string | null;
 }
 
 const Blog = () => {
+  const { t, i18n } = useTranslation();
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -26,7 +31,7 @@ const Blog = () => {
     const fetchPosts = async () => {
       const { data, error } = await supabase
         .from('blog_posts')
-        .select('id, title, slug, excerpt, category, featured_image, read_time, published_at')
+        .select('id, title, title_fr, slug, excerpt, excerpt_fr, category, category_fr, featured_image, read_time, read_time_fr, published_at')
         .eq('status', 'published')
         .order('published_at', { ascending: false });
 
@@ -41,7 +46,13 @@ const Blog = () => {
 
   const formatDate = (dateString: string | null) => {
     if (!dateString) return '';
-    return format(new Date(dateString), 'MMM d, yyyy');
+
+    const locale = i18n.language === 'fr' ? 'fr-FR' : i18n.language === 'ar' ? 'ar-SA' : 'en-US';
+    return new Date(dateString).toLocaleDateString(locale, {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    });
   };
 
   return (
@@ -61,13 +72,13 @@ const Blog = () => {
             className="text-center mb-16"
           >
             <span className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
-              Insights & Updates
+              {t('blog.badge')}
             </span>
             <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-              The E-SEOMAX <span className="text-primary">Blog</span>
+              {t('blog.title')} <span className="text-primary">{t('blog.titleHighlight')}</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Stay ahead of the curve with expert insights, industry trends, and actionable SEO strategies from our team of specialists.
+              {t('blog.description')}
             </p>
           </motion.div>
 
@@ -88,9 +99,9 @@ const Blog = () => {
               <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
                 <Calendar className="w-12 h-12 text-primary" />
               </div>
-              <h3 className="text-2xl font-bold text-foreground mb-3">No Articles Yet</h3>
+              <h3 className="text-2xl font-bold text-foreground mb-3">{t('blog.emptyTitle')}</h3>
               <p className="text-muted-foreground max-w-md mx-auto">
-                We're working on bringing you amazing content. Check back soon for the latest SEO insights and strategies.
+                {t('blog.emptyDescription')}
               </p>
             </motion.div>
           )}
@@ -99,6 +110,14 @@ const Blog = () => {
           {!loading && posts.length > 0 && (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {posts.map((post, index) => (
+                (() => {
+                  const isFrench = i18n.language === 'fr';
+                  const title = isFrench ? post.title_fr || post.title : post.title;
+                  const excerpt = isFrench ? post.excerpt_fr || post.excerpt : post.excerpt;
+                  const category = isFrench ? post.category_fr || post.category : post.category;
+                  const readTime = isFrench ? post.read_time_fr || post.read_time : post.read_time;
+
+                  return (
                 <motion.article
                   key={post.id}
                   initial={{ opacity: 0, y: 40 }}
@@ -114,21 +133,21 @@ const Blog = () => {
                         {post.featured_image ? (
                           <img
                             src={post.featured_image}
-                            alt={post.title}
+                            alt={title}
                             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                             loading="lazy"
                           />
                         ) : (
                           <div className="w-full h-full flex items-center justify-center">
                             <span className="text-4xl font-bold text-muted-foreground/30">
-                              {post.title.charAt(0)}
+                              {title.charAt(0)}
                             </span>
                           </div>
                         )}
                         <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
-                        {post.category && (
+                        {category && (
                           <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-primary/90 text-primary-foreground text-xs font-semibold">
-                            {post.category}
+                            {category}
                           </span>
                         )}
                       </div>
@@ -142,32 +161,34 @@ const Blog = () => {
                               {formatDate(post.published_at)}
                             </span>
                           )}
-                          {post.read_time && (
+                          {readTime && (
                             <span className="flex items-center gap-1">
                               <Clock className="w-4 h-4" />
-                              {post.read_time}
+                              {readTime}
                             </span>
                           )}
                         </div>
                         
                         <h2 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300 line-clamp-2">
-                          {post.title}
+                          {title}
                         </h2>
                         
-                        {post.excerpt && (
+                        {excerpt && (
                           <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
-                            {post.excerpt}
+                            {excerpt}
                           </p>
                         )}
 
                         <div className="flex items-center gap-2 text-primary font-medium text-sm group-hover:gap-3 transition-all duration-300">
-                          Read More
+                          {t('blog.readMore')}
                           <ArrowRight className="w-4 h-4" />
                         </div>
                       </div>
                     </div>
                   </Link>
                 </motion.article>
+                  );
+                })()
               ))}
             </div>
           )}

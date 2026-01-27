@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { FileText, Eye, TrendingUp, Clock } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
+import type { Database } from '@/integrations/supabase/types';
 
 interface Stats {
   totalPosts: number;
@@ -15,7 +16,7 @@ const Dashboard = () => {
     publishedPosts: 0,
     draftPosts: 0,
   });
-  const [recentPosts, setRecentPosts] = useState<any[]>([]);
+  const [recentPosts, setRecentPosts] = useState<Database['public']['Tables']['blog_posts']['Row'][]>([]);
 
   useEffect(() => {
     fetchStats();

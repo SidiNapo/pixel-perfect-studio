@@ -33,14 +33,21 @@ import GoogleSearchPreview from '@/components/admin/GoogleSearchPreview';
 
 const postSchema = z.object({
   title: z.string().min(1, 'Title is required'),
+  title_fr: z.string().optional(),
   slug: z.string().min(1, 'Slug is required'),
   excerpt: z.string().optional(),
+  excerpt_fr: z.string().optional(),
   content: z.string().optional(),
+  content_fr: z.string().optional(),
   featured_image: z.string().optional(),
   category: z.string().optional(),
+  category_fr: z.string().optional(),
   seo_title: z.string().optional(),
+  seo_title_fr: z.string().optional(),
   seo_description: z.string().optional(),
+  seo_description_fr: z.string().optional(),
   seo_keywords: z.string().optional(),
+  seo_keywords_fr: z.string().optional(),
   canonical_url: z.string().optional(),
 });
 
@@ -62,14 +69,21 @@ const PostEditor = () => {
     resolver: zodResolver(postSchema),
     defaultValues: {
       title: '',
+      title_fr: '',
       slug: '',
       excerpt: '',
+      excerpt_fr: '',
       content: '',
+      content_fr: '',
       featured_image: '',
       category: '',
+      category_fr: '',
       seo_title: '',
+      seo_title_fr: '',
       seo_description: '',
+      seo_description_fr: '',
       seo_keywords: '',
+      seo_keywords_fr: '',
       canonical_url: '',
     },
   });
@@ -116,14 +130,21 @@ const PostEditor = () => {
     } else if (data) {
       form.reset({
         title: data.title,
+        title_fr: data.title_fr || '',
         slug: data.slug,
         excerpt: data.excerpt || '',
+        excerpt_fr: data.excerpt_fr || '',
         content: data.content || '',
+        content_fr: data.content_fr || '',
         featured_image: data.featured_image || '',
         category: data.category || '',
+        category_fr: data.category_fr || '',
         seo_title: data.seo_title || '',
+        seo_title_fr: data.seo_title_fr || '',
         seo_description: data.seo_description || '',
+        seo_description_fr: data.seo_description_fr || '',
         seo_keywords: data.seo_keywords || '',
+        seo_keywords_fr: data.seo_keywords_fr || '',
         canonical_url: data.canonical_url || '',
       });
     }
@@ -132,18 +153,29 @@ const PostEditor = () => {
 
   const savePost = async (data: PostFormData, status: 'draft' | 'published') => {
     const isPublishing = status === 'published';
-    isPublishing ? setPublishing(true) : setSaving(true);
+    if (isPublishing) {
+      setPublishing(true);
+    } else {
+      setSaving(true);
+    }
 
     const postData = {
       title: data.title,
+      title_fr: data.title_fr || null,
       slug: data.slug,
       excerpt: data.excerpt || null,
+      excerpt_fr: data.excerpt_fr || null,
       content: data.content || null,
+      content_fr: data.content_fr || null,
       featured_image: data.featured_image || null,
       category: data.category || null,
+      category_fr: data.category_fr || null,
       seo_title: data.seo_title || null,
+      seo_title_fr: data.seo_title_fr || null,
       seo_description: data.seo_description || null,
+      seo_description_fr: data.seo_description_fr || null,
       seo_keywords: data.seo_keywords || null,
+      seo_keywords_fr: data.seo_keywords_fr || null,
       canonical_url: data.canonical_url || null,
       status,
       author_id: user?.id || null,
@@ -180,7 +212,11 @@ const PostEditor = () => {
       navigate('/admin/posts');
     }
 
-    isPublishing ? setPublishing(false) : setSaving(false);
+    if (isPublishing) {
+      setPublishing(false);
+    } else {
+      setSaving(false);
+    }
   };
 
   const onSave = form.handleSubmit((data) => savePost(data, 'draft'));
@@ -342,6 +378,67 @@ const PostEditor = () => {
                       </FormItem>
                     )}
                   />
+
+                  <div className="bg-card border border-border rounded-xl p-5">
+                    <h3 className="text-base font-semibold text-foreground mb-4">
+                      French Translation (optional)
+                    </h3>
+                    <div className="space-y-5">
+                      <FormField
+                        control={form.control}
+                        name="title_fr"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-foreground">Title (FR)</FormLabel>
+                            <FormControl>
+                              <Input
+                                {...field}
+                                placeholder="Titre en français..."
+                                className="bg-input border-border focus:border-primary"
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+
+                      <FormField
+                        control={form.control}
+                        name="excerpt_fr"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-foreground">Excerpt (FR)</FormLabel>
+                            <FormControl>
+                              <Textarea
+                                {...field}
+                                placeholder="Résumé en français..."
+                                className="bg-input border-border focus:border-primary resize-none"
+                                rows={3}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+
+                      <FormField
+                        control={form.control}
+                        name="content_fr"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-foreground">Content (FR)</FormLabel>
+                            <FormControl>
+                              <RichTextEditor
+                                value={field.value || ''}
+                                onChange={field.onChange}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+                  </div>
                 </div>
 
                 {/* Sidebar */}
@@ -390,6 +487,26 @@ const PostEditor = () => {
                         </FormItem>
                       )}
                     />
+
+                    <div className="mt-5 pt-5 border-t border-border">
+                      <FormField
+                        control={form.control}
+                        name="category_fr"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-foreground">Category (FR)</FormLabel>
+                            <FormControl>
+                              <Input
+                                {...field}
+                                placeholder="Catégorie en français..."
+                                className="bg-input border-border focus:border-primary"
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -436,6 +553,29 @@ const PostEditor = () => {
 
                       <FormField
                         control={form.control}
+                        name="seo_title_fr"
+                        render={({ field }) => (
+                          <FormItem>
+                            <div className="flex items-center justify-between">
+                              <FormLabel className="text-foreground">SEO Title (FR)</FormLabel>
+                              <span className={`text-xs ${(field.value?.length || 0) > 60 ? 'text-destructive' : 'text-muted-foreground'}`}>
+                                {field.value?.length || 0}/60
+                              </span>
+                            </div>
+                            <FormControl>
+                              <Input
+                                {...field}
+                                placeholder="Titre optimisé (FR)"
+                                className="bg-input border-border focus:border-primary"
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+
+                      <FormField
+                        control={form.control}
                         name="seo_description"
                         render={({ field }) => (
                           <FormItem>
@@ -460,6 +600,30 @@ const PostEditor = () => {
 
                       <FormField
                         control={form.control}
+                        name="seo_description_fr"
+                        render={({ field }) => (
+                          <FormItem>
+                            <div className="flex items-center justify-between">
+                              <FormLabel className="text-foreground">SEO Description (FR)</FormLabel>
+                              <span className={`text-xs ${(field.value?.length || 0) > 160 ? 'text-destructive' : 'text-muted-foreground'}`}>
+                                {field.value?.length || 0}/160
+                              </span>
+                            </div>
+                            <FormControl>
+                              <Textarea
+                                {...field}
+                                placeholder="Meta description (FR)..."
+                                className="bg-input border-border focus:border-primary resize-none"
+                                rows={3}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+
+                      <FormField
+                        control={form.control}
                         name="seo_keywords"
                         render={({ field }) => (
                           <FormItem>
@@ -468,6 +632,27 @@ const PostEditor = () => {
                               <Input
                                 {...field}
                                 placeholder="seo, ranking, google, optimization"
+                                className="bg-input border-border focus:border-primary"
+                              />
+                            </FormControl>
+                            <p className="text-xs text-muted-foreground mt-1">
+                              Comma-separated keywords
+                            </p>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+
+                      <FormField
+                        control={form.control}
+                        name="seo_keywords_fr"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-foreground">Keywords (FR)</FormLabel>
+                            <FormControl>
+                              <Input
+                                {...field}
+                                placeholder="seo, classement, google, optimisation"
                                 className="bg-input border-border focus:border-primary"
                               />
                             </FormControl>

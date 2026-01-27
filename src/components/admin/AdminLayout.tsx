@@ -1,12 +1,16 @@
 import { useEffect } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 import { Loader2 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { useAuth } from '@/hooks/useAuth';
 import AdminSidebar from './AdminSidebar';
+import { getDirection } from '@/i18n';
 
 const AdminLayout = () => {
   const { user, isAdmin, loading } = useAuth();
   const navigate = useNavigate();
+  const { i18n } = useTranslation();
+  const isRTL = getDirection(i18n.language) === 'rtl';
 
   useEffect(() => {
     if (!loading) {
@@ -31,7 +35,7 @@ const AdminLayout = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background flex">
+    <div className={`min-h-screen bg-background flex ${isRTL ? 'flex-row-reverse' : ''}`}>
       <AdminSidebar />
       <main className="flex-1 overflow-auto">
         <Outlet />
