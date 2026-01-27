@@ -128,24 +128,26 @@ const PostEditor = () => {
       });
       navigate('/admin/posts');
     } else if (data) {
+      // Cast to any to handle columns not yet in generated types
+      const postData = data as Record<string, unknown>;
       form.reset({
-        title: data.title,
-        title_fr: data.title_fr || '',
-        slug: data.slug,
-        excerpt: data.excerpt || '',
-        excerpt_fr: data.excerpt_fr || '',
-        content: data.content || '',
-        content_fr: data.content_fr || '',
-        featured_image: data.featured_image || '',
-        category: data.category || '',
-        category_fr: data.category_fr || '',
-        seo_title: data.seo_title || '',
-        seo_title_fr: data.seo_title_fr || '',
-        seo_description: data.seo_description || '',
-        seo_description_fr: data.seo_description_fr || '',
-        seo_keywords: data.seo_keywords || '',
-        seo_keywords_fr: data.seo_keywords_fr || '',
-        canonical_url: data.canonical_url || '',
+        title: postData.title as string,
+        title_fr: (postData.title_fr as string) || '',
+        slug: postData.slug as string,
+        excerpt: (postData.excerpt as string) || '',
+        excerpt_fr: (postData.excerpt_fr as string) || '',
+        content: (postData.content as string) || '',
+        content_fr: (postData.content_fr as string) || '',
+        featured_image: (postData.featured_image as string) || '',
+        category: (postData.category as string) || '',
+        category_fr: (postData.category_fr as string) || '',
+        seo_title: (postData.seo_title as string) || '',
+        seo_title_fr: (postData.seo_title_fr as string) || '',
+        seo_description: (postData.seo_description as string) || '',
+        seo_description_fr: (postData.seo_description_fr as string) || '',
+        seo_keywords: (postData.seo_keywords as string) || '',
+        seo_keywords_fr: (postData.seo_keywords_fr as string) || '',
+        canonical_url: (postData.canonical_url as string) || '',
       });
     }
     setLoading(false);

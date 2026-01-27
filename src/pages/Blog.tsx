@@ -10,15 +10,11 @@ import { useTranslation } from 'react-i18next';
 interface BlogPost {
   id: string;
   title: string;
-  title_fr?: string | null;
   slug: string;
   excerpt: string | null;
-  excerpt_fr?: string | null;
   category: string | null;
-  category_fr?: string | null;
   featured_image: string | null;
   read_time: string | null;
-  read_time_fr?: string | null;
   published_at: string | null;
 }
 
@@ -31,12 +27,13 @@ const Blog = () => {
     const fetchPosts = async () => {
       const { data, error } = await supabase
         .from('blog_posts')
-        .select('id, title, title_fr, slug, excerpt, excerpt_fr, category, category_fr, featured_image, read_time, read_time_fr, published_at')
+        .select('id, title, slug, excerpt, category, featured_image, read_time, published_at')
         .eq('status', 'published')
         .order('published_at', { ascending: false });
 
       if (!error && data) {
-        setPosts(data);
+        // Cast to our interface which includes optional French fields
+        setPosts(data as unknown as BlogPost[]);
       }
       setLoading(false);
     };
@@ -109,15 +106,13 @@ const Blog = () => {
           {/* Blog Grid */}
           {!loading && posts.length > 0 && (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {posts.map((post, index) => (
-                (() => {
-                  const isFrench = i18n.language === 'fr';
-                  const title = isFrench ? post.title_fr || post.title : post.title;
-                  const excerpt = isFrench ? post.excerpt_fr || post.excerpt : post.excerpt;
-                  const category = isFrench ? post.category_fr || post.category : post.category;
-                  const readTime = isFrench ? post.read_time_fr || post.read_time : post.read_time;
+              {posts.map((post, index) => {
+                const title = post.title;
+                const excerpt = post.excerpt;
+                const category = post.category;
+                const readTime = post.read_time;
 
-                  return (
+                return (
                 <motion.article
                   key={post.id}
                   initial={{ opacity: 0, y: 40 }}
@@ -187,9 +182,8 @@ const Blog = () => {
                     </div>
                   </Link>
                 </motion.article>
-                  );
-                })()
-              ))}
+                );
+              })}
             </div>
           )}
         </div>
