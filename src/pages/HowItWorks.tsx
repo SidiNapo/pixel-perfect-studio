@@ -4,82 +4,50 @@ import Footer from '@/components/Footer';
 import ParticleBackground from '@/components/ParticleBackground';
 import { Globe, Cpu, FileSearch, BarChart3, Lightbulb, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
-const steps = [
-  {
-    number: "01",
-    icon: Globe,
-    title: "Enter Your Website URL",
-    description: "Simply paste your website URL into our analyzer. Our system accepts any public website—whether it's your homepage, a specific page, or a competitor's site you want to analyze.",
-    details: [
-      "No registration required for basic analysis",
-      "Supports all website types: e-commerce, blogs, corporate sites",
-      "Analyze any publicly accessible URL",
-      "Check individual pages or entire domains"
-    ]
-  },
-  {
-    number: "02",
-    icon: Cpu,
-    title: "AI-Powered Analysis",
-    description: "Our advanced AI engine crawls your website and performs a comprehensive analysis across 50+ SEO factors. The process is fast, thorough, and based on the latest search engine guidelines.",
-    details: [
-      "Technical SEO audit (speed, mobile, security)",
-      "On-page optimization review",
-      "Content quality assessment",
-      "Meta tags and structured data analysis"
-    ]
-  },
-  {
-    number: "03",
-    icon: FileSearch,
-    title: "Issue Identification",
-    description: "We identify all SEO issues affecting your website's search visibility, from critical errors that need immediate attention to minor improvements that can boost your rankings.",
-    details: [
-      "Critical errors highlighted in red",
-      "Warnings shown in yellow",
-      "Opportunities marked in blue",
-      "Prioritized by impact on rankings"
-    ]
-  },
-  {
-    number: "04",
-    icon: BarChart3,
-    title: "Score & Metrics",
-    description: "Receive a comprehensive SEO score from 0-100 along with detailed metrics for each category. Compare your performance against industry benchmarks and track improvements over time.",
-    details: [
-      "Overall SEO health score",
-      "Category-specific scores (Technical, Content, etc.)",
-      "Performance metrics (Core Web Vitals)",
-      "Industry benchmark comparisons"
-    ]
-  },
-  {
-    number: "05",
-    icon: Lightbulb,
-    title: "Actionable Recommendations",
-    description: "Get step-by-step, actionable recommendations tailored to your website. Each suggestion includes clear instructions and explains the potential impact on your rankings.",
-    details: [
-      "Priority-ranked action items",
-      "Step-by-step implementation guides",
-      "Estimated difficulty and impact",
-      "Best practices and examples"
-    ]
-  }
-];
-
-const features = [
-  "Real-time website analysis",
-  "50+ SEO factors evaluated",
-  "AI-powered recommendations",
-  "Mobile-first analysis",
-  "Core Web Vitals testing",
-  "Competitor comparison",
-  "Progress tracking over time",
-  "Exportable reports"
-];
+import { useTranslation } from 'react-i18next';
 
 const HowItWorks = () => {
+  const { t } = useTranslation();
+
+  const steps = [
+    {
+      number: "01",
+      icon: Globe,
+      title: t('common.howItWorks.steps.0.title'),
+      description: t('common.howItWorks.steps.0.description'),
+      details: t('common.howItWorks.steps.0.details', { returnObjects: true }) as string[]
+    },
+    {
+      number: "02",
+      icon: Cpu,
+      title: t('common.howItWorks.steps.1.title'),
+      description: t('common.howItWorks.steps.1.description'),
+      details: t('common.howItWorks.steps.1.details', { returnObjects: true }) as string[]
+    },
+    {
+      number: "03",
+      icon: FileSearch,
+      title: t('common.howItWorks.steps.2.title'),
+      description: t('common.howItWorks.steps.2.description'),
+      details: t('common.howItWorks.steps.2.details', { returnObjects: true }) as string[]
+    },
+    {
+      number: "04",
+      icon: BarChart3,
+      title: t('common.howItWorks.steps.3.title'),
+      description: t('common.howItWorks.steps.3.description'),
+      details: t('common.howItWorks.steps.3.details', { returnObjects: true }) as string[]
+    },
+    {
+      number: "05",
+      icon: Lightbulb,
+      title: t('common.howItWorks.steps.4.title'),
+      description: t('common.howItWorks.steps.4.description'),
+      details: t('common.howItWorks.steps.4.details', { returnObjects: true }) as string[]
+    }
+  ];
+
+  const features = t('common.howItWorks.features', { returnObjects: true }) as string[];
   return (
     <div className="min-h-screen bg-background text-foreground">
       <ParticleBackground />
@@ -95,10 +63,10 @@ const HowItWorks = () => {
             className="text-center mb-20"
           >
             <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
-              How E-SEOMAX Works
+              {t('common.howItWorks.hero.title')}
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Our AI-powered SEO analysis platform makes it easy to understand and improve your website's search engine visibility. Follow these simple steps to unlock your site's full potential.
+              {t('common.howItWorks.hero.subtitle')}
             </p>
           </motion.div>
 
@@ -159,7 +127,7 @@ const HowItWorks = () => {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="mb-24"
           >
-            <h2 className="text-3xl font-bold text-center mb-12">Platform Features</h2>
+            <h2 className="text-3xl font-bold text-center mb-12">{t('common.howItWorks.featuresSection.title')}</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {features.map((feature, index) => (
                 <div
@@ -180,33 +148,33 @@ const HowItWorks = () => {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="mb-24"
           >
-            <h2 className="text-3xl font-bold text-center mb-12">Why Choose E-SEOMAX?</h2>
+            <h2 className="text-3xl font-bold text-center mb-12">{t('common.howItWorks.whyChoose.title')}</h2>
             <div className="grid md:grid-cols-3 gap-8">
               <div className="p-6 bg-card/50 border border-border rounded-xl">
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                   <Cpu className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold mb-3">AI-Powered Accuracy</h3>
+                <h3 className="text-xl font-semibold mb-3">{t('common.howItWorks.whyChoose.cards.0.title')}</h3>
                 <p className="text-muted-foreground">
-                  Our machine learning algorithms are trained on millions of data points to provide insights that match what search engines actually care about. No guesswork—just data-driven recommendations.
+                  {t('common.howItWorks.whyChoose.cards.0.description')}
                 </p>
               </div>
               <div className="p-6 bg-card/50 border border-border rounded-xl">
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                   <BarChart3 className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold mb-3">Actionable Insights</h3>
+                <h3 className="text-xl font-semibold mb-3">{t('common.howItWorks.whyChoose.cards.1.title')}</h3>
                 <p className="text-muted-foreground">
-                  We don't just identify problems—we tell you exactly how to fix them. Each recommendation comes with step-by-step instructions that anyone can follow, regardless of technical expertise.
+                  {t('common.howItWorks.whyChoose.cards.1.description')}
                 </p>
               </div>
               <div className="p-6 bg-card/50 border border-border rounded-xl">
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                   <Lightbulb className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold mb-3">Always Up-to-Date</h3>
+                <h3 className="text-xl font-semibold mb-3">{t('common.howItWorks.whyChoose.cards.2.title')}</h3>
                 <p className="text-muted-foreground">
-                  Search engine algorithms change constantly. Our platform is continuously updated to reflect the latest best practices, ensuring your SEO strategy stays current and effective.
+                  {t('common.howItWorks.whyChoose.cards.2.description')}
                 </p>
               </div>
             </div>
@@ -219,23 +187,23 @@ const HowItWorks = () => {
             transition={{ duration: 0.6, delay: 0.7 }}
             className="text-center p-12 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border border-border rounded-2xl"
           >
-            <h2 className="text-3xl font-bold mb-4">Ready to Improve Your SEO?</h2>
+            <h2 className="text-3xl font-bold mb-4">{t('common.howItWorks.cta.title')}</h2>
             <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Join thousands of website owners who trust E-SEOMAX to optimize their search visibility. Get started with a free analysis today—no credit card required.
+              {t('common.howItWorks.cta.description')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
               >
-                Analyze Your Website
+                {t('common.howItWorks.cta.primaryButton')}
                 <ArrowRight className="w-5 h-5" />
               </Link>
               <Link
                 to="/faq"
                 className="inline-flex items-center justify-center px-8 py-4 bg-secondary text-secondary-foreground rounded-lg font-medium hover:bg-secondary/80 transition-colors"
               >
-                View FAQ
+                {t('common.howItWorks.cta.secondaryButton')}
               </Link>
             </div>
           </motion.div>
@@ -248,9 +216,8 @@ const HowItWorks = () => {
             className="mt-12 text-center"
           >
             <p className="text-sm text-muted-foreground">
-              <strong>Disclaimer:</strong> SEO results vary based on many factors including competition, content quality, and implementation. 
-              E-SEOMAX provides analysis and recommendations but does not guarantee specific rankings or outcomes. 
-              Read our <Link to="/disclaimer" className="text-primary hover:underline">full disclaimer</Link> for more information.
+              <strong>{t('common.howItWorks.disclaimer.label')}</strong> {t('common.howItWorks.disclaimer.text')}{' '}
+              <Link to="/disclaimer" className="text-primary hover:underline">{t('common.howItWorks.disclaimer.link')}</Link> {t('common.howItWorks.disclaimer.suffix')}
             </p>
           </motion.div>
         </div>

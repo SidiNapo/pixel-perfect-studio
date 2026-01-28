@@ -214,6 +214,239 @@
         "primaryButton": "Commencer gratuitement",
         "secondaryButton": "Lire notre blog"
       }
+    },    "howItWorks": {
+      "hero": {
+        "title": "Comment fonctionne E-SEOMAX",
+        "subtitle": "Notre plateforme d'analyse SEO propulsée par l'IA facilite la compréhension et l'amélioration de la visibilité de votre site web dans les moteurs de recherche. Suivez ces étapes simples pour libérer tout le potentiel de votre site."
+      },
+      "steps": [
+        {
+          "title": "Entrez l'URL de votre site web",
+          "description": "Il suffit de coller l'URL de votre site web dans notre analyseur. Notre système accepte tout site web public—que ce soit votre page d'accueil, une page spécifique ou le site d'un concurrent que vous souhaitez analyser.",
+          "details": [
+            "Aucune inscription requise pour l'analyse de base",
+            "Prend en charge tous les types de sites web : e-commerce, blogs, sites d'entreprise",
+            "Analysez n'importe quelle URL publiquement accessible",
+            "Vérifiez des pages individuelles ou des domaines entiers"
+          ]
+        },
+        {
+          "title": "Analyse propulsée par l'IA",
+          "description": "Notre moteur d'IA avancé explore votre site web et effectue une analyse complète sur plus de 50 facteurs SEO. Le processus est rapide, approfondi et basé sur les dernières directives des moteurs de recherche.",
+          "details": [
+            "Audit SEO technique (vitesse, mobile, sécurité)",
+            "Révision de l'optimisation sur page",
+            "Évaluation de la qualité du contenu",
+            "Analyse des balises méta et des données structurées"
+          ]
+        },
+        {
+          "title": "Identification des problèmes",
+          "description": "Nous identifions tous les problèmes SEO affectant la visibilité de votre site web dans les recherches, des erreurs critiques nécessitant une attention immédiate aux améliorations mineures pouvant améliorer vos classements.",
+          "details": [
+            "Erreurs critiques surlignées en rouge",
+            "Avertissements affichés en jaune",
+            "Opportunités marquées en bleu",
+            "Priorisés selon l'impact sur les classements"
+          ]
+        },
+        {
+          "title": "Score et métriques",
+          "description": "Recevez un score SEO complet de 0 à 100 ainsi que des métriques détaillées pour chaque catégorie. Comparez vos performances aux benchmarks de l'industrie et suivez les améliorations au fil du temps.",
+          "details": [
+            "Score de santé SEO global",
+            "Scores spécifiques par catégorie (Technique, Contenu, etc.)",
+            "Métriques de performance (Core Web Vitals)",
+            "Comparaisons avec les benchmarks de l'industrie"
+          ]
+        },
+        {
+          "title": "Recommandations actionnables",
+          "description": "Obtenez des recommandations actionnables étape par étape adaptées à votre site web. Chaque suggestion comprend des instructions claires et explique l'impact potentiel sur vos classements.",
+          "details": [
+            "Éléments d'action classés par priorité",
+            "Guides de mise en œuvre étape par étape",
+            "Difficulté et impact estimés",
+            "Meilleures pratiques et exemples"
+          ]
+        }
+      ],
+      "featuresSection": {
+        "title": "Fonctionnalités de la plateforme"
+      },
+      "features": [
+        "Analyse de site web en temps réel",
+        "Plus de 50 facteurs SEO évalués",
+        "Recommandations propulsées par l'IA",
+        "Analyse mobile first",
+        "Test des Core Web Vitals",
+        "Comparaison avec la concurrence",
+        "Suivi des progrès dans le temps",
+        "Rapports exportables"
+      ],
+      "whyChoose": {
+        "title": "Pourquoi choisir E-SEOMAX ?",
+        "cards": [
+          {
+            "title": "Précision propulsée par l'IA",
+            "description": "Nos algorithmes d'apprentissage automatique sont formés sur des millions de points de données pour fournir des informations qui correspondent à ce qui intéresse réellement les moteurs de recherche. Pas de suppositions—seulement des recommandations basées sur les données."
+          },
+          {
+            "title": "Informations actionnables",
+            "description": "Nous n'identifions pas seulement les problèmes—nous vous disons exactement comment les résoudre. Chaque recommandation est accompagnée d'instructions étape par étape que tout le monde peut suivre, quel que soit son expertise technique."
+          },
+          {
+            "title": "Toujours à jour",
+            "description": "Les algorithmes des moteurs de recherche changent constamment. Notre plateforme est continuellement mise à jour pour refléter les dernières meilleures pratiques, garantissant que votre stratégie SEO reste actuelle et efficace."
+          }
+        ]
+      },
+      "cta": {
+        "title": "Prêt à améliorer votre SEO ?",
+        "description": "Rejoignez des milliers de propriétaires de sites web qui font confiance à E-SEOMAX pour optimiser leur visibilité dans les recherches. Commencez avec une analyse gratuite aujourd'hui—aucune carte de crédit requise.",
+        "primaryButton": "Analysez votre site web",
+        "secondaryButton": "Voir la FAQ"
+      },
+      "disclaimer": {
+        "label": "Avis de non-responsabilité :",
+        "text": "Les résultats SEO varient en fonction de nombreux facteurs, notamment la concurrence, la qualité du contenu et la mise en œuvre. E-SEOMAX fournit des analyses et des recommandations mais ne garantit pas des classements ou des résultats spécifiques. Lisez notre",
+        "link": "avis de non-responsabilité complet",
+        "suffix": "pour plus d'informations."
+      }
+    },
+    "faq": {
+      "hero": {
+        "title": "Foire aux questions",
+        "subtitle": "Obtenez des réponses aux questions courantes sur le SEO, notre plateforme et comment améliorer la visibilité de votre site web dans les recherches."
+      },
+      "categories": [
+        {
+          "title": "Questions générales sur le SEO",
+          "questions": [
+            {
+              "question": "Qu'est-ce que le SEO et pourquoi est-il important pour mon site web ?",
+              "answer": "Le SEO (Search Engine Optimization ou optimisation pour les moteurs de recherche) est la pratique d'optimisation de votre site web pour améliorer sa visibilité et son classement dans les pages de résultats des moteurs de recherche (SERP). C'est important car des classements plus élevés génèrent plus de trafic organique, une visibilité accrue de la marque, une meilleure expérience utilisateur et, en fin de compte, plus de conversions et de revenus. Contrairement à la publicité payante, le SEO offre des résultats durables à long terme. Les études montrent que plus de 90 % des expériences en ligne commencent par un moteur de recherche, et les sites web sur la première page de Google reçoivent la grande majorité des clics, ce qui rend le SEO crucial pour le succès en ligne."
+            },
+            {
+              "question": "Combien de temps faut-il pour voir des résultats du SEO ?",
+              "answer": "Le SEO est une stratégie à long terme, et les résultats prennent généralement 3 à 6 mois pour devenir perceptibles, avec des améliorations significatives apparaissant souvent autour de 6 à 12 mois. Le calendrier dépend de plusieurs facteurs : l'état actuel de votre site web, le niveau de concurrence dans votre secteur, la qualité de votre contenu, votre profil de liens retour et la régularité avec laquelle vous mettez en œuvre les meilleures pratiques SEO. Les nouveaux sites web prennent généralement plus de temps que les sites établis. Bien que certains gains rapides (comme la correction de problèmes techniques) puissent montrer des améliorations en quelques semaines, les classements durables nécessitent des efforts continus et de la patience."
+            },
+            {
+              "question": "Quelle est la différence entre le SEO on-page et off-page ?",
+              "answer": "Le SEO on-page fait référence aux optimisations que vous effectuez directement sur votre site web, y compris la qualité du contenu, l'optimisation des mots-clés, les balises méta, la structure des en-têtes, les liens internes, la structure des URL et la vitesse de chargement des pages. Le SEO off-page implique des actions prises en dehors de votre site web pour améliorer les classements, principalement en créant des liens retour de haute qualité à partir d'autres sites web, le marketing sur les réseaux sociaux, les mentions de marque et la publication d'articles invités. Les deux sont essentiels pour une stratégie SEO complète. Le SEO on-page garantit que les moteurs de recherche comprennent votre contenu, tandis que le SEO off-page construit l'autorité et la fiabilité de votre site."
+            },
+            {
+              "question": "Le SEO est-il meilleur que la publicité payante (PPC) ?",
+              "answer": "Le SEO et le PPC servent des objectifs différents et fonctionnent mieux ensemble. Le SEO fournit un trafic durable à long terme à un coût par acquisition inférieur au fil du temps, renforce la crédibilité de la marque et capture les utilisateurs tout au long du parcours d'achat. Le PPC offre une visibilité immédiate et un ciblage précis mais nécessite des dépenses continues. Pour la plupart des entreprises, une approche combinée est idéale : utilisez le PPC pour des résultats immédiats et des tests tout en construisant le SEO pour une croissance à long terme. La meilleure stratégie dépend de votre budget, de votre calendrier et de vos objectifs commerciaux."
+            },
+            {
+              "question": "Que sont les mots-clés et comment choisir les bons ?",
+              "answer": "Les mots-clés sont les mots et expressions que les gens tapent dans les moteurs de recherche lorsqu'ils recherchent des informations, des produits ou des services. Choisir les bons mots-clés implique de comprendre l'intention de recherche de votre audience, d'analyser le volume de recherche et la concurrence, et d'identifier les termes pertinents pour votre entreprise. Une recherche de mots-clés efficace comprend : cibler un mélange de termes génériques (courts, compétitifs) et de mots-clés de longue traîne (plus longs, plus spécifiques), se concentrer sur des mots-clés avec une intention commerciale ou informationnelle claire, et considérer les mots-clés locaux si vous servez des zones géographiques spécifiques. Des outils comme Google Keyword Planner, SEMrush ou Ahrefs peuvent aider à identifier des mots-clés précieux."
+            }
+          ]
+        },
+        {
+          "title": "SEO technique",
+          "questions": [
+            {
+              "question": "Qu'est-ce que le SEO technique et pourquoi est-il important ?",
+              "answer": "Le SEO technique fait référence à l'optimisation de l'infrastructure de votre site web pour aider les moteurs de recherche à explorer, indexer et comprendre votre contenu plus efficacement. Il comprend l'optimisation de la vitesse du site, la convivialité mobile, la sécurité SSL (HTTPS), les plans de site XML, la configuration de robots.txt, le balisage de données structurées, la correction des erreurs d'exploration et l'assurance d'une structure d'URL appropriée. Le SEO technique est le fondement de vos efforts SEO—sans lui, même le meilleur contenu peut ne pas bien se classer. Les moteurs de recherche privilégient les sites web qui offrent des expériences rapides, sécurisées et accessibles aux utilisateurs."
+            },
+            {
+              "question": "Quelle est l'importance de la vitesse de page pour le SEO ?",
+              "answer": "La vitesse de page est un facteur de classement critique pour les recherches sur ordinateur et mobile. Les Core Web Vitals de Google mesurent spécifiquement les performances de chargement (Largest Contentful Paint), l'interactivité (First Input Delay) et la stabilité visuelle (Cumulative Layout Shift). Les pages à chargement lent entraînent des taux de rebond plus élevés—les études montrent que 53 % des utilisateurs mobiles abandonnent les sites qui prennent plus de 3 secondes à charger. Pour améliorer la vitesse, optimisez les images, activez la compression, exploitez la mise en cache du navigateur, minimisez JavaScript et CSS, utilisez un CDN et envisagez de mettre à niveau votre hébergement. Visez un temps de chargement de page inférieur à 3 secondes."
+            },
+            {
+              "question": "Qu'est-ce que l'indexation mobile d'abord ?",
+              "answer": "L'indexation mobile d'abord signifie que Google utilise principalement la version mobile de votre site web pour l'indexation et le classement. Étant donné que la majorité des recherches proviennent désormais d'appareils mobiles, Google privilégie l'expérience utilisateur mobile. Pour réussir avec l'indexation mobile d'abord : assurez-vous que vos sites mobile et de bureau ont le même contenu, utilisez un design réactif, optimisez les images pour le mobile, assurez-vous que le texte est lisible sans zoom, rendez les boutons et les liens faciles à toucher et évitez les pop-ups intrusifs. Utilisez l'outil Mobile-Friendly Test de Google pour vérifier la compatibilité mobile de votre site."
+            },
+            {
+              "question": "Que sont les Core Web Vitals ?",
+              "answer": "Les Core Web Vitals sont un ensemble de métriques spécifiques que Google utilise pour mesurer l'expérience utilisateur. Ils incluent : Largest Contentful Paint (LCP) - mesure les performances de chargement, doit se produire dans les 2,5 secondes ; First Input Delay (FID) - mesure l'interactivité, doit être inférieur à 100 millisecondes ; et Cumulative Layout Shift (CLS) - mesure la stabilité visuelle, doit être inférieur à 0,1. Ces métriques sont devenues des facteurs de classement officiels en 2021. Vous pouvez mesurer vos Core Web Vitals en utilisant Google Search Console, PageSpeed Insights ou Lighthouse. L'amélioration de ces métriques implique l'optimisation du temps de réponse du serveur, l'élimination des ressources bloquant le rendu et le dimensionnement approprié des images."
+            },
+            {
+              "question": "Comment corriger les erreurs d'exploration et les liens brisés ?",
+              "answer": "Les erreurs d'exploration se produisent lorsque les moteurs de recherche ne peuvent pas accéder aux pages de votre site. Pour les corriger : auditez régulièrement votre site à l'aide de Google Search Console pour identifier les erreurs, configurez des redirections 301 appropriées pour les pages déplacées ou supprimées, corrigez les liens internes et externes brisés, assurez-vous que votre robots.txt ne bloque pas les pages importantes, vérifiez que votre plan de site est mis à jour et correctement formaté, et vérifiez que votre serveur renvoie les codes d'état HTTP corrects. Pour les liens brisés spécifiquement, utilisez des outils comme Screaming Frog ou Ahrefs pour les trouver, puis mettez à jour les liens vers les URL correctes ou supprimez-les si la destination n'existe plus."
+            }
+          ]
+        },
+        {
+          "title": "Contenu et mots-clés",
+          "questions": [
+            {
+              "question": "Comment créer du contenu adapté au SEO ?",
+              "answer": "La création de contenu adapté au SEO implique plusieurs pratiques clés : Commencez par une recherche approfondie de mots-clés pour comprendre ce que votre audience recherche. Créez un contenu complet et précieux qui répond aux questions des utilisateurs et résout les problèmes. Utilisez votre mot-clé cible dans le titre, le premier paragraphe, les en-têtes et naturellement tout au long du contenu. Rédigez des titres méta et des descriptions convaincants. Structurez le contenu avec une hiérarchie d'en-têtes appropriée (H1, H2, H3). Incluez des liens internes vers du contenu connexe et des liens externes vers des sources faisant autorité. Ajoutez des images optimisées avec du texte alternatif descriptif. Visez un contenu meilleur et plus complet que ce qui est actuellement classé—concentrez-vous d'abord sur la valeur pour l'utilisateur, l'optimisation ensuite."
+            },
+            {
+              "question": "Qu'est-ce que le bourrage de mots-clés et pourquoi devrais-je l'éviter ?",
+              "answer": "Le bourrage de mots-clés est la pratique de surcharger une page web de mots-clés dans le but de manipuler les classements de recherche. Cela inclut la répétition excessive de mots-clés, l'utilisation de texte caché ou l'ajout de mots-clés non pertinents. Les algorithmes de Google peuvent facilement détecter le bourrage de mots-clés et pénaliseront les sites qui s'engagent dans cette pratique. Au lieu de cela, concentrez-vous sur l'écriture naturelle pour votre public tout en plaçant stratégiquement des mots-clés là où ils ont du sens. Utilisez des synonymes et des termes connexes (mots-clés LSI) pour démontrer la pertinence thématique. Une bonne règle générale est de lire votre contenu à voix haute—s'il semble peu naturel ou répétitif, vous optimisez probablement trop."
+            },
+            {
+              "question": "À quelle fréquence dois-je publier du nouveau contenu ?",
+              "answer": "Il n'y a pas de réponse unique, mais la cohérence compte plus que la fréquence. Il vaut mieux publier un article complet de haute qualité par semaine que plusieurs publications de faible qualité quotidiennement. Considérez vos ressources, votre secteur et votre concurrence. Certaines stratégies réussies incluent : publier 2 à 4 articles de blog mensuels pour la plupart des entreprises, mettre à jour régulièrement le contenu existant pour le garder frais, créer du contenu persistant qui reste pertinent dans le temps et développer un calendrier de contenu basé sur la recherche de mots-clés et les tendances saisonnières. Concentrez-vous sur la création de contenu qui aide véritablement votre public plutôt que d'atteindre des quotas de publication arbitraires."
+            },
+            {
+              "question": "Qu'est-ce que l'intention de recherche et pourquoi est-elle importante ?",
+              "answer": "L'intention de recherche (ou intention de l'utilisateur) est la raison derrière la requête de recherche d'un utilisateur—ce qu'il essaie d'accomplir. Il existe quatre types principaux : Informationnel (recherche d'informations, par exemple 'comment nouer une cravate'), Navigationnel (recherche d'un site web spécifique, par exemple 'connexion Facebook'), Commercial (recherche avant d'acheter, par exemple 'meilleurs ordinateurs portables 2026') et Transactionnel (prêt à acheter, par exemple 'acheter iPhone 15 Pro'). Comprendre l'intention de recherche est crucial car Google privilégie le contenu qui correspond à ce que les utilisateurs veulent. Si vous ciblez un mot-clé mais que votre contenu ne correspond pas à l'intention, vous ne vous classerez pas bien quelles que soient les autres optimisations. Analysez toujours les pages actuellement les mieux classées pour un mot-clé pour comprendre le format et le type de contenu attendus."
+            },
+            {
+              "question": "Dois-je me concentrer sur les mots-clés de longue traîne ou de courte traîne ?",
+              "answer": "Une approche équilibrée ciblant les deux est idéale. Les mots-clés de courte traîne (1-2 mots) ont un volume de recherche élevé mais sont très compétitifs et ont souvent une intention vague. Les mots-clés de longue traîne (3+ mots) ont un volume de recherche plus faible mais sont moins compétitifs, plus spécifiques et indiquent souvent une intention d'achat plus élevée. Pour la plupart des sites web, en particulier les plus récents, se concentrer principalement sur les mots-clés de longue traîne est intelligent car : ils sont plus faciles à classer, ils attirent un trafic plus qualifié, ils ont souvent de meilleurs taux de conversion et ils vous aident à construire une autorité thématique. Au fur et à mesure que votre site gagne en autorité, vous pouvez cibler des mots-clés de courte traîne plus compétitifs."
+            }
+          ]
+        },
+        {
+          "title": "Création de liens",
+          "questions": [
+            {
+              "question": "Que sont les liens retour et pourquoi sont-ils importants ?",
+              "answer": "Les liens retour sont des liens d'autres sites web pointant vers votre site. Ils sont cruciaux pour le SEO car les moteurs de recherche les considèrent comme des 'votes de confiance'—lorsque des sites réputés créent un lien vers vous, cela signale que votre contenu est précieux et digne de confiance. Tous les liens retour ne sont pas égaux ; la qualité compte plus que la quantité. Un seul lien d'un site web à haute autorité et pertinent peut valoir plus que des dizaines de liens de sites de faible qualité. Les facteurs clés incluent l'autorité du site de liaison, la pertinence par rapport à votre niche, le texte d'ancrage utilisé et si le lien est follow ou nofollow. La construction d'un profil de liens retour naturel et diversifié est essentielle pour un classement compétitif."
+            },
+            {
+              "question": "Comment puis-je créer des liens retour de manière éthique ?",
+              "answer": "La création de liens éthique (white-hat) se concentre sur l'obtention de liens par la création de valeur : Créez un contenu exceptionnel vers lequel les gens veulent naturellement créer des liens (actifs de liens comme la recherche, les infographies, les outils ou les guides complets). Publiez des articles invités sur des sites web de l'industrie réputés avec un contenu précieux et non promotionnel. Établissez des relations avec des pairs de l'industrie, des influenceurs et des journalistes. Participez utilement aux communautés et forums de l'industrie. Créez du contenu digne d'intérêt qui gagne une couverture médiatique. Réparez les liens brisés sur d'autres sites en offrant votre contenu en remplacement. Développez des outils, des calculatrices ou des ressources que d'autres trouvent utiles. La clé est de se concentrer sur la valeur authentique plutôt que sur des tactiques manipulatrices."
+            },
+            {
+              "question": "Que sont les liens retour toxiques et comment les supprimer ?",
+              "answer": "Les liens retour toxiques sont des liens de faible qualité ou spam qui peuvent nuire aux classements de votre site. Ils proviennent souvent de fermes de liens, de sites pour adultes, de sites étrangers non pertinents, de réseaux de blogs privés (PBN) ou de sites pénalisés par Google. Pour identifier les liens toxiques, utilisez des outils comme Google Search Console, Ahrefs ou SEMrush pour analyser votre profil de liens retour. Recherchez des liens provenant de sources suspectes, de sites avec une faible autorité de domaine ou ceux avec des modèles de texte d'ancrage non naturels. Pour les supprimer, contactez d'abord le webmaster du site de liaison en demandant la suppression. Si cela échoue, utilisez l'outil de désaveu de Google pour dire à Google d'ignorer ces liens. Soyez prudent—ne désavouez que les liens clairement nuisibles, car un désaveu excessif peut nuire à vos classements."
+            },
+            {
+              "question": "Quelle est la différence entre les liens dofollow et nofollow ?",
+              "answer": "Les liens dofollow transmettent du 'jus de lien' (valeur PageRank) à la page liée, l'aidant à mieux se classer. Ce sont les liens traditionnels qui influencent directement le SEO. Les liens nofollow incluent un attribut rel='nofollow' qui indique aux moteurs de recherche de ne pas transmettre de crédit de classement. Les sources courantes incluent les réseaux sociaux, les forums, les commentaires et le contenu sponsorisé. Bien que les liens nofollow n'augmentent pas directement les classements, ils restent précieux : ils diversifient votre profil de liens (ce qui semble naturel), génèrent du trafic de référence, augmentent la visibilité de la marque et peuvent conduire à des liens dofollow. De plus, Google traite maintenant nofollow comme un 'indice' plutôt qu'une directive, ce qui signifie que certains liens nofollow peuvent transmettre de la valeur."
+            }
+          ]
+        },
+        {
+          "title": "Plateforme E-SEOMAX",
+          "questions": [
+            {
+              "question": "Qu'est-ce qu'E-SEOMAX et comment fonctionne-t-il ?",
+              "answer": "E-SEOMAX est une plateforme d'analyse SEO alimentée par l'IA conçue pour aider les propriétaires de sites web, les spécialistes du marketing et les entreprises à améliorer leur visibilité dans les moteurs de recherche. Notre outil analyse votre site web sur plusieurs facteurs SEO—y compris les problèmes techniques, l'optimisation sur page, la qualité du contenu et les métriques de performance—et fournit des recommandations actionnables pour l'amélioration. Il suffit d'entrer l'URL de votre site web, et notre IA explorera et évaluera votre site, générant un score SEO complet et un rapport détaillé mettant en évidence les domaines à améliorer avec des conseils étape par étape."
+            },
+            {
+              "question": "Quelle est la précision de l'analyse SEO d'E-SEOMAX ?",
+              "answer": "Notre analyse SEO est basée sur les meilleures pratiques de l'industrie, les directives actuelles des moteurs de recherche et des algorithmes d'IA propriétaires formés sur des données SEO étendues. Bien que nous recherchions la précision, il est important de comprendre que le SEO n'est pas une science exacte—les moteurs de recherche utilisent des centaines de facteurs de classement, dont beaucoup ne sont pas divulgués publiquement. Notre analyse fournit une base solide pour l'amélioration, mais les résultats peuvent varier. Nous recommandons d'utiliser nos informations en parallèle avec d'autres outils et une consultation professionnelle pour des projets SEO complexes. Nous mettons continuellement à jour nos algorithmes pour refléter les derniers changements des moteurs de recherche."
+            },
+            {
+              "question": "Les données de mon site web sont-elles sécurisées avec E-SEOMAX ?",
+              "answer": "Oui, nous prenons la sécurité des données au sérieux. Nous utilisons un cryptage standard de l'industrie (HTTPS/SSL) pour toutes les transmissions de données. Vos URL de site web et les résultats d'analyse sont traités en toute sécurité et ne sont pas partagés avec des tiers. Nous ne stockons pas d'identifiants de connexion sensibles, et toutes les données sont traitées conformément au RGPD et à d'autres réglementations sur la confidentialité. Pour des informations détaillées, veuillez consulter notre Politique de confidentialité. Si vous avez des préoccupations spécifiques en matière de sécurité, veuillez contacter notre équipe d'assistance."
+            },
+            {
+              "question": "E-SEOMAX peut-il m'aider à me classer #1 sur Google ?",
+              "answer": "Bien qu'E-SEOMAX fournisse des outils et des informations puissants pour améliorer votre SEO, nous ne pouvons garantir aucun classement spécifique. L'obtention de positions de premier plan dépend de nombreux facteurs au-delà de l'analyse SEO, y compris le niveau de concurrence, la qualité du contenu, le profil de liens retour, l'âge et l'autorité du domaine, et les changements d'algorithme des moteurs de recherche. Ce que nous pouvons faire, c'est identifier les problèmes qui retiennent votre site, fournir des recommandations actionnables basées sur les meilleures pratiques et vous aider à prendre des décisions basées sur les données. La mise en œuvre cohérente de bonnes pratiques SEO au fil du temps est le chemin le plus fiable vers l'amélioration des classements."
+            },
+            {
+              "question": "Offrez-vous un support client ?",
+              "answer": "Oui ! Nous offrons un support client via plusieurs canaux. Vous pouvez nous joindre par e-mail à support@e-seomax.com pour les demandes générales. Notre centre d'aide contient une documentation complète, des tutoriels et des guides. Pour des réponses plus rapides, les utilisateurs des plans Pro et Enterprise ont accès à un support prioritaire et au chat en direct. Nous répondons généralement à toutes les demandes dans les 24 à 48 heures pendant les jours ouvrables. Nous nous engageons à vous aider à réussir avec vos efforts SEO."
+            }
+          ]
+        }
+      ],
+      "cta": {
+        "title": "Vous avez encore des questions ?",
+        "description": "Vous ne trouvez pas ce que vous cherchez ? Notre équipe d'assistance est là pour vous aider.",
+        "button": "Contacter le support"
+      }
     },
     "contact": {
       "hero": {
@@ -257,6 +490,730 @@
         "successDescription": "Merci de nous avoir contactés. Nous vous répondrons sous 24 heures.",
         "errorTitle": "Erreur",
         "sendFailedFallback": "Impossible d’envoyer le message. Veuillez réessayer."
+      }    },
+    "legal": {
+      "lastUpdatedLine": "Dernière mise à jour : {{date}}"
+    },
+    "privacy": {
+      "title": "Politique de confidentialité",
+      "sections": [
+        {
+          "title": "1. Introduction",
+          "subsections": [
+            {
+              "content": "Bienvenue sur E-SEOMAX (\"nous\", \"notre\" ou \"nos\"). Nous nous engageons à protéger vos informations personnelles et votre droit à la vie privée. Cette Politique de confidentialité explique comment nous collectons, utilisons, divulguons et protégeons vos informations lorsque vous visitez notre site web e-seomax.com (le \"Site\") et utilisez nos services d'analyse SEO alimentés par l'IA."
+            },
+            {
+              "content": "Veuillez lire attentivement cette Politique de confidentialité. Si vous n'acceptez pas les termes de cette Politique de confidentialité, veuillez ne pas accéder au Site. En accédant ou en utilisant notre Site, vous acceptez cette Politique de confidentialité."
+            }
+          ]
+        },
+        {
+          "title": "2. Informations que nous collectons",
+          "subsections": [
+            {
+              "title": "2.1 Informations personnelles que vous fournissez",
+              "content": "Nous collectons des informations personnelles que vous nous fournissez volontairement lorsque vous :",
+              "list": [
+                "Vous inscrivez pour un compte sur notre plateforme",
+                "Vous abonnez à notre newsletter ou à nos communications marketing",
+                "Remplissez un formulaire de contact ou demandez un support client",
+                "Participez à des enquêtes, concours ou promotions",
+                "Publiez des commentaires ou du contenu sur notre blog"
+              ]
+            },
+            {
+              "content": "Ces informations peuvent inclure votre nom, adresse e-mail, numéro de téléphone, nom de l'entreprise, intitulé du poste, adresse de facturation et informations de paiement."
+            },
+            {
+              "title": "2.2 Informations collectées automatiquement",
+              "content": "Lorsque vous visitez notre Site, nous collectons automatiquement certaines informations sur votre appareil, notamment :",
+              "list": [
+                "Adresse IP et localisation géographique",
+                "Type et version du navigateur",
+                "Système d'exploitation",
+                "Adresses des sites web référents",
+                "Pages consultées et temps passé sur les pages",
+                "Modèles de clics et chemins de navigation",
+                "Identifiants et caractéristiques de l'appareil"
+              ]
+            },
+            {
+              "title": "2.3 Données d'analyse SEO",
+              "content": "Lorsque vous utilisez nos outils d'analyse SEO, nous collectons les URL que vous soumettez pour analyse. Nous traitons ces données pour vous fournir des recommandations et des informations SEO. Ces données sont utilisées uniquement pour fournir nos services et ne sont pas partagées avec des tiers à des fins marketing."
+            }
+          ]
+        },
+        {
+          "title": "3. Cookies et technologies de suivi",
+          "subsections": [
+            {
+              "title": "3.1 Types de cookies que nous utilisons",
+              "content": "Nous utilisons des cookies et des technologies de suivi similaires pour suivre l'activité sur notre Site et stocker certaines informations. Les types de cookies que nous utilisons incluent :",
+              "list": [
+                "<strong>Cookies essentiels :</strong> Requis pour le fonctionnement de notre Site. Ils activent des fonctionnalités de base telles que la sécurité, la gestion du réseau et l'accessibilité.",
+                "<strong>Cookies analytiques :</strong> Nous aident à comprendre comment les visiteurs interagissent avec notre Site en collectant et en rapportant des informations de manière anonyme.",
+                "<strong>Cookies publicitaires :</strong> Utilisés pour diffuser des publicités pertinentes pour vous et vos intérêts.",
+                "<strong>Cookies de préférence :</strong> Permettent à notre Site de mémoriser des informations qui modifient le comportement ou l'apparence du Site."
+              ]
+            },
+            {
+              "title": "3.2 Google AdSense et publicité tierce",
+              "content": "Nous utilisons Google AdSense pour afficher des publicités sur notre Site. Google AdSense utilise des cookies, y compris le cookie DoubleClick, pour diffuser des annonces basées sur vos visites précédentes sur notre Site et d'autres sites Web. L'utilisation par Google de cookies publicitaires lui permet ainsi qu'à ses partenaires de vous diffuser des annonces basées sur votre visite sur notre Site et/ou d'autres sites sur Internet.<br/><br/>Des fournisseurs tiers, y compris Google, utilisent des cookies pour diffuser des annonces basées sur vos visites précédentes sur ce site Web ou d'autres sites Web. L'utilisation par Google du cookie DoubleClick lui permet ainsi qu'à ses partenaires de vous diffuser des annonces basées sur votre visite sur ce site et/ou d'autres sites sur Internet.<br/><br/>Vous pouvez désactiver la publicité personnalisée en visitant <a href=\"https://www.google.com/settings/ads\" class=\"text-primary hover:underline\" target=\"_blank\" rel=\"noopener noreferrer\">Paramètres des annonces Google</a>. Alternativement, vous pouvez désactiver l'utilisation de cookies par un fournisseur tiers pour la publicité personnalisée en visitant <a href=\"https://www.aboutads.info/choices/\" class=\"text-primary hover:underline\" target=\"_blank\" rel=\"noopener noreferrer\">www.aboutads.info</a>."
+            },
+            {
+              "title": "3.3 Gestion de vos préférences de cookies",
+              "content": "Vous pouvez contrôler et gérer les cookies via les paramètres de votre navigateur. La plupart des navigateurs vous permettent de refuser d'accepter les cookies et de supprimer les cookies. Cependant, si vous bloquez ou supprimez les cookies, certaines fonctionnalités de notre Site peuvent ne pas fonctionner correctement."
+            }
+          ]
+        },
+        {
+          "title": "4. Comment nous utilisons vos informations",
+          "subsections": [
+            {
+              "content": "Nous utilisons les informations que nous collectons à diverses fins, notamment :",
+              "list": [
+                "Fournir, exploiter et maintenir nos services d'analyse SEO",
+                "Améliorer, personnaliser et étendre nos services",
+                "Traiter les transactions et envoyer des informations connexes",
+                "Envoyer des communications promotionnelles (avec votre consentement)",
+                "Répondre à vos commentaires, questions et demandes de service client",
+                "Surveiller et analyser les modèles et tendances d'utilisation",
+                "Détecter, prévenir et traiter les problèmes techniques et les menaces de sécurité",
+                "Se conformer aux obligations légales"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "5. Partage et divulgation d'informations",
+          "subsections": [
+            {
+              "content": "Nous pouvons partager vos informations dans les situations suivantes :",
+              "list": [
+                "<strong>Prestataires de services :</strong> Nous pouvons partager vos informations avec des fournisseurs tiers qui fournissent des services en notre nom, tels que le traitement des paiements, l'analyse de données, la livraison d'e-mails, les services d'hébergement et le service client.",
+                "<strong>Transferts commerciaux :</strong> Dans le cadre de toute fusion, vente d'actifs de l'entreprise, financement ou acquisition de tout ou partie de notre activité.",
+                "<strong>Exigences légales :</strong> Si requis par la loi ou en réponse à des demandes valides des autorités publiques.",
+                "<strong>Protection des droits :</strong> Pour protéger nos droits, notre vie privée, notre sécurité ou nos biens, et/ou ceux de nos affiliés, de vous ou d'autres personnes.",
+                "<strong>Avec votre consentement :</strong> Avec votre consentement pour toute autre fin."
+              ]
+            },
+            {
+              "content": "Nous ne vendons, ne louons ni n'échangeons vos informations personnelles à des tiers à des fins marketing."
+            }
+          ]
+        },
+        {
+          "title": "6. Sécurité des données",
+          "subsections": [
+            {
+              "content": "Nous mettons en œuvre des mesures de sécurité techniques et organisationnelles appropriées conçues pour protéger vos informations personnelles contre l'accès, la modification, la divulgation ou la destruction non autorisés. Ces mesures incluent le cryptage, les serveurs sécurisés, les pare-feu et les évaluations de sécurité régulières."
+            },
+            {
+              "content": "Cependant, aucune méthode de transmission sur Internet ou méthode de stockage électronique n'est sûre à 100 %. Bien que nous nous efforcions d'utiliser des moyens commercialement acceptables pour protéger vos informations personnelles, nous ne pouvons garantir leur sécurité absolue."
+            }
+          ]
+        },
+        {
+          "title": "7. Conservation des données",
+          "subsections": [
+            {
+              "content": "Nous conservons vos informations personnelles uniquement aussi longtemps que nécessaire pour remplir les objectifs décrits dans cette Politique de confidentialité, sauf si une période de conservation plus longue est requise ou autorisée par la loi. Lorsque nous n'avons plus besoin de vos informations personnelles, nous les supprimerons ou les anonymiserons de manière sécurisée."
+            }
+          ]
+        },
+        {
+          "title": "8. Vos droits en matière de confidentialité",
+          "subsections": [
+            {
+              "title": "8.1 Droits généraux",
+              "content": "Selon votre emplacement, vous pouvez avoir certains droits concernant vos informations personnelles, notamment :",
+              "list": [
+                "Le droit d'accéder aux informations personnelles que nous détenons à votre sujet",
+                "Le droit de demander la correction d'informations personnelles inexactes",
+                "Le droit de demander la suppression de vos informations personnelles",
+                "Le droit de vous opposer ou de restreindre certaines activités de traitement",
+                "Le droit à la portabilité des données",
+                "Le droit de retirer votre consentement à tout moment"
+              ]
+            },
+            {
+              "title": "8.2 Résidents de l'Espace économique européen (EEE) - RGPD",
+              "content": "Si vous êtes résident de l'Espace économique européen, vous avez des droits supplémentaires en vertu du Règlement général sur la protection des données (RGPD). Nous traitons vos données sur la base d'une ou plusieurs bases juridiques : votre consentement, l'exécution d'un contrat, une obligation légale ou des intérêts légitimes."
+            },
+            {
+              "title": "8.3 Résidents de Californie - CCPA",
+              "content": "Si vous êtes résident de Californie, vous avez des droits spécifiques en vertu du California Consumer Privacy Act (CCPA), y compris le droit de savoir quelles informations personnelles sont collectées, le droit de demander la suppression et le droit de refuser la vente d'informations personnelles. Nous ne vendons pas d'informations personnelles."
+            }
+          ]
+        },
+        {
+          "title": "9. Confidentialité des enfants",
+          "subsections": [
+            {
+              "content": "Notre Site n'est pas destiné aux enfants de moins de 16 ans. Nous ne collectons pas sciemment d'informations personnelles auprès d'enfants de moins de 16 ans. Si nous apprenons que nous avons collecté des informations personnelles auprès d'un enfant de moins de 16 ans sans vérification du consentement parental, nous prendrons des mesures pour supprimer ces informations de nos serveurs."
+            }
+          ]
+        },
+        {
+          "title": "10. Transferts internationaux de données",
+          "subsections": [
+            {
+              "content": "Vos informations peuvent être transférées et traitées dans des pays autres que votre pays de résidence. Ces pays peuvent avoir des lois sur la protection des données différentes de celles de votre pays. Nous prenons les mesures de protection appropriées pour garantir que vos informations personnelles restent protégées conformément à cette Politique de confidentialité."
+            }
+          ]
+        },
+        {
+          "title": "11. Liens tiers",
+          "subsections": [
+            {
+              "content": "Notre Site peut contenir des liens vers des sites Web et services tiers. Nous ne sommes pas responsables des pratiques de confidentialité ou du contenu de ces tiers. Nous vous encourageons à lire les politiques de confidentialité de tous les sites tiers que vous visitez."
+            }
+          ]
+        },
+        {
+          "title": "12. Modifications de cette Politique de confidentialité",
+          "subsections": [
+            {
+              "content": "Nous pouvons mettre à jour cette Politique de confidentialité de temps à autre pour refléter les changements dans nos pratiques ou pour d'autres raisons opérationnelles, juridiques ou réglementaires. Nous vous informerons de tout changement important en publiant la nouvelle Politique de confidentialité sur cette page et en mettant à jour la date de \"Dernière mise à jour\". Nous vous encourageons à consulter périodiquement cette Politique de confidentialité."
+            }
+          ]
+        }
+      ],
+      "contact": {
+        "title": "13. Contactez-nous",
+        "intro": "Si vous avez des questions sur cette Politique de confidentialité, ou si vous souhaitez exercer l'un de vos droits en matière de confidentialité, veuillez nous contacter :",
+        "email": "E-mail : privacy@e-seomax.com",
+        "address": "Adresse : 123 Tech Innovation Drive, Suite 500, San Francisco, CA 94105, USA"
+      }
+    },
+    "terms": {
+      "title": "Conditions d'utilisation",
+      "sections": [
+        {
+          "title": "1. Acceptation des conditions",
+          "subsections": [
+            {
+              "content": "Bienvenue sur E-SEOMAX. Ces Conditions d'utilisation (\"Conditions\") régissent votre accès et votre utilisation du site Web E-SEOMAX situé à e-seomax.com (le \"Site\") et de tous les services, fonctionnalités, contenus et applications connexes offerts par E-SEOMAX (collectivement, les \"Services\")."
+            },
+            {
+              "content": "En accédant ou en utilisant nos Services, vous acceptez d'être lié par ces Conditions. Si vous n'acceptez pas ces Conditions, vous ne pouvez pas accéder ou utiliser les Services. Ces Conditions constituent un accord juridiquement contraignant entre vous et E-SEOMAX."
+            }
+          ]
+        },
+        {
+          "title": "2. Description des services",
+          "subsections": [
+            {
+              "content": "E-SEOMAX fournit des outils et services d'analyse d'optimisation pour les moteurs de recherche (SEO) alimentés par l'IA, conçus pour aider les propriétaires de sites Web, les spécialistes du marketing et les entreprises à améliorer leur visibilité en ligne et leur classement dans les moteurs de recherche. Nos Services comprennent, mais sans s'y limiter :",
+              "list": [
+                "Analyse et audit SEO de sites Web",
+                "Recherche et recommandations de mots-clés",
+                "Évaluations SEO techniques",
+                "Suggestions d'optimisation de contenu",
+                "Analyse des backlinks",
+                "Surveillance et reporting des performances",
+                "Ressources pédagogiques et contenu de blog"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "3. Comptes utilisateurs",
+          "subsections": [
+            {
+              "title": "3.1 Inscription au compte",
+              "content": "Pour accéder à certaines fonctionnalités de nos Services, vous devrez peut-être créer un compte. Lors de votre inscription, vous acceptez de fournir des informations exactes, à jour et complètes. Vous êtes responsable du maintien de la confidentialité de vos identifiants de compte et de toutes les activités qui se produisent sous votre compte."
+            },
+            {
+              "title": "3.2 Sécurité du compte",
+              "content": "Vous êtes responsable de la protection de votre mot de passe et de toutes les activités ou actions sous votre compte. Vous acceptez de nous informer immédiatement de tout accès ou utilisation non autorisé de votre compte. E-SEOMAX ne sera pas responsable de toute perte ou dommage résultant de votre non-respect de cette obligation de sécurité."
+            },
+            {
+              "title": "3.3 Résiliation du compte",
+              "content": "Nous nous réservons le droit de suspendre ou de résilier votre compte à tout moment pour quelque raison que ce soit, y compris, mais sans s'y limiter, la violation de ces Conditions, une activité frauduleuse ou le non-paiement des frais. Vous pouvez également résilier votre compte à tout moment en nous contactant."
+            }
+          ]
+        },
+        {
+          "title": "4. Politique d'utilisation acceptable",
+          "subsections": [
+            {
+              "content": "Vous acceptez d'utiliser nos Services uniquement à des fins légales et conformément à ces Conditions. Vous acceptez de NE PAS :",
+              "list": [
+                "Utiliser les Services d'une manière qui viole toute loi ou réglementation fédérale, étatique, locale ou internationale applicable",
+                "Adopter un comportement qui restreint ou inhibe l'utilisation ou la jouissance des Services par quiconque",
+                "Usurper l'identité ou tenter d'usurper l'identité d'E-SEOMAX, d'un employé d'E-SEOMAX, d'un autre utilisateur ou de toute autre personne ou entité",
+                "Utiliser les Services pour transmettre du matériel publicitaire ou promotionnel sans notre consentement écrit préalable",
+                "Tenter d'obtenir un accès non autorisé à toute partie des Services ou à tout système ou réseau connexe",
+                "Utiliser un robot, une araignée, un grattoir ou tout autre moyen automatisé pour accéder aux Services",
+                "Introduire des virus, des chevaux de Troie, des vers ou tout autre matériel malveillant ou technologiquement nuisible",
+                "Tenter de désosser, décompiler ou désassembler toute partie des Services",
+                "Utiliser les Services pour analyser des sites Web que vous ne possédez pas ou que vous n'êtes pas autorisé à analyser",
+                "Revendre, sous-licencier ou redistribuer les Services sans notre autorisation écrite expresse"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "5. Droits de propriété intellectuelle",
+          "subsections": [
+            {
+              "title": "5.1 Notre propriété intellectuelle",
+              "content": "Les Services et l'intégralité de leur contenu, fonctionnalités et fonctionnalités (y compris, mais sans s'y limiter, toutes les informations, logiciels, textes, affichages, images, vidéos, audio et la conception, la sélection et l'arrangement de ceux-ci) sont la propriété d'E-SEOMAX, de ses concédants de licence ou d'autres fournisseurs et sont protégés par les lois américaines et internationales sur le droit d'auteur, les marques de commerce, les brevets, les secrets commerciaux et autres lois sur la propriété intellectuelle."
+            },
+            {
+              "title": "5.2 Licence limitée",
+              "content": "Sous réserve de votre conformité à ces Conditions, nous vous accordons une licence limitée, non exclusive, non transférable et révocable pour accéder et utiliser les Services à des fins personnelles ou commerciales internes. Cette licence n'inclut pas le droit de sous-licencier, modifier, adapter, traduire, désosser, décompiler, désassembler ou créer des œuvres dérivées basées sur les Services."
+            },
+            {
+              "title": "5.3 Contenu utilisateur",
+              "content": "Vous conservez la propriété de tout contenu que vous soumettez aux Services. En soumettant du contenu, vous nous accordez une licence mondiale, non exclusive et libre de redevances pour utiliser, reproduire, modifier et afficher ce contenu uniquement dans le but de vous fournir les Services."
+            }
+          ]
+        },
+        {
+          "title": "6. Conditions de paiement",
+          "subsections": [
+            {
+              "title": "6.1 Frais et facturation",
+              "content": "Certaines fonctionnalités de nos Services peuvent nécessiter le paiement de frais. Tous les frais sont indiqués en dollars américains sauf indication contraire. Vous acceptez de payer tous les frais applicables tels que décrits sur notre Site. Nous nous réservons le droit de modifier nos frais à tout moment moyennant préavis."
+            },
+            {
+              "title": "6.2 Services d'abonnement",
+              "content": "Si vous souscrivez à un forfait payant, votre abonnement sera automatiquement renouvelé à la fin de chaque période de facturation, sauf si vous annulez avant la date de renouvellement. Vous pouvez annuler votre abonnement à tout moment via les paramètres de votre compte ou en nous contactant."
+            },
+            {
+              "title": "6.3 Remboursements",
+              "content": "Les demandes de remboursement sont traitées au cas par cas. En général, les frais ne sont pas remboursables, sauf si la loi applicable l'exige. Veuillez contacter notre équipe d'assistance si vous pensez avoir droit à un remboursement."
+            }
+          ]
+        },
+        {
+          "title": "7. Clauses de non-responsabilité",
+          "subsections": [
+            {
+              "title": "7.1 Aucune garantie de résultats",
+              "content": "E-SEOMAX fournit une analyse SEO et des recommandations basées sur les meilleures pratiques de l'industrie et nos algorithmes propriétaires. Cependant, <strong>nous ne garantissons aucun résultat, classement ou résultat spécifique</strong>. Les algorithmes des moteurs de recherche sont complexes et en constante évolution. Les résultats peuvent varier en fonction de nombreux facteurs indépendants de notre volonté, notamment la concurrence, la qualité du contenu, la mise en œuvre technique et les mises à jour de l'algorithme des moteurs de recherche."
+            },
+            {
+              "title": "7.2 \"Tel quel\" et \"Tel que disponible\"",
+              "content": "LES SERVICES SONT FOURNIS SUR UNE BASE \"TEL QUEL\" ET \"TEL QUE DISPONIBLE\", SANS AUCUNE GARANTIE DE QUELQUE NATURE QUE CE SOIT, EXPRESSE OU IMPLICITE. DANS TOUTE LA MESURE PERMISE PAR LA LOI, E-SEOMAX DÉCLINE TOUTES LES GARANTIES, EXPRESSES OU IMPLICITES, Y COMPRIS, MAIS SANS S'Y LIMITER, LES GARANTIES IMPLICITES DE QUALITÉ MARCHANDE, D'ADÉQUATION À UN USAGE PARTICULIER ET DE NON-CONTREFAÇON."
+            },
+            {
+              "title": "7.3 Exactitude des informations",
+              "content": "Bien que nous nous efforcions de fournir des informations exactes et à jour, nous ne faisons aucune déclaration ou garantie quant à l'exactitude, la fiabilité, l'exhaustivité ou l'actualité de toute information fournie par le biais des Services. Les résultats de l'analyse SEO sont fournis à titre informatif uniquement et ne doivent pas être considérés comme des conseils professionnels."
+            }
+          ]
+        },
+        {
+          "title": "8. Limitation de responsabilité",
+          "subsections": [
+            {
+              "content": "DANS TOUTE LA MESURE PERMISE PAR LA LOI APPLICABLE, EN AUCUN CAS E-SEOMAX, SES AFFILIÉS, DIRECTEURS, EMPLOYÉS, AGENTS OU CONCÉDANTS DE LICENCE NE SERONT RESPONSABLES DE TOUT DOMMAGE INDIRECT, ACCESSOIRE, SPÉCIAL, CONSÉCUTIF OU PUNITIF, Y COMPRIS, MAIS SANS S'Y LIMITER, LA PERTE DE PROFITS, DE DONNÉES, D'UTILISATION, DE GOODWILL OU D'AUTRES PERTES INTANGIBLES, DÉCOULANT DE OU LIÉS À VOTRE UTILISATION OU À VOTRE INCAPACITÉ D'UTILISER LES SERVICES."
+            },
+            {
+              "content": "EN AUCUN CAS NOTRE RESPONSABILITÉ TOTALE ENVERS VOUS POUR TOUTES LES RÉCLAMATIONS DÉCOULANT DE OU LIÉES À CES CONDITIONS OU AUX SERVICES NE DÉPASSERA LE MONTANT QUE VOUS NOUS AVEZ PAYÉ AU COURS DES DOUZE (12) MOIS PRÉCÉDANT LA RÉCLAMATION, OU CENT DOLLARS (100 $), SELON LE MONTANT LE PLUS ÉLEVÉ."
+            }
+          ]
+        },
+        {
+          "title": "9. Indemnisation",
+          "subsections": [
+            {
+              "content": "Vous acceptez de défendre, d'indemniser et de dégager de toute responsabilité E-SEOMAX, ses affiliés et leurs dirigeants, directeurs, employés et agents respectifs contre toute réclamation, responsabilité, dommage, jugement, sentence, perte, coût, dépense ou frais (y compris les honoraires d'avocat raisonnables) découlant de ou liés à votre violation de ces Conditions ou à votre utilisation des Services."
+            }
+          ]
+        },
+        {
+          "title": "10. Services tiers",
+          "subsections": [
+            {
+              "content": "Les Services peuvent contenir des liens vers des sites Web ou des services tiers qui ne sont pas détenus ou contrôlés par E-SEOMAX. Nous n'avons aucun contrôle sur le contenu, les politiques de confidentialité ou les pratiques de tout site Web ou service tiers, et n'assumons aucune responsabilité à cet égard. Vous reconnaissez et acceptez qu'E-SEOMAX ne sera pas responsable de tout dommage ou perte causé par ou en rapport avec l'utilisation de tout site Web ou service tiers."
+            }
+          ]
+        },
+        {
+          "title": "11. Loi applicable et résolution des litiges",
+          "subsections": [
+            {
+              "title": "11.1 Loi applicable",
+              "content": "Ces Conditions seront régies et interprétées conformément aux lois de l'État de Californie, États-Unis, sans égard à ses dispositions relatives aux conflits de lois."
+            },
+            {
+              "title": "11.2 Résolution des litiges",
+              "content": "Tout litige découlant de ou lié à ces Conditions ou aux Services doit d'abord être tenté d'être résolu par une négociation de bonne foi. Si le litige ne peut être résolu par négociation, il sera soumis à un arbitrage exécutoire à San Francisco, Californie, conformément aux règles de l'American Arbitration Association."
+            }
+          ]
+        },
+        {
+          "title": "12. Modifications des conditions",
+          "subsections": [
+            {
+              "content": "Nous nous réservons le droit de modifier ces Conditions à tout moment. Si nous apportons des modifications importantes, nous vous en informerons en publiant les Conditions mises à jour sur cette page et en mettant à jour la date de \"Dernière mise à jour\". Votre utilisation continue des Services après toute modification constitue votre acceptation des nouvelles Conditions."
+            }
+          ]
+        },
+        {
+          "title": "13. Divisibilité",
+          "subsections": [
+            {
+              "content": "Si une disposition de ces Conditions est jugée invalide ou inapplicable, cette disposition sera supprimée et les dispositions restantes resteront pleinement en vigueur."
+            }
+          ]
+        },
+        {
+          "title": "14. Accord complet",
+          "subsections": [
+            {
+              "content": "Ces Conditions, ainsi que notre Politique de confidentialité et tout autre accord expressément incorporé par référence, constituent l'accord complet entre vous et E-SEOMAX concernant l'utilisation des Services."
+            }
+          ]
+        }
+      ],
+      "contact": {
+        "title": "15. Informations de contact",
+        "intro": "Si vous avez des questions sur ces Conditions, veuillez nous contacter :",
+        "company": "E-SEOMAX",
+        "email": "E-mail : legal@e-seomax.com",
+        "address": "Adresse : 123 Tech Innovation Drive, Suite 500, San Francisco, CA 94105, USA"
+      }
+    },
+    "cookiePolicy": {
+      "title": "Politique relative aux cookies",
+      "sections": [
+        {
+          "title": "1. Qu'est-ce que les cookies ?",
+          "subsections": [
+            {
+              "content": "Les cookies sont de petits fichiers texte qui sont placés sur votre ordinateur, smartphone ou autre appareil lorsque vous visitez un site Web. Ils sont largement utilisés pour faire fonctionner les sites Web plus efficacement, offrir une meilleure expérience utilisateur et fournir aux propriétaires de sites Web des informations sur la façon dont leur site est utilisé."
+            },
+            {
+              "content": "Les cookies peuvent être \"persistants\" ou \"de session\". Les cookies persistants restent sur votre appareil après avoir fermé votre navigateur, tandis que les cookies de session sont supprimés lorsque vous fermez votre navigateur."
+            }
+          ]
+        },
+        {
+          "title": "2. Comment nous utilisons les cookies",
+          "subsections": [
+            {
+              "content": "E-SEOMAX utilise des cookies et des technologies de suivi similaires pour :",
+              "list": [
+                "Assurer le bon fonctionnement de notre site Web",
+                "Mémoriser vos préférences et paramètres",
+                "Comprendre comment vous utilisez notre site Web",
+                "Améliorer nos services et l'expérience utilisateur",
+                "Diffuser des publicités pertinentes",
+                "Analyser le trafic et les performances du site Web",
+                "Protéger contre la fraude et améliorer la sécurité"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "3. Types de cookies que nous utilisons",
+          "subsections": [
+            {
+              "title": "3.1 Cookies essentiels",
+              "content": "Ces cookies sont nécessaires au fonctionnement du site Web et ne peuvent pas être désactivés dans nos systèmes. Ils ne sont généralement définis qu'en réponse à des actions que vous avez effectuées, telles que la définition de vos préférences de confidentialité, la connexion ou le remplissage de formulaires. Vous pouvez configurer votre navigateur pour bloquer ou vous alerter de ces cookies, mais certaines parties du site ne fonctionneront pas correctement.",
+              "table": {
+                "headers": ["Nom du cookie", "Objectif", "Durée"],
+                "rows": [
+                  ["cookie-consent", "Stocke vos préférences de consentement aux cookies", "1 an"],
+                  ["session_id", "Maintient l'état de votre session", "Session"],
+                  ["auth_token", "Authentification et sécurité", "7 jours"]
+                ]
+              }
+            },
+            {
+              "title": "3.2 Cookies de performance et d'analyse",
+              "content": "Ces cookies nous permettent de compter les visites et les sources de trafic afin que nous puissions mesurer et améliorer les performances de notre site. Ils nous aident à savoir quelles pages sont les plus et les moins populaires et à voir comment les visiteurs se déplacent sur le site. Toutes les informations collectées par ces cookies sont agrégées et donc anonymes.",
+              "table": {
+                "headers": ["Nom du cookie", "Fournisseur", "Objectif", "Durée"],
+                "rows": [
+                  ["_ga", "Google Analytics", "Distingue les utilisateurs uniques", "2 ans"],
+                  ["_gid", "Google Analytics", "Distingue les utilisateurs uniques", "24 heures"],
+                  ["_gat", "Google Analytics", "Limite le taux de requêtes", "1 minute"]
+                ]
+              }
+            },
+            {
+              "title": "3.3 Cookies publicitaires",
+              "content": "Ces cookies sont utilisés pour diffuser des publicités plus pertinentes pour vous et vos intérêts. Ils sont également utilisés pour limiter le nombre de fois que vous voyez une publicité et aider à mesurer l'efficacité des campagnes publicitaires. Ces cookies sont généralement placés par des réseaux publicitaires avec l'autorisation de l'opérateur du site Web."
+            },
+            {
+              "title": "Cookies Google AdSense",
+              "content": "Nous utilisons Google AdSense pour afficher des publicités sur notre site Web. Google AdSense utilise des cookies pour diffuser des annonces basées sur vos visites précédentes sur notre site Web et d'autres sites sur Internet.",
+              "table": {
+                "headers": ["Nom du cookie", "Fournisseur", "Objectif", "Durée"],
+                "rows": [
+                  ["__gads", "Google", "Diffusion et mesure des annonces", "2 ans"],
+                  ["__gpi", "Google", "Personnalisation des annonces", "2 ans"],
+                  ["IDE", "DoubleClick (Google)", "Reciblage, optimisation, reporting et attribution", "1 an"],
+                  ["DSID", "DoubleClick (Google)", "Identifie l'utilisateur connecté pour la personnalisation des annonces", "2 semaines"],
+                  ["NID", "Google", "Stocke les préférences des visiteurs et personnalise les annonces", "6 mois"],
+                  ["_gcl_au", "Google Ads", "Suivi des conversions", "90 jours"]
+                ]
+              }
+            },
+            {
+              "title": "3.4 Cookies de préférence",
+              "content": "Ces cookies permettent au site Web de fournir des fonctionnalités améliorées et une personnalisation. Ils peuvent être définis par nous ou par des fournisseurs tiers dont nous avons ajouté les services à nos pages."
+            }
+          ]
+        },
+        {
+          "title": "4. Cookies tiers",
+          "subsections": [
+            {
+              "content": "En plus des cookies que nous définissons, des tiers peuvent également définir des cookies lorsque vous visitez notre site Web. Ceux-ci incluent :",
+              "list": [
+                "<strong>Google :</strong> Services Analytics, AdSense, DoubleClick advertising",
+                "<strong>Plateformes de médias sociaux :</strong> Si vous utilisez des boutons de partage social, ces plateformes peuvent définir leurs propres cookies",
+                "<strong>Fournisseurs de contenu intégré :</strong> Les vidéos et autres contenus intégrés de tiers peuvent inclure des cookies"
+              ]
+            },
+            {
+              "content": "Nous ne contrôlons pas les cookies tiers. Veuillez vous référer à la politique de cookies du tiers respectif pour plus d'informations sur leurs pratiques."
+            }
+          ]
+        },
+        {
+          "title": "5. Gestion de vos préférences en matière de cookies",
+          "subsections": [
+            {
+              "title": "5.1 Bannière de consentement aux cookies",
+              "content": "Lorsque vous visitez notre site Web pour la première fois, vous verrez une bannière de consentement aux cookies qui vous permet d'accepter tous les cookies, de rejeter les cookies non essentiels ou de gérer vos préférences. Vous pouvez modifier vos préférences à tout moment en cliquant sur le lien \"Paramètres des cookies\" dans notre pied de page."
+            },
+            {
+              "title": "5.2 Paramètres du navigateur",
+              "content": "La plupart des navigateurs Web vous permettent de contrôler les cookies via leurs paramètres. Voici comment gérer les cookies dans les navigateurs courants :",
+              "list": [
+                "<strong>Google Chrome :</strong> Paramètres → Confidentialité et sécurité → Cookies et autres données de site",
+                "<strong>Mozilla Firefox :</strong> Options → Vie privée et sécurité → Cookies et données de site",
+                "<strong>Safari :</strong> Préférences → Confidentialité → Cookies et données de sites Web",
+                "<strong>Microsoft Edge :</strong> Paramètres → Autorisations de cookies et de site → Cookies et données de site"
+              ]
+            },
+            {
+              "title": "5.3 Désactivation de la publicité personnalisée",
+              "content": "Vous pouvez désactiver la publicité personnalisée en visitant :",
+              "list": [
+                "<a href=\"https://www.google.com/settings/ads\" class=\"text-primary hover:underline\" target=\"_blank\" rel=\"noopener noreferrer\">Paramètres des annonces Google</a>",
+                "<a href=\"https://www.aboutads.info/choices/\" class=\"text-primary hover:underline\" target=\"_blank\" rel=\"noopener noreferrer\">Digital Advertising Alliance (DAA)</a>",
+                "<a href=\"https://www.networkadvertising.org/choices/\" class=\"text-primary hover:underline\" target=\"_blank\" rel=\"noopener noreferrer\">Network Advertising Initiative (NAI)</a>",
+                "<a href=\"https://www.youronlinechoices.eu/\" class=\"text-primary hover:underline\" target=\"_blank\" rel=\"noopener noreferrer\">Your Online Choices (EU)</a>"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "6. Impact de la désactivation des cookies",
+          "subsections": [
+            {
+              "content": "Si vous choisissez de désactiver ou de bloquer certains cookies, certaines fonctionnalités de notre site Web peuvent ne pas fonctionner correctement. Par exemple :",
+              "list": [
+                "Vous devrez peut-être vous connecter à chaque visite",
+                "Vos préférences peuvent ne pas être mémorisées",
+                "Certaines fonctionnalités interactives peuvent ne pas fonctionner",
+                "Vous pouvez toujours voir des publicités, mais elles seront moins pertinentes pour vos intérêts"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "7. Mises à jour de cette politique relative aux cookies",
+          "subsections": [
+            {
+              "content": "Nous pouvons mettre à jour cette Politique relative aux cookies de temps à autre pour refléter les changements dans les cookies que nous utilisons ou pour d'autres raisons opérationnelles, juridiques ou réglementaires. Veuillez consulter cette page périodiquement pour les mises à jour. La date \"Dernière mise à jour\" en haut de cette page indique quand cette politique a été révisée pour la dernière fois."
+            }
+          ]
+        }
+      ],
+      "contact": {
+        "title": "8. Contactez-nous",
+        "intro": "Si vous avez des questions sur notre utilisation des cookies ou sur cette Politique relative aux cookies, veuillez nous contacter :",
+        "company": "E-SEOMAX",
+        "email": "E-mail : privacy@e-seomax.com",
+        "address": "Adresse : 123 Tech Innovation Drive, Suite 500, San Francisco, CA 94105, USA"
+      }
+    },
+    "disclaimer": {
+      "title": "Avertissement",
+      "importantNotice": {
+        "title": "Avis important",
+        "content": "Les informations et services fournis par E-SEOMAX sont à des fins d'information et d'éducation générales uniquement. Les résultats SEO varient considérablement en fonction de nombreux facteurs. Nous ne garantissons aucun classement spécifique, augmentation du trafic ou résultat commercial."
+      },
+      "sections": [
+        {
+          "title": "1. Avertissement général",
+          "paragraphs": [
+            "E-SEOMAX (\"nous\", \"notre\" ou \"nos\") fournit des outils d'analyse SEO alimentés par l'IA et du contenu éducatif via notre site Web e-seomax.com (le \"Site\"). Les informations, recommandations et analyses fournies par nos Services sont à des fins d'information générale uniquement et ne doivent pas être considérées comme des conseils professionnels.",
+            "Bien que nous nous efforcions de fournir des informations précises, à jour et utiles, nous ne faisons aucune déclaration ou garantie de quelque nature que ce soit, expresse ou implicite, concernant l'exhaustivité, l'exactitude, la fiabilité, la pertinence ou la disponibilité des informations, produits, services ou graphiques connexes contenus sur notre Site."
+          ]
+        },
+        {
+          "title": "2. Aucune garantie de résultats SEO",
+          "paragraphs": [
+            "<strong>E-SEOMAX ne garantit aucun résultat SEO spécifique, classement dans les moteurs de recherche, augmentation du trafic ou résultat commercial.</strong> L'optimisation pour les moteurs de recherche est un domaine complexe et dynamique affecté par de nombreux facteurs indépendants de notre volonté, y compris, mais sans s'y limiter :"
+          ],
+          "list": [
+            "Modifications et mises à jour des algorithmes des moteurs de recherche (Google, Bing, etc.)",
+            "Activités des concurrents et conditions du marché",
+            "Qualité et mise en œuvre des modifications recommandées",
+            "Infrastructure technique et hébergement du site Web",
+            "Qualité et pertinence du contenu",
+            "Profil de backlinks et autorité du domaine",
+            "Expérience utilisateur et métriques d'engagement",
+            "Facteurs de classement spécifiques à l'industrie",
+            "Ciblage géographique et démographique"
+          ]
+        },
+        {
+          "title": "2. Aucune garantie de résultats SEO",
+          "paragraphs": [
+            "Les performances passées des stratégies SEO ne garantissent pas les résultats futurs. Les classements peuvent fluctuer considérablement au fil du temps, et atteindre les premières positions dans les résultats de recherche nécessite des efforts continus et une adaptation aux conditions changeantes."
+          ]
+        },
+        {
+          "title": "3. Avertissement sur l'outil d'analyse",
+          "paragraphs": [
+            "Nos outils d'analyse SEO utilisent des algorithmes et l'intelligence artificielle pour évaluer les sites Web et fournir des recommandations. Bien que nous améliorions continuellement notre technologie, les résultats de l'analyse :"
+          ],
+          "list": [
+            "Sont basés sur des informations accessibles au public et les meilleures pratiques de l'industrie",
+            "Peuvent ne pas capturer tous les aspects de votre situation spécifique",
+            "Doivent être vérifiés et validés avant la mise en œuvre",
+            "Ne remplacent pas une consultation SEO professionnelle",
+            "Peuvent ne pas refléter les directives les plus récentes des moteurs de recherche"
+          ]
+        },
+        {
+          "title": "3. Avertissement sur l'outil d'analyse",
+          "paragraphs": [
+            "Les scores, notes et métriques fournis sont des mesures relatives conçues pour vous aider à comprendre les domaines à améliorer. Ils ne doivent pas être interprétés comme des indicateurs absolus de succès ou d'échec."
+          ]
+        },
+        {
+          "title": "4. Avertissement sur les conseils professionnels",
+          "paragraphs": [
+            "Le contenu et les services fournis par E-SEOMAX ne constituent pas des conseils professionnels. Notre analyse SEO et nos recommandations ne sont pas destinées à remplacer :"
+          ],
+          "list": [
+            "La consultation avec des professionnels SEO qualifiés ou des agences de marketing numérique",
+            "Les conseils juridiques concernant la conformité du site Web, la confidentialité ou la propriété intellectuelle",
+            "Les conseils commerciaux ou financiers concernant les investissements marketing",
+            "Les conseils techniques des développeurs Web ou des professionnels de l'informatique"
+          ]
+        },
+        {
+          "title": "4. Avertissement sur les conseils professionnels",
+          "paragraphs": [
+            "Pour les projets SEO complexes ou les sites Web avec un trafic et des revenus importants, nous recommandons de consulter des professionnels expérimentés qui peuvent évaluer vos besoins et circonstances spécifiques."
+          ]
+        },
+        {
+          "title": "5. Contenu et liens de tiers",
+          "paragraphs": [
+            "Notre Site peut contenir des liens vers des sites Web, ressources ou services externes qui ne sont pas détenus ou contrôlés par E-SEOMAX. Nous ne sommes pas responsables de :"
+          ],
+          "list": [
+            "Le contenu, l'exactitude ou les opinions exprimées sur les sites Web de tiers",
+            "Les pratiques de confidentialité ou la sécurité des sites tiers",
+            "Les produits ou services offerts par des tiers",
+            "Tout dommage ou perte subi lors d'interactions avec des tiers"
+          ]
+        },
+        {
+          "title": "5. Contenu et liens de tiers",
+          "paragraphs": [
+            "L'inclusion de tout lien n'implique pas l'approbation ou l'affiliation avec le site lié. Nous vous encourageons à lire les conditions générales et les politiques de confidentialité de tous les sites Web tiers que vous visitez."
+          ]
+        },
+        {
+          "title": "6. Avertissement sur le contenu éducatif",
+          "paragraphs": [
+            "Les articles de blog, guides, tutoriels et autres contenus éducatifs de notre Site sont fournis à des fins d'information uniquement. Ce contenu :"
+          ],
+          "list": [
+            "Représente notre compréhension et notre interprétation des meilleures pratiques SEO",
+            "Peut devenir obsolète au fur et à mesure que les moteurs de recherche mettent à jour leurs algorithmes",
+            "Doit être adapté à vos circonstances et objectifs spécifiques",
+            "N'est pas adapté à la situation spécifique d'un individu"
+          ]
+        },
+        {
+          "title": "6. Avertissement sur le contenu éducatif",
+          "paragraphs": [
+            "Les stratégies et les meilleures pratiques SEO évoluent constamment. Ce qui fonctionne aujourd'hui peut ne pas fonctionner demain, et ce qui fonctionne pour un site Web peut ne pas fonctionner pour un autre."
+          ]
+        },
+        {
+          "title": "7. Témoignages et études de cas",
+          "paragraphs": [
+            "Tout témoignage, étude de cas, exemple ou histoire de réussite présenté sur notre Site représente des expériences individuelles et n'est pas destiné à représenter ou garantir que les utilisateurs actuels ou futurs obtiendront les mêmes résultats ou des résultats similaires.",
+            "Les résultats mentionnés dans les témoignages ou les études de cas ne sont pas typiques et vos résultats varieront en fonction de nombreux facteurs, y compris, mais sans s'y limiter, vos efforts, votre expérience et les conditions du marché. Certains témoignages ou exemples peuvent être des illustrations composites basées sur des expériences utilisateur typiques."
+          ]
+        },
+        {
+          "title": "8. Exactitude des informations",
+          "paragraphs": [
+            "Bien que nous nous efforcions de maintenir les informations de notre Site précises et à jour, nous ne faisons aucune déclaration, garantie ou assurance concernant l'exactitude, l'exhaustivité ou l'actualité de toute information. L'industrie du SEO est dynamique et les moteurs de recherche mettent fréquemment à jour leurs algorithmes et directives sans préavis.",
+            "Les utilisateurs doivent vérifier de manière indépendante toute information critique avant de prendre des décisions basées sur le contenu trouvé sur notre Site."
+          ]
+        },
+        {
+          "title": "9. Limitation de responsabilité",
+          "paragraphs": [
+            "Dans toute la mesure permise par la loi applicable, E-SEOMAX et ses affiliés, directeurs, employés, agents et concédants de licence ne seront pas responsables de tout dommage direct, indirect, accessoire, spécial, consécutif ou punitif, y compris, mais sans s'y limiter :"
+          ],
+          "list": [
+            "Perte de profits, de revenus ou d'opportunités commerciales",
+            "Perte de données ou de trafic sur le site Web",
+            "Pénalités des moteurs de recherche ou pertes de classement",
+            "Dommages à la réputation ou à la bonne volonté",
+            "Tout autre dommage ou perte commerciale"
+          ]
+        },
+        {
+          "title": "9. Limitation de responsabilité",
+          "paragraphs": [
+            "Cette limitation s'applique quelle que soit la théorie de la responsabilité (contrat, délit, responsabilité stricte ou autre) et même si nous avons été informés de la possibilité de tels dommages."
+          ]
+        },
+        {
+          "title": "10. Responsabilité de l'utilisateur",
+          "paragraphs": [
+            "En utilisant nos Services, vous reconnaissez que vous êtes seul responsable de :"
+          ],
+          "list": [
+            "L'évaluation de l'adéquation de toute recommandation à votre situation",
+            "La mise en œuvre correcte des modifications SEO et le test de leur impact",
+            "Le maintien de sauvegardes de votre site Web avant d'apporter des modifications",
+            "La conformité aux directives et politiques des moteurs de recherche",
+            "La surveillance des performances et des classements de votre site Web",
+            "La recherche d'assistance professionnelle en cas de besoin"
+          ]
+        },
+        {
+          "title": "11. Divulgation d'affiliation",
+          "paragraphs": [
+            "Certains liens sur notre Site peuvent être des liens d'affiliation, ce qui signifie que nous pouvons gagner une commission si vous effectuez un achat via ces liens sans frais supplémentaires pour vous. Cela n'affecte pas notre intégrité éditoriale ou l'objectivité de nos recommandations. Nous ne recommandons que des produits et services que nous pensons apporter de la valeur à nos utilisateurs."
+          ]
+        },
+        {
+          "title": "12. Modifications de cet avertissement",
+          "paragraphs": [
+            "Nous nous réservons le droit de modifier cet Avertissement à tout moment. Les modifications seront effectives immédiatement lors de leur publication sur cette page avec une date de \"Dernière mise à jour\" mise à jour. Votre utilisation continue de nos Services après toute modification constitue l'acceptation de l'Avertissement modifié."
+          ]
+        }
+      ],
+      "contact": {
+        "title": "13. Contactez-nous",
+        "intro": "Si vous avez des questions concernant cet Avertissement, veuillez nous contacter :",
+        "company": "E-SEOMAX",
+        "email": "E-mail : legal@e-seomax.com",
+        "address": "Adresse : 123 Tech Innovation Drive, Suite 500, San Francisco, CA 94105, USA"
       }
     }
   }

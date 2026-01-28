@@ -11,8 +11,7 @@ const Footer = () => {
   const footerLinks = {
     product: [
       { label: t('common.footer.product'), href: '/#features' },
-      { label: t('common.footer.howItWorks'), href: '/how-it-works' },
-      { label: t('common.footer.pricing'), href: '/#pricing' }
+      { label: t('common.footer.howItWorks'), href: '/how-it-works' }
     ],
     company: [
       { label: t('common.nav.about'), href: '/about' },
