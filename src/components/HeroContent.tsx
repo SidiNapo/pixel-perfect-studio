@@ -17,7 +17,9 @@ export default function HeroContent() {
           transition={{ duration: 0.7, delay: 0.4 }}
           className="text-5xl md:text-6xl lg:text-[72px] font-extrabold text-foreground leading-[1.08] tracking-[-0.02em] mb-6"
         >
-          {t('common.hero.title')}
+          {t('hero.title')}
+          <br />
+          {t('hero.titleLine2')}
         </motion.h1>
         
         <motion.p
@@ -26,7 +28,7 @@ export default function HeroContent() {
           transition={{ duration: 0.7, delay: 0.6 }}
           className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-10 max-w-xl"
         >
-          {t('common.hero.subtitle')}
+          {t('hero.description')}
         </motion.p>
         
         <motion.div

@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { Lightbulb, ChevronDown, ChevronUp } from 'lucide-react';
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { SEORecommendation } from './types';
 
 interface SEORecommendationsCardProps {
@@ -11,7 +10,6 @@ interface SEORecommendationsCardProps {
 
 export default function SEORecommendationsCard({ recommendations, delay = 0 }: SEORecommendationsCardProps) {
   const [expandedRec, setExpandedRec] = useState<string | null>(null);
-  const { t } = useTranslation();
 
   const toggleExpand = (id: string) => {
     setExpandedRec(expandedRec === id ? null : id);
@@ -28,7 +26,7 @@ export default function SEORecommendationsCard({ recommendations, delay = 0 }: S
         <div className="p-2 rounded-lg bg-gradient-to-br from-yellow-500/20 to-amber-500/20">
           <Lightbulb className="w-5 h-5 text-yellow-400" />
         </div>
-        <h3 className="text-lg font-semibold text-foreground">{t('reports.recommendations')}</h3>
+        <h3 className="text-lg font-semibold text-foreground">Recommendations</h3>
         <span className="ml-auto px-2 py-0.5 text-xs font-medium rounded-full bg-yellow-500/20 text-yellow-400">
           {recommendations.length}
         </span>
@@ -37,7 +35,7 @@ export default function SEORecommendationsCard({ recommendations, delay = 0 }: S
       <div className="space-y-3 max-h-[400px] overflow-y-auto pr-2">
         {recommendations.length === 0 ? (
           <p className="text-sm text-muted-foreground text-center py-4">
-            {t('seoResults.noRecommendations')}
+            No additional recommendations. Your page is well-optimized! ✨
           </p>
         ) : (
           recommendations.map((rec, index) => (
@@ -76,7 +74,7 @@ export default function SEORecommendationsCard({ recommendations, delay = 0 }: S
                   {rec.example && (
                     <div className="p-2 rounded bg-purple-500/10 border border-purple-500/20">
                       <p className="text-xs text-purple-300">
-                        <span className="font-medium">{t('common.learnMore')}: </span>
+                        <span className="font-medium">Example: </span>
                         {rec.example}
                       </p>
                     </div>

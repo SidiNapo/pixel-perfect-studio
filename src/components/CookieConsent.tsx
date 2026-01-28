@@ -4,7 +4,6 @@ import { Cookie, X, Settings } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import CookiePreferences from './CookiePreferences';
 import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 
 export interface CookieConsentState {
   necessary: boolean;
@@ -22,7 +21,6 @@ const defaultConsent: CookieConsentState = {
 };
 
 const CookieConsent = () => {
-  const { t } = useTranslation();
   const [showBanner, setShowBanner] = useState(false);
   const [showPreferences, setShowPreferences] = useState(false);
   const [consent, setConsent] = useState<CookieConsentState>(defaultConsent);
@@ -101,14 +99,14 @@ const CookieConsent = () => {
                       <div className="p-2 bg-primary/10 rounded-lg">
                         <Cookie className="w-6 h-6 text-primary" />
                       </div>
-                      <h3 className="text-lg font-semibold text-foreground">{t('cookies.banner.title')}</h3>
+                      <h3 className="text-lg font-semibold text-foreground">We Value Your Privacy</h3>
                     </div>
                     <p className="text-muted-foreground text-sm leading-relaxed">
-                      {t('cookies.banner.description')}{' '}
-                      <Link to="/cookie-policy" className="text-primary hover:underline">{t('cookies.banner.cookiePolicy')}</Link>{' '}
-                      {t('cookies.banner.and')}{' '}
-                      <Link to="/privacy-policy" className="text-primary hover:underline">{t('cookies.banner.privacyPolicy')}</Link>{' '}
-                      {t('cookies.banner.learnMore')}.
+                      We use cookies to enhance your browsing experience, serve personalized ads or content through Google AdSense, 
+                      and analyze our traffic. By clicking "Accept All", you consent to our use of cookies. 
+                      You can manage your preferences or reject non-essential cookies. 
+                      Read our <Link to="/cookie-policy" className="text-primary hover:underline">Cookie Policy</Link> and{' '}
+                      <Link to="/privacy-policy" className="text-primary hover:underline">Privacy Policy</Link> to learn more.
                     </p>
                   </div>
 
@@ -118,14 +116,14 @@ const CookieConsent = () => {
                       onClick={acceptAll}
                       className="bg-primary text-primary-foreground hover:bg-primary/90"
                     >
-                      {t('cookies.actions.acceptAll')}
+                      Accept All
                     </Button>
                     <Button
                       onClick={rejectNonEssential}
                       variant="outline"
                       className="border-border"
                     >
-                      {t('cookies.actions.rejectNonEssential')}
+                      Reject Non-Essential
                     </Button>
                     <Button
                       onClick={() => setShowPreferences(true)}
@@ -133,7 +131,7 @@ const CookieConsent = () => {
                       className="flex items-center gap-2"
                     >
                       <Settings className="w-4 h-4" />
-                      {t('cookies.actions.managePreferences')}
+                      Manage Preferences
                     </Button>
                   </div>
                 </div>

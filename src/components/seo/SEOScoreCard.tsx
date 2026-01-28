@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 
 interface SEOScoreCardProps {
   score: number;
@@ -9,18 +8,11 @@ interface SEOScoreCardProps {
 
 export default function SEOScoreCard({ score, delay = 0 }: SEOScoreCardProps) {
   const [displayScore, setDisplayScore] = useState(0);
-  const { t } = useTranslation();
   
   const getScoreColor = (value: number) => {
     if (value <= 40) return '#ef4444';
     if (value <= 70) return '#f59e0b';
     return '#10b981';
-  };
-
-  const getScoreDescription = (value: number) => {
-    if (value > 70) return t('seoResults.excellent');
-    if (value > 40) return t('seoResults.good');
-    return t('seoResults.needsWork');
   };
 
   const circumference = 2 * Math.PI * 45;
@@ -94,9 +86,9 @@ export default function SEOScoreCard({ score, delay = 0 }: SEOScoreCardProps) {
           </div>
         </div>
         
-        <h3 className="mt-4 text-lg font-semibold text-foreground">{t('analyzer.overallScore')}</h3>
+        <h3 className="mt-4 text-lg font-semibold text-foreground">Overall SEO Score</h3>
         <p className="text-sm text-muted-foreground mt-1">
-          {getScoreDescription(score)}
+          {score > 70 ? 'Great job!' : score > 40 ? 'Room for improvement' : 'Needs attention'}
         </p>
       </div>
     </motion.div>

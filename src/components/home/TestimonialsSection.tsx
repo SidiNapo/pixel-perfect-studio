@@ -1,17 +1,32 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { ChevronLeft, ChevronRight, Quote, Star } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
-interface Testimonial {
-  name: string;
-  role: string;
-  content: string;
-  rating?: number;
-}
-
+const testimonials = [{
+  name: "Jennifer Morrison",
+  role: "CMO at TechFlow Inc.",
+  image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face",
+  content: "E-SEOMAX completely transformed our organic traffic strategy. Within 3 months, we saw a 340% increase in qualified leads. The AI recommendations are incredibly accurate.",
+  rating: 5
+}, {
+  name: "Michael Chang",
+  role: "Founder of Growth Labs",
+  image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
+  content: "As an agency owner, I've tried every SEO tool on the market. Nothing comes close to the depth of analysis E-SEOMAX provides. It's become indispensable for our client work.",
+  rating: 5
+}, {
+  name: "Sarah Williams",
+  role: "SEO Director at Retail Giant",
+  image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
+  content: "The competitor analysis feature alone is worth 10x the subscription. We discovered content gaps that generated $2M in additional revenue last quarter.",
+  rating: 5
+}, {
+  name: "David Park",
+  role: "VP Marketing at SaaS Co",
+  image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face",
+  content: "From technical audits to content optimization, E-SEOMAX handles it all. Our team productivity increased by 60% after switching from our previous tool.",
+  rating: 5
+}];
 const TestimonialsSection = () => {
-  const { t } = useTranslation();
-  const testimonials = t('testimonials.items', { returnObjects: true }) as Testimonial[];
   const [currentIndex, setCurrentIndex] = useState(0);
   const nextTestimonial = () => {
     setCurrentIndex(prev => (prev + 1) % testimonials.length);
@@ -35,13 +50,13 @@ const TestimonialsSection = () => {
         duration: 0.6
       }} className="text-center mb-16">
           <span className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
-            {t('testimonials.badge')}
+            Success Stories
           </span>
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
-            {t('testimonials.subtitle')}
+            Loved by <span className="text-primary">10,000+</span> SEO Professionals
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            {t('testimonials.description')}
+            Join thousands of marketers who have transformed their organic growth with E-SEOMAX.
           </p>
         </motion.div>
 
@@ -65,7 +80,7 @@ const TestimonialsSection = () => {
             
             <div className="flex-1 text-center md:text-left">
               <div className="flex items-center justify-center md:justify-start gap-1 mb-4">
-                {[...Array(testimonials[currentIndex].rating ?? 5)].map((_, i) => (
+                {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
                   <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
                 ))}
               </div>

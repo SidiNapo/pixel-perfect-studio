@@ -94,16 +94,10 @@ const handler = async (req: Request): Promise<Response> => {
       JSON.stringify({ success: true, message: "Message sent successfully!" }),
       { status: 200, headers: { "Content-Type": "application/json", ...corsHeaders } }
     );
-  } catch (error: unknown) {
+  } catch (error: any) {
     console.error("Error:", error);
-    const message =
-      error instanceof Error
-        ? error.message
-        : typeof error === 'object' && error !== null && 'message' in error
-          ? String((error as { message: unknown }).message)
-          : "Failed to send message";
     return new Response(
-      JSON.stringify({ error: message }),
+      JSON.stringify({ error: error.message || "Failed to send message" }),
       { status: 500, headers: { "Content-Type": "application/json", ...corsHeaders } }
     );
   }

@@ -6,51 +6,10 @@
     "contact": "Contact"
   },
   "hero": {
-    "title": "Le SEO plus intelligent commence ici",
-    "subtitle": "Élevez la visibilité de votre site avec l'IA",
-    "placeholder": "Entrez l'URL du site web"
-  },
-  "analyzer": {
-    "technicalSeo": "SEO Technique",
-    "onPageSeo": "SEO On-Page",
-    "contentAnalysis": "Analyse du Contenu",
-    "overallScore": "Score Global"
-  },
-  "metrics": {
-    "pageLoadSpeed": "Vitesse de chargement",
-    "mobileFriendly": "Mobile-Friendly",
-    "httpsStatus": "Statut HTTPS",
-    "robotsTxt": "Robots.txt",
-    "sitemapXml": "Sitemap.xml",
-    "titleTag": "Balise Title",
-    "metaDescription": "Meta Description",
-    "h1Tags": "Balises H1",
-    "imagesMissingAlt": "Images sans Alt",
-    "internalLinks": "Liens internes",
-    "wordCount": "Nombre de mots",
-    "keywordDensity": "Densité de mots-clés",
-    "readabilityScore": "Score de lisibilité"
-  },
-  "status": {
-    "secure": "Sécurisé",
-    "found": "Trouvé",
-    "notFound": "Non trouvé",
-    "responsive": "Responsive",
-    "good": "Bon",
-    "fair": "Moyen",
-    "poor": "Mauvais",
-    "needsAttention": "Nécessite une attention",
-    "roomForImprovement": "Possibilité d'amélioration"
-  },
-  "reports": {
-    "issuesFound": "Problèmes trouvés",
-    "recommendations": "Recommandations",
-    "highPriority": "Priorité haute",
-    "mediumPriority": "Priorité moyenne",
-    "lowPriority": "Priorité basse",
-    "addMetaDescriptions": "Ajouter des meta descriptions",
-    "optimizeImages": "Optimiser les images",
-    "fixBrokenLinks": "Réparer les liens brisés"
+    "badge": "Analyse SEO propulsée par l'IA",
+    "title": "Le SEO plus intelligent",
+    "titleLine2": "commence ici.",
+    "description": "Améliorez la visibilité de votre site sans effort grâce à l'IA, où la technologie intelligente rencontre des outils SEO conviviaux."
   },
   "seoAnalyzer": {
     "placeholder": "Entrez l'URL de votre site (ex: https://exemple.com)",
@@ -72,7 +31,6 @@
     "good": "Bon. Quelques améliorations mineures nécessaires.",
     "needsWork": "À améliorer. Consultez les recommandations.",
     "poor": "Nécessite une optimisation significative.",
-    "noIssues": "Aucun problème trouvé ! Excellent travail ! 🎉",
     "technicalSeo": "SEO Technique",
     "onPageSeo": "SEO On-Page",
     "contentAnalysis": "Analyse du Contenu",
@@ -80,7 +38,6 @@
     "issuesFound": "Problèmes Trouvés",
     "recommendations": "Recommandations",
     "scoreBreakdown": "Détail du Score",
-    "noRecommendations": "Aucune recommandation supplémentaire. Votre page est bien optimisée ! ✨",
     "points": "points",
     "metrics": {
       "httpsStatus": "Statut HTTPS",
@@ -110,37 +67,7 @@
   },
   "features": {
     "title": "Fonctionnalités Puissantes",
-    "subtitle": "Tout ce dont vous avez besoin pour dominer les classements",
-    "badge": "Fonctionnalités Puissantes",
-    "mainTitle": "Tout ce dont vous avez besoin pour",
-    "mainTitleHighlight": "Dominer la recherche",
-    "description": "Notre suite complète d'outils alimentés par l'IA vous donne un avantage déloyal dans le monde compétitif de l'optimisation pour les moteurs de recherche.",
-    "items": {
-      "aiAnalysis": {
-        "title": "Analyse IA",
-        "description": "Nos algorithmes propriétaires d'apprentissage automatique analysent plus de 50 000 facteurs de classement en temps réel, découvrant des opportunités cachées que vos concurrents manquent."
-      },
-      "rankTracking": {
-        "title": "Suivi des classements",
-        "description": "Surveillez vos positions sur plus de 100 moteurs de recherche avec des mises à jour horaires. Recevez des alertes instantanées lorsque les classements changent significativement."
-      },
-      "competitorSpying": {
-        "title": "Espionnage des concurrents",
-        "description": "Ingénierie inverse des stratégies SEO de vos concurrents. Voyez leurs backlinks, mots-clés et lacunes de contenu dans les moindres détails."
-      },
-      "lightningFast": {
-        "title": "Ultra rapide",
-        "description": "Analysez n'importe quel site web en moins de 3 secondes. Notre infrastructure distribuée traite des millions de pages quotidiennement sans transpirer."
-      },
-      "securityFirst": {
-        "title": "Sécurité d'abord",
-        "description": "Sécurité de niveau entreprise avec conformité SOC 2. Vos données sont chiffrées au repos et en transit sans aucun compromis."
-      },
-      "smartReports": {
-        "title": "Rapports intelligents",
-        "description": "Rapports en marque blanche qui impressionnent les clients. Planification automatisée, branding personnalisé et insights actionnables dans chaque export."
-      }
-    }
+    "subtitle": "Tout ce dont vous avez besoin pour dominer les classements"
   },
   "pricing": {
     "title": "Tarification Simple",
@@ -150,129 +77,11 @@
     "title": "Ce Que Disent Nos Utilisateurs",
     "subtitle": "Rejoignez des milliers de clients satisfaits"
   },
-  "pricing": {
-    "title": "Plans Tarifaires",
-    "subtitle": "Choisissez Votre Plan de Croissance",
-    "description": "Tarification flexible qui évolue avec votre entreprise. Commencez gratuitement, mettez à niveau quand vous êtes prêt.",
-    "badge": "Plans Tarifaires",
-    "plans": {
-      "starter": {
-        "name": "Débutant",
-        "price": "49",
-        "description": "Parfait pour les freelances et petits sites web",
-        "features": [
-          "500 pages analysées/mois",
-          "10 suivis de concurrents",
-          "Suivi de classement basique",
-          "Rapports par email",
-          "Support communautaire"
-        ],
-        "cta": "Commencer l'Essai Gratuit"
-      },
-      "professional": {
-        "name": "Professionnel",
-        "price": "149",
-        "description": "Pour les entreprises en croissance et agences",
-        "features": [
-          "5 000 pages analysées/mois",
-          "50 suivis de concurrents",
-          "Recommandations IA avancées",
-          "Rapports en marque blanche",
-          "Accès API",
-          "Support prioritaire",
-          "Tableaux de bord personnalisés"
-        ],
-        "cta": "Commencer l'Essai Gratuit",
-        "popular": "Le Plus Populaire"
-      },
-      "enterprise": {
-        "name": "Entreprise",
-        "price": "Personnalisé",
-        "description": "Pour les grandes équipes avec besoins complexes",
-        "features": [
-          "Analyse de pages illimitée",
-          "Concurrents illimités",
-          "Formation IA personnalisée",
-          "Gestionnaire de compte dédié",
-          "Garantie SLA",
-          "SSO et sécurité avancée",
-          "Intégrations personnalisées",
-          "Déploiement sur site"
-        ],
-        "cta": "Contacter les Ventes"
-      }
-    },
-    "perMonth": "/mois"
-  },
   "footer": {
     "company": "Entreprise",
     "legal": "Mentions légales",
     "resources": "Ressources",
-    "product": "Produit",
-    "howItWorks": "Comment ça marche",
-    "pricing": "Tarification",
-    "faq": "FAQ",
-    "privacy": "Confidentialité",
-    "terms": "Conditions",
-    "cookies": "Cookies",
-    "disclaimer": "Avis de non-responsabilité",
-    "description": "La plateforme SEO la plus avancée alimentée par l'IA. Analysez, optimisez et dominez les résultats de recherche.",
     "copyright": "© {{year}} E-SEOMAX. Tous droits réservés."
-  },
-  "testimonials": {
-    "title": "Histoires de Réussite",
-    "subtitle": "Aimé par Plus de 10 000 Professionnels SEO",
-    "description": "Rejoignez des milliers de marketeurs qui ont transformé leur croissance organique avec E-SEOMAX.",
-    "badge": "Histoires de Réussite",
-    "items": [
-      {
-        "name": "Jennifer Morrison",
-        "role": "CMO chez TechFlow Inc.",
-        "content": "E-SEOMAX a complètement transformé notre stratégie de trafic organique. En 3 mois, nous avons vu une augmentation de 340% des leads qualifiés. Les recommandations IA sont incroyablement précises."
-      },
-      {
-        "name": "Michael Chang",
-        "role": "Fondateur de Growth Labs",
-        "content": "En tant que propriétaire d'agence, j'ai essayé tous les outils SEO sur le marché. Rien n'approche la profondeur d'analyse qu'E-SEOMAX fournit. C'est devenu indispensable pour notre travail client."
-      },
-      {
-        "name": "Sarah Williams",
-        "role": "Directrice SEO chez Retail Giant",
-        "content": "La fonctionnalité d'analyse des concurrents seule vaut 10x l'abonnement. Nous avons découvert des lacunes de contenu qui ont généré 2M$ de revenus supplémentaires le trimestre dernier."
-      },
-      {
-        "name": "David Park",
-        "role": "VP Marketing chez SaaS Co",
-        "content": "Des audits techniques à l'optimisation de contenu, E-SEOMAX gère tout. La productivité de notre équipe a augmenté de 60% après avoir changé de notre outil précédent."
-      }
-    ]
-  },
-  "blog": {
-    "badge": "Contenu",
-    "title": "Le blog",
-    "titleHighlight": "E-SEOMAX",
-    "description": "Gardez une longueur d’avance avec des analyses d’experts, des tendances du secteur et des stratégies SEO actionnables partagées par notre équipe.",
-    "emptyTitle": "Aucun article pour le moment",
-    "emptyDescription": "Nous préparons du contenu de qualité. Revenez bientôt pour découvrir les dernières analyses et stratégies SEO.",
-    "readMore": "Lire la suite",
-    "backToBlog": "Retour au blog",
-    "notFoundTitle": "Article introuvable",
-    "notFoundDescription": "L’article que vous cherchez n’existe pas ou a été supprimé."
-  },
-  "cookies": {
-    "banner": {
-      "title": "Nous utilisons des cookies",
-      "description": "Nous utilisons des cookies pour améliorer votre expérience et analyser notre trafic.",
-      "cookiePolicy": "Politique relative aux cookies",
-      "privacyPolicy": "Politique de confidentialité",
-      "and": "et",
-      "learnMore": "En savoir plus"
-    },
-    "actions": {
-      "acceptAll": "Tout accepter",
-      "rejectNonEssential": "Refuser le non essentiel",
-      "managePreferences": "Gérer les préférences"
-    }
   },
   "common": {
     "learnMore": "En savoir plus",

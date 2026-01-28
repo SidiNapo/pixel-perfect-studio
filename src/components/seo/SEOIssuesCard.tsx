@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { AlertTriangle, ChevronDown, ChevronUp } from 'lucide-react';
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { SEOIssue } from './types';
 
 interface SEOIssuesCardProps {
@@ -11,7 +10,6 @@ interface SEOIssuesCardProps {
 
 export default function SEOIssuesCard({ issues, delay = 0 }: SEOIssuesCardProps) {
   const [expandedIssue, setExpandedIssue] = useState<string | null>(null);
-  const { t } = useTranslation();
 
   const getSeverityColor = (severity: SEOIssue['severity']) => {
     switch (severity) {
@@ -36,7 +34,7 @@ export default function SEOIssuesCard({ issues, delay = 0 }: SEOIssuesCardProps)
         <div className="p-2 rounded-lg bg-gradient-to-br from-red-500/20 to-orange-500/20">
           <AlertTriangle className="w-5 h-5 text-orange-400" />
         </div>
-        <h3 className="text-lg font-semibold text-foreground">{t('reports.issuesFound')}</h3>
+        <h3 className="text-lg font-semibold text-foreground">Issues Found</h3>
         <span className="ml-auto px-2 py-0.5 text-xs font-medium rounded-full bg-red-500/20 text-red-400">
           {issues.length}
         </span>
@@ -45,7 +43,7 @@ export default function SEOIssuesCard({ issues, delay = 0 }: SEOIssuesCardProps)
       <div className="space-y-3 max-h-[400px] overflow-y-auto pr-2">
         {issues.length === 0 ? (
           <p className="text-sm text-muted-foreground text-center py-4">
-            {t('seoResults.noIssues')}
+            No issues found! Great job! 🎉
           </p>
         ) : (
           issues.map((issue, index) => (
@@ -81,13 +79,13 @@ export default function SEOIssuesCard({ issues, delay = 0 }: SEOIssuesCardProps)
                   <p className="text-xs text-muted-foreground">{issue.description}</p>
                   <div className="p-2 rounded bg-white/5 border border-white/10">
                     <p className="text-xs text-muted-foreground">
-                      <span className="text-purple-400 font-medium">{t('common.learnMore')}: </span>
+                      <span className="text-purple-400 font-medium">Evidence: </span>
                       {issue.evidence}
                     </p>
                   </div>
                   <div className="p-2 rounded bg-green-500/10 border border-green-500/20">
                     <p className="text-xs text-green-400">
-                      <span className="font-medium">{t('common.getStarted')}: </span>
+                      <span className="font-medium">How to fix: </span>
                       {issue.fix}
                     </p>
                   </div>

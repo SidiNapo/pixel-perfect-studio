@@ -1,65 +1,16 @@
-# E-SEOMAX Robots.txt
-# Morocco's #1 AI-Powered SEO Platform
-# https://e-seomax.com
-
-# Allow all major search engine bots
 User-agent: Googlebot
-Allow: /
-Crawl-delay: 1
-
-User-agent: Googlebot-Image
-Allow: /
-
-User-agent: Googlebot-Mobile
 Allow: /
 
 User-agent: Bingbot
 Allow: /
-Crawl-delay: 2
 
-User-agent: Slurp
-Allow: /
-
-User-agent: DuckDuckBot
-Allow: /
-
-User-agent: Baiduspider
-Allow: /
-
-User-agent: YandexBot
-Allow: /
-
-# Social media bots
 User-agent: Twitterbot
 Allow: /
 
 User-agent: facebookexternalhit
 Allow: /
 
-User-agent: LinkedInBot
-Allow: /
-
-User-agent: WhatsApp
-Allow: /
-
-# General rule for all other bots
 User-agent: *
 Allow: /
 
-# Disallow admin and private areas
-Disallow: /admin/
-Disallow: /api/
-Disallow: /*.json$
-
-# Allow important resources
-Allow: /sitemap.xml
-Allow: /favicon.ico
-Allow: /favicon.png
-Allow: /*.css
-Allow: /*.js
-
-# Sitemap location
 Sitemap: https://e-seomax.com/sitemap.xml
-
-# Host directive for search engines
-Host: https://e-seomax.com
