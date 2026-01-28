@@ -198,6 +198,150 @@
     "learnMore": "En savoir plus",
     "getStarted": "Commencer",
     "submit": "Envoyer",
-    "loading": "Chargement..."
+    "loading": "Chargement...",
+    "legal": {
+      "lastUpdatedLine": "Dernière mise à jour : {{date}}"
+    },
+    "terms": {
+      "title": "Conditions d'utilisation",
+      "lastUpdatedDate": "15 janvier 2026",
+      "section1": {
+        "title": "1. Acceptation des conditions",
+        "p1": "Bienvenue sur E-SEOMAX. Les présentes Conditions d'utilisation (« Conditions ») régissent votre accès et votre utilisation du site Web E-SEOMAX situé à e-seomax.com (le « Site ») ainsi que tous les services, fonctionnalités, contenus et applications connexes proposés par E-SEOMAX (collectivement, les « Services »).",
+        "p2": "En accédant ou en utilisant nos Services, vous acceptez d'être lié par ces Conditions. Si vous n'acceptez pas ces Conditions, vous ne pouvez pas accéder ou utiliser les Services. Ces Conditions constituent un accord juridiquement contraignant entre vous et E-SEOMAX."
+      },
+      "section2": {
+        "title": "2. Description des services",
+        "intro": "E-SEOMAX fournit des outils et services d'analyse d'optimisation pour les moteurs de recherche (SEO) propulsés par l'IA, conçus pour aider les propriétaires de sites Web, les spécialistes du marketing et les entreprises à améliorer leur visibilité en ligne et leur classement dans les moteurs de recherche. Nos Services comprennent, sans s'y limiter :",
+        "items": [
+          "Analyse et audit SEO de sites Web",
+          "Recherche et recommandations de mots-clés",
+          "Évaluations SEO techniques",
+          "Suggestions d'optimisation de contenu",
+          "Analyse des backlinks",
+          "Surveillance des performances et rapports",
+          "Ressources éducatives et contenu de blog"
+        ]
+      },
+      "section3": {
+        "title": "3. Comptes utilisateurs",
+        "sub1": {
+          "title": "3.1 Inscription au compte",
+          "content": "Pour accéder à certaines fonctionnalités de nos Services, vous devrez peut-être créer un compte. Lors de l'inscription, vous acceptez de fournir des informations exactes, actuelles et complètes. Vous êtes responsable du maintien de la confidentialité de vos identifiants de compte et de toutes les activités qui se produisent sous votre compte."
+        },
+        "sub2": {
+          "title": "3.2 Sécurité du compte",
+          "content": "Vous êtes responsable de la protection de votre mot de passe et de toutes les activités ou actions effectuées sous votre compte. Vous acceptez de nous informer immédiatement de tout accès ou utilisation non autorisé de votre compte. E-SEOMAX ne sera pas responsable des pertes ou dommages résultant de votre non-respect de cette obligation de sécurité."
+        },
+        "sub3": {
+          "title": "3.3 Résiliation du compte",
+          "content": "Nous nous réservons le droit de suspendre ou de résilier votre compte à tout moment et pour quelque raison que ce soit, y compris, mais sans s'y limiter, la violation de ces Conditions, une activité frauduleuse ou le non-paiement des frais. Vous pouvez également résilier votre compte à tout moment en nous contactant."
+        }
+      },
+      "section4": {
+        "title": "4. Politique d'utilisation acceptable",
+        "intro": "Vous acceptez d'utiliser nos Services uniquement à des fins légales et conformément aux présentes Conditions. Vous acceptez de NE PAS :",
+        "items": [
+          "Utiliser les Services d'une manière qui viole toute loi ou réglementation fédérale, étatique, locale ou internationale applicable",
+          "Vous engager dans toute conduite qui restreint ou empêche quiconque d'utiliser ou de profiter des Services",
+          "Usurper l'identité ou tenter d'usurper l'identité d'E-SEOMAX, d'un employé d'E-SEOMAX, d'un autre utilisateur ou de toute autre personne ou entité",
+          "Utiliser les Services pour transmettre tout matériel publicitaire ou promotionnel sans notre consentement écrit préalable",
+          "Tenter d'obtenir un accès non autorisé à toute partie des Services ou à tout système ou réseau connexe",
+          "Utiliser tout robot, spider, scraper ou autre moyen automatisé pour accéder aux Services",
+          "Introduire des virus, chevaux de Troie, vers ou tout autre matériel malveillant ou technologiquement nuisible",
+          "Tenter de désosser, décompiler ou désassembler toute partie des Services",
+          "Utiliser les Services pour analyser des sites Web que vous ne possédez pas ou pour lesquels vous n'avez pas l'autorisation d'analyser",
+          "Revendre, sous-licencier ou redistribuer les Services sans notre autorisation écrite expresse"
+        ]
+      },
+      "section5": {
+        "title": "5. Droits de propriété intellectuelle",
+        "sub1": {
+          "title": "5.1 Notre propriété intellectuelle",
+          "content": "Les Services et leur contenu, fonctionnalités et fonctionnalité entiers (y compris, mais sans s'y limiter, toutes les informations, logiciels, textes, affichages, images, vidéos, audio et la conception, la sélection et l'arrangement de ceux-ci) sont la propriété d'E-SEOMAX, de ses concédants de licence ou d'autres fournisseurs et sont protégés par les lois américaines et internationales sur les droits d'auteur, les marques, les brevets, les secrets commerciaux et autres propriétés intellectuelles."
+        },
+        "sub2": {
+          "title": "5.2 Licence limitée",
+          "content": "Sous réserve de votre conformité aux présentes Conditions, nous vous accordons une licence limitée, non exclusive, non transférable et révocable pour accéder et utiliser les Services à des fins personnelles ou commerciales internes. Cette licence n'inclut pas le droit de sous-licencier, modifier, adapter, traduire, désosser, décompiler, désassembler ou créer des œuvres dérivées basées sur les Services."
+        },
+        "sub3": {
+          "title": "5.3 Contenu utilisateur",
+          "content": "Vous conservez la propriété de tout contenu que vous soumettez aux Services. En soumettant du contenu, vous nous accordez une licence mondiale, non exclusive et libre de redevances pour utiliser, reproduire, modifier et afficher ce contenu uniquement dans le but de vous fournir les Services."
+        }
+      },
+      "section6": {
+        "title": "6. Conditions de paiement",
+        "sub1": {
+          "title": "6.1 Frais et facturation",
+          "content": "Certaines fonctionnalités de nos Services peuvent nécessiter le paiement de frais. Tous les frais sont indiqués en dollars américains, sauf indication contraire. Vous acceptez de payer tous les frais applicables tels que décrits sur notre Site. Nous nous réservons le droit de modifier nos frais à tout moment sur préavis."
+        },
+        "sub2": {
+          "title": "6.2 Services d'abonnement",
+          "content": "Si vous vous abonnez à un plan payant, votre abonnement se renouvellera automatiquement à la fin de chaque période de facturation, sauf si vous annulez avant la date de renouvellement. Vous pouvez annuler votre abonnement à tout moment via les paramètres de votre compte ou en nous contactant."
+        },
+        "sub3": {
+          "title": "6.3 Remboursements",
+          "content": "Les demandes de remboursement sont traitées au cas par cas. En général, les frais ne sont pas remboursables, sauf lorsque la loi applicable l'exige. Veuillez contacter notre équipe d'assistance si vous pensez avoir droit à un remboursement."
+        }
+      },
+      "section7": {
+        "title": "7. Avertissements",
+        "sub1": {
+          "title": "7.1 Aucune garantie de résultats",
+          "content": "E-SEOMAX fournit des analyses et recommandations SEO basées sur les meilleures pratiques de l'industrie et nos algorithmes propriétaires. Cependant, nous ne garantissons aucun résultat, classement ou résultat spécifique. Les algorithmes des moteurs de recherche sont complexes et changent constamment. Les résultats peuvent varier en fonction de nombreux facteurs hors de notre contrôle, notamment la concurrence, la qualité du contenu, la mise en œuvre technique et les mises à jour des algorithmes des moteurs de recherche."
+        },
+        "sub2": {
+          "title": "7.2 « En l'état » et « Selon disponibilité »",
+          "content": "LES SERVICES SONT FOURNIS « EN L'ÉTAT » ET « SELON DISPONIBILITÉ », SANS AUCUNE GARANTIE D'AUCUNE SORTE, EXPRESSE OU IMPLICITE. DANS TOUTE LA MESURE PERMISE PAR LA LOI, E-SEOMAX DÉCLINE TOUTES LES GARANTIES, EXPRESSES OU IMPLICITES, Y COMPRIS, MAIS SANS S'Y LIMITER, LES GARANTIES IMPLICITES DE QUALITÉ MARCHANDE, D'ADÉQUATION À UN USAGE PARTICULIER ET DE NON-CONTREFAÇON."
+        },
+        "sub3": {
+          "title": "7.3 Exactitude des informations",
+          "content": "Bien que nous nous efforcions de fournir des informations exactes et à jour, nous ne faisons aucune déclaration ni garantie quant à l'exactitude, la fiabilité, l'exhaustivité ou l'actualité de toute information fournie par les Services. Les résultats de l'analyse SEO sont fournis à titre informatif uniquement et ne doivent pas être considérés comme des conseils professionnels."
+        }
+      },
+      "section8": {
+        "title": "8. Limitation de responsabilité",
+        "p1": "DANS LA MESURE MAXIMALE PERMISE PAR LA LOI APPLICABLE, EN AUCUN CAS E-SEOMAX, SES AFFILIÉS, DIRECTEURS, EMPLOYÉS, AGENTS OU CONCÉDANTS DE LICENCE NE SERONT RESPONSABLES DE TOUT DOMMAGE INDIRECT, ACCESSOIRE, SPÉCIAL, CONSÉCUTIF OU PUNITIF, Y COMPRIS, MAIS SANS S'Y LIMITER, LA PERTE DE PROFITS, DE DONNÉES, D'UTILISATION, DE CLIENTÈLE OU D'AUTRES PERTES IMMATÉRIELLES, DÉCOULANT DE OU LIÉ À VOTRE UTILISATION OU INCAPACITÉ D'UTILISER LES SERVICES.",
+        "p2": "EN AUCUN CAS NOTRE RESPONSABILITÉ TOTALE ENVERS VOUS POUR TOUTES LES RÉCLAMATIONS DÉCOULANT DE OU LIÉES AUX PRÉSENTES CONDITIONS OU AUX SERVICES NE DÉPASSERA LE MONTANT QUE VOUS NOUS AVEZ PAYÉ AU COURS DES DOUZE (12) MOIS PRÉCÉDANT LA RÉCLAMATION, OU CENT DOLLARS (100 $), SELON LE MONTANT LE PLUS ÉLEVÉ."
+      },
+      "section9": {
+        "title": "9. Indemnisation",
+        "content": "Vous acceptez de défendre, d'indemniser et de dégager de toute responsabilité E-SEOMAX, ses affiliés et leurs dirigeants, directeurs, employés et agents respectifs contre toute réclamation, responsabilité, dommage, jugement, sentence, perte, coût, dépense ou frais (y compris les honoraires d'avocat raisonnables) découlant de ou liés à votre violation des présentes Conditions ou à votre utilisation des Services."
+      },
+      "section10": {
+        "title": "10. Services tiers",
+        "content": "Les Services peuvent contenir des liens vers des sites Web ou services tiers qui ne sont pas détenus ou contrôlés par E-SEOMAX. Nous n'avons aucun contrôle et n'assumons aucune responsabilité pour le contenu, les politiques de confidentialité ou les pratiques de tout site Web ou service tiers. Vous reconnaissez et acceptez qu'E-SEOMAX ne sera pas responsable de tout dommage ou perte causé par ou en relation avec l'utilisation de tout site Web ou service tiers."
+      },
+      "section11": {
+        "title": "11. Droit applicable et résolution des litiges",
+        "sub1": {
+          "title": "11.1 Droit applicable",
+          "content": "Les présentes Conditions seront régies et interprétées conformément aux lois de l'État de Californie, États-Unis, sans tenir compte de ses dispositions en matière de conflit de lois."
+        },
+        "sub2": {
+          "title": "11.2 Résolution des litiges",
+          "content": "Tout litige découlant de ou lié aux présentes Conditions ou aux Services sera d'abord tenté d'être résolu par négociation de bonne foi. Si le litige ne peut être résolu par négociation, il sera soumis à un arbitrage exécutoire à San Francisco, Californie, conformément aux règles de l'American Arbitration Association."
+        }
+      },
+      "section12": {
+        "title": "12. Modifications des conditions",
+        "content": "Nous nous réservons le droit de modifier ces Conditions à tout moment. Si nous apportons des modifications importantes, nous vous en informerons en publiant les Conditions mises à jour sur cette page et en mettant à jour la date de « Dernière mise à jour ». Votre utilisation continue des Services après toute modification constitue votre acceptation des nouvelles Conditions."
+      },
+      "section13": {
+        "title": "13. Divisibilité",
+        "content": "Si une disposition des présentes Conditions est jugée invalide ou inapplicable, cette disposition sera supprimée et les dispositions restantes resteront pleinement en vigueur."
+      },
+      "section14": {
+        "title": "14. Intégralité de l'accord",
+        "content": "Les présentes Conditions, ainsi que notre Politique de confidentialité et tout autre accord expressément incorporé par référence, constituent l'intégralité de l'accord entre vous et E-SEOMAX concernant l'utilisation des Services."
+      },
+      "section15": {
+        "title": "15. Coordonnées",
+        "intro": "Si vous avez des questions concernant ces Conditions, veuillez nous contacter :",
+        "companyName": "E-SEOMAX",
+        "email": "Email : legal@e-seomax.com",
+        "address": "Adresse : 123 Tech Innovation Drive, Suite 500, San Francisco, CA 94105, USA"
+      }
+    }
   }
 }
