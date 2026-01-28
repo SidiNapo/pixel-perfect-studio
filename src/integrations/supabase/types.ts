@@ -19,57 +19,81 @@ export type Database = {
           author_id: string | null
           canonical_url: string | null
           category: string | null
+          category_fr: string | null
           content: string | null
+          content_fr: string | null
           created_at: string
           excerpt: string | null
+          excerpt_fr: string | null
           featured_image: string | null
           id: string
           published_at: string | null
           read_time: string | null
+          read_time_fr: string | null
           seo_description: string | null
+          seo_description_fr: string | null
           seo_keywords: string | null
+          seo_keywords_fr: string | null
           seo_title: string | null
+          seo_title_fr: string | null
           slug: string
           status: string
           title: string
+          title_fr: string | null
           updated_at: string
         }
         Insert: {
           author_id?: string | null
           canonical_url?: string | null
           category?: string | null
+          category_fr?: string | null
           content?: string | null
+          content_fr?: string | null
           created_at?: string
           excerpt?: string | null
+          excerpt_fr?: string | null
           featured_image?: string | null
           id?: string
           published_at?: string | null
           read_time?: string | null
+          read_time_fr?: string | null
           seo_description?: string | null
+          seo_description_fr?: string | null
           seo_keywords?: string | null
+          seo_keywords_fr?: string | null
           seo_title?: string | null
+          seo_title_fr?: string | null
           slug: string
           status?: string
           title: string
+          title_fr?: string | null
           updated_at?: string
         }
         Update: {
           author_id?: string | null
           canonical_url?: string | null
           category?: string | null
+          category_fr?: string | null
           content?: string | null
+          content_fr?: string | null
           created_at?: string
           excerpt?: string | null
+          excerpt_fr?: string | null
           featured_image?: string | null
           id?: string
           published_at?: string | null
           read_time?: string | null
+          read_time_fr?: string | null
           seo_description?: string | null
+          seo_description_fr?: string | null
           seo_keywords?: string | null
+          seo_keywords_fr?: string | null
           seo_title?: string | null
+          seo_title_fr?: string | null
           slug?: string
           status?: string
           title?: string
+          title_fr?: string | null
           updated_at?: string
         }
         Relationships: []

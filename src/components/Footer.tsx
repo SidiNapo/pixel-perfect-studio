@@ -1,29 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Twitter, Linkedin, Github, Mail } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import logo from '@/assets/e-seomax-logo.png';
-
-const footerLinks = {
-  product: [
-    { label: 'Features', href: '/#features' },
-    { label: 'How It Works', href: '/how-it-works' },
-    { label: 'Pricing', href: '/#pricing' }
-  ],
-  company: [
-    { label: 'About Us', href: '/about' },
-    { label: 'Blog', href: '/blog' },
-    { label: 'Contact', href: '/contact' }
-  ],
-  resources: [
-    { label: 'FAQ', href: '/faq' },
-    { label: 'How It Works', href: '/how-it-works' }
-  ],
-  legal: [
-    { label: 'Privacy Policy', href: '/privacy-policy' },
-    { label: 'Terms of Service', href: '/terms-of-service' },
-    { label: 'Cookie Policy', href: '/cookie-policy' },
-    { label: 'Disclaimer', href: '/disclaimer' }
-  ]
-};
 
 const socialLinks = [
   { icon: Twitter, href: 'https://twitter.com/eseomax', label: 'Twitter' },
@@ -33,6 +11,38 @@ const socialLinks = [
 ];
 
 const Footer = () => {
+  const { t } = useTranslation();
+
+  const footerLinks = {
+    product: [
+      { label: t('footer.features'), href: '/#features' },
+      { label: t('footer.howItWorks'), href: '/how-it-works' },
+      { label: t('footer.pricing'), href: '/#pricing' }
+    ],
+    company: [
+      { label: t('footer.aboutUs'), href: '/about' },
+      { label: t('footer.blog'), href: '/blog' },
+      { label: t('footer.contact'), href: '/contact' }
+    ],
+    resources: [
+      { label: t('footer.faq'), href: '/faq' },
+      { label: t('footer.howItWorks'), href: '/how-it-works' }
+    ],
+    legal: [
+      { label: t('footer.privacyPolicy'), href: '/privacy-policy' },
+      { label: t('footer.termsOfService'), href: '/terms-of-service' },
+      { label: t('footer.cookiePolicy'), href: '/cookie-policy' },
+      { label: t('footer.disclaimer'), href: '/disclaimer' }
+    ]
+  };
+
+  const categoryLabels: Record<string, string> = {
+    product: t('footer.product'),
+    company: t('footer.company'),
+    resources: t('footer.resources'),
+    legal: t('footer.legal')
+  };
+
   return (
     <footer className="bg-card/30 border-t border-border">
       <div className="max-w-7xl mx-auto px-6 py-16">
@@ -43,7 +53,7 @@ const Footer = () => {
               <img src={logo} alt="E-SEOMAX" className="h-12 w-auto" />
             </Link>
             <p className="text-muted-foreground text-sm mb-6 max-w-xs">
-              The most advanced AI-powered SEO platform. Analyze, optimize, and dominate search results.
+              {t('footer.description')}
             </p>
             <div className="flex gap-3">
               {socialLinks.map((social) => (
@@ -64,7 +74,7 @@ const Footer = () => {
           {/* Links */}
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
-              <h4 className="font-semibold text-foreground mb-4 capitalize">{category}</h4>
+              <h4 className="font-semibold text-foreground mb-4">{categoryLabels[category]}</h4>
               <ul className="space-y-3">
                 {links.map((link) => (
                   <li key={link.label}>
@@ -84,17 +94,17 @@ const Footer = () => {
         {/* Bottom */}
         <div className="mt-16 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} E-SEOMAX. All rights reserved.
+            {t('footer.copyright', { year: new Date().getFullYear() })}
           </p>
           <div className="flex items-center gap-6 text-sm text-muted-foreground">
             <Link to="/privacy-policy" className="hover:text-primary transition-colors">
-              Privacy
+              {t('footer.privacy')}
             </Link>
             <Link to="/terms-of-service" className="hover:text-primary transition-colors">
-              Terms
+              {t('footer.terms')}
             </Link>
             <Link to="/cookie-policy" className="hover:text-primary transition-colors">
-              Cookies
+              {t('footer.cookies')}
             </Link>
           </div>
         </div>
