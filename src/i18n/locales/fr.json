@@ -78,10 +78,121 @@
     "subtitle": "Rejoignez des milliers de clients satisfaits"
   },
   "footer": {
+    "description": "La plateforme SEO la plus avancée propulsée par l'IA. Analysez, optimisez et dominez les résultats de recherche.",
+    "product": "Produit",
+    "features": "Fonctionnalités",
+    "howItWorks": "Comment ça marche",
+    "pricing": "Tarifs",
     "company": "Entreprise",
-    "legal": "Mentions légales",
+    "aboutUs": "À propos",
+    "blog": "Blog",
+    "contact": "Contact",
     "resources": "Ressources",
-    "copyright": "© {{year}} E-SEOMAX. Tous droits réservés."
+    "faq": "FAQ",
+    "legal": "Mentions légales",
+    "privacyPolicy": "Politique de confidentialité",
+    "termsOfService": "Conditions d'utilisation",
+    "cookiePolicy": "Politique des cookies",
+    "disclaimer": "Avertissement",
+    "copyright": "© {{year}} E-SEOMAX. Tous droits réservés.",
+    "privacy": "Confidentialité",
+    "terms": "Conditions",
+    "cookies": "Cookies"
+  },
+  "howItWorks": {
+    "title": "Comment fonctionne E-SEOMAX",
+    "subtitle": "Notre plateforme d'analyse SEO propulsée par l'IA facilite la compréhension et l'amélioration de la visibilité de votre site dans les moteurs de recherche. Suivez ces étapes simples pour libérer tout le potentiel de votre site.",
+    "steps": {
+      "step1": {
+        "number": "01",
+        "title": "Entrez l'URL de votre site",
+        "description": "Collez simplement l'URL de votre site dans notre analyseur. Notre système accepte tout site public—que ce soit votre page d'accueil, une page spécifique ou le site d'un concurrent que vous souhaitez analyser.",
+        "details": [
+          "Aucune inscription requise pour l'analyse de base",
+          "Compatible avec tous les types de sites : e-commerce, blogs, sites corporate",
+          "Analysez toute URL accessible publiquement",
+          "Vérifiez des pages individuelles ou des domaines entiers"
+        ]
+      },
+      "step2": {
+        "number": "02",
+        "title": "Analyse propulsée par l'IA",
+        "description": "Notre moteur IA avancé explore votre site et effectue une analyse complète sur plus de 50 facteurs SEO. Le processus est rapide, approfondi et basé sur les dernières directives des moteurs de recherche.",
+        "details": [
+          "Audit SEO technique (vitesse, mobile, sécurité)",
+          "Revue de l'optimisation on-page",
+          "Évaluation de la qualité du contenu",
+          "Analyse des balises meta et des données structurées"
+        ]
+      },
+      "step3": {
+        "number": "03",
+        "title": "Identification des problèmes",
+        "description": "Nous identifions tous les problèmes SEO affectant la visibilité de votre site, des erreurs critiques nécessitant une attention immédiate aux améliorations mineures pouvant booster votre classement.",
+        "details": [
+          "Erreurs critiques surlignées en rouge",
+          "Avertissements affichés en jaune",
+          "Opportunités marquées en bleu",
+          "Priorisé par impact sur le classement"
+        ]
+      },
+      "step4": {
+        "number": "04",
+        "title": "Score et métriques",
+        "description": "Recevez un score SEO complet de 0 à 100 avec des métriques détaillées pour chaque catégorie. Comparez vos performances aux benchmarks du secteur et suivez vos améliorations au fil du temps.",
+        "details": [
+          "Score de santé SEO global",
+          "Scores par catégorie (Technique, Contenu, etc.)",
+          "Métriques de performance (Core Web Vitals)",
+          "Comparaisons aux benchmarks du secteur"
+        ]
+      },
+      "step5": {
+        "number": "05",
+        "title": "Recommandations actionnables",
+        "description": "Obtenez des recommandations étape par étape, adaptées à votre site. Chaque suggestion inclut des instructions claires et explique l'impact potentiel sur votre classement.",
+        "details": [
+          "Actions prioritaires classées",
+          "Guides de mise en œuvre étape par étape",
+          "Difficulté et impact estimés",
+          "Meilleures pratiques et exemples"
+        ]
+      }
+    },
+    "platformFeatures": "Fonctionnalités de la plateforme",
+    "featuresList": [
+      "Analyse de site en temps réel",
+      "Plus de 50 facteurs SEO évalués",
+      "Recommandations propulsées par l'IA",
+      "Analyse mobile-first",
+      "Test des Core Web Vitals",
+      "Comparaison avec les concurrents",
+      "Suivi des progrès dans le temps",
+      "Rapports exportables"
+    ],
+    "whyChoose": "Pourquoi choisir E-SEOMAX ?",
+    "whyCards": {
+      "accuracy": {
+        "title": "Précision propulsée par l'IA",
+        "description": "Nos algorithmes d'apprentissage automatique sont entraînés sur des millions de points de données pour fournir des insights correspondant à ce qui compte vraiment pour les moteurs de recherche. Pas de devinettes—uniquement des recommandations basées sur les données."
+      },
+      "insights": {
+        "title": "Insights actionnables",
+        "description": "Nous n'identifions pas seulement les problèmes—nous vous expliquons exactement comment les résoudre. Chaque recommandation est accompagnée d'instructions étape par étape que tout le monde peut suivre, quel que soit son niveau technique."
+      },
+      "upToDate": {
+        "title": "Toujours à jour",
+        "description": "Les algorithmes des moteurs de recherche changent constamment. Notre plateforme est continuellement mise à jour pour refléter les dernières meilleures pratiques, garantissant que votre stratégie SEO reste actuelle et efficace."
+      }
+    },
+    "cta": {
+      "title": "Prêt à améliorer votre SEO ?",
+      "description": "Rejoignez des milliers de propriétaires de sites qui font confiance à E-SEOMAX pour optimiser leur visibilité. Commencez avec une analyse gratuite aujourd'hui—aucune carte de crédit requise.",
+      "analyzeButton": "Analysez votre site",
+      "faqButton": "Voir la FAQ"
+    },
+    "disclaimer": "Les résultats SEO varient en fonction de nombreux facteurs, notamment la concurrence, la qualité du contenu et la mise en œuvre. E-SEOMAX fournit des analyses et recommandations mais ne garantit pas de classements ou résultats spécifiques.",
+    "fullDisclaimer": "avertissement complet"
   },
   "common": {
     "learnMore": "En savoir plus",

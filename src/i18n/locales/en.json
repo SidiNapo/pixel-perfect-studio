@@ -2,20 +2,20 @@
   "nav": {
     "home": "Home",
     "blog": "Blog",
-    "about": "About Us",
-    "contact": "Contact Us"
+    "about": "About",
+    "contact": "Contact"
   },
   "hero": {
     "badge": "AI-Powered SEO Analysis",
     "title": "Smarter SEO",
     "titleLine2": "Starts Here.",
-    "description": "Elevate your site's visibility effortlessly with AI, where smart technology meets user-friendly SEO tools."
+    "description": "Elevate your website's visibility effortlessly with AI, where smart technology meets user-friendly SEO tools."
   },
   "seoAnalyzer": {
     "placeholder": "Enter your website URL (e.g., https://example.com)",
     "analyze": "Analyze SEO",
     "analyzing": "Analyzing...",
-    "crawling": "Crawling and analyzing website... This may take a few seconds.",
+    "crawling": "Crawling and analyzing your site... This may take a few seconds.",
     "analyzed": "Analyzed",
     "analyzeAnother": "Analyze Another URL",
     "errors": {
@@ -29,7 +29,7 @@
     "overallScore": "Overall SEO Score",
     "excellent": "Excellent! Your site is well optimized.",
     "good": "Good. Minor improvements needed.",
-    "needsWork": "Needs work. Review recommendations.",
+    "needsWork": "Needs work. See recommendations.",
     "poor": "Needs significant optimization.",
     "technicalSeo": "Technical SEO",
     "onPageSeo": "On-Page SEO",
@@ -78,10 +78,121 @@
     "subtitle": "Join thousands of satisfied customers"
   },
   "footer": {
+    "description": "The most advanced AI-powered SEO platform. Analyze, optimize, and dominate search results.",
+    "product": "Product",
+    "features": "Features",
+    "howItWorks": "How It Works",
+    "pricing": "Pricing",
     "company": "Company",
-    "legal": "Legal",
+    "aboutUs": "About Us",
+    "blog": "Blog",
+    "contact": "Contact",
     "resources": "Resources",
-    "copyright": "© {{year}} E-SEOMAX. All rights reserved."
+    "faq": "FAQ",
+    "legal": "Legal",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "cookiePolicy": "Cookie Policy",
+    "disclaimer": "Disclaimer",
+    "copyright": "© {{year}} E-SEOMAX. All rights reserved.",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "cookies": "Cookies"
+  },
+  "howItWorks": {
+    "title": "How E-SEOMAX Works",
+    "subtitle": "Our AI-powered SEO analysis platform makes it easy to understand and improve your website's search engine visibility. Follow these simple steps to unlock your site's full potential.",
+    "steps": {
+      "step1": {
+        "number": "01",
+        "title": "Enter Your Website URL",
+        "description": "Simply paste your website URL into our analyzer. Our system accepts any public website—whether it's your homepage, a specific page, or a competitor's site you want to analyze.",
+        "details": [
+          "No registration required for basic analysis",
+          "Supports all website types: e-commerce, blogs, corporate sites",
+          "Analyze any publicly accessible URL",
+          "Check individual pages or entire domains"
+        ]
+      },
+      "step2": {
+        "number": "02",
+        "title": "AI-Powered Analysis",
+        "description": "Our advanced AI engine crawls your website and performs a comprehensive analysis across 50+ SEO factors. The process is fast, thorough, and based on the latest search engine guidelines.",
+        "details": [
+          "Technical SEO audit (speed, mobile, security)",
+          "On-page optimization review",
+          "Content quality assessment",
+          "Meta tags and structured data analysis"
+        ]
+      },
+      "step3": {
+        "number": "03",
+        "title": "Issue Identification",
+        "description": "We identify all SEO issues affecting your website's search visibility, from critical errors that need immediate attention to minor improvements that can boost your rankings.",
+        "details": [
+          "Critical errors highlighted in red",
+          "Warnings shown in yellow",
+          "Opportunities marked in blue",
+          "Prioritized by impact on rankings"
+        ]
+      },
+      "step4": {
+        "number": "04",
+        "title": "Score & Metrics",
+        "description": "Receive a comprehensive SEO score from 0-100 along with detailed metrics for each category. Compare your performance against industry benchmarks and track improvements over time.",
+        "details": [
+          "Overall SEO health score",
+          "Category-specific scores (Technical, Content, etc.)",
+          "Performance metrics (Core Web Vitals)",
+          "Industry benchmark comparisons"
+        ]
+      },
+      "step5": {
+        "number": "05",
+        "title": "Actionable Recommendations",
+        "description": "Get step-by-step, actionable recommendations tailored to your website. Each suggestion includes clear instructions and explains the potential impact on your rankings.",
+        "details": [
+          "Priority-ranked action items",
+          "Step-by-step implementation guides",
+          "Estimated difficulty and impact",
+          "Best practices and examples"
+        ]
+      }
+    },
+    "platformFeatures": "Platform Features",
+    "featuresList": [
+      "Real-time website analysis",
+      "50+ SEO factors evaluated",
+      "AI-powered recommendations",
+      "Mobile-first analysis",
+      "Core Web Vitals testing",
+      "Competitor comparison",
+      "Progress tracking over time",
+      "Exportable reports"
+    ],
+    "whyChoose": "Why Choose E-SEOMAX?",
+    "whyCards": {
+      "accuracy": {
+        "title": "AI-Powered Accuracy",
+        "description": "Our machine learning algorithms are trained on millions of data points to provide insights that match what search engines actually care about. No guesswork—just data-driven recommendations."
+      },
+      "insights": {
+        "title": "Actionable Insights",
+        "description": "We don't just identify problems—we tell you exactly how to fix them. Each recommendation comes with step-by-step instructions that anyone can follow, regardless of technical expertise."
+      },
+      "upToDate": {
+        "title": "Always Up-to-Date",
+        "description": "Search engine algorithms change constantly. Our platform is continuously updated to reflect the latest best practices, ensuring your SEO strategy stays current and effective."
+      }
+    },
+    "cta": {
+      "title": "Ready to Improve Your SEO?",
+      "description": "Join thousands of website owners who trust E-SEOMAX to optimize their search visibility. Get started with a free analysis today—no credit card required.",
+      "analyzeButton": "Analyze Your Website",
+      "faqButton": "View FAQ"
+    },
+    "disclaimer": "SEO results vary based on many factors including competition, content quality, and implementation. E-SEOMAX provides analysis and recommendations but does not guarantee specific rankings or outcomes.",
+    "fullDisclaimer": "full disclaimer"
   },
   "common": {
     "learnMore": "Learn More",
