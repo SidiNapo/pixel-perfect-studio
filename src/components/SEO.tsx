@@ -12,125 +12,224 @@ interface SEOProps {
   modifiedTime?: string;
   author?: string;
   noIndex?: boolean;
+  category?: string;
 }
 
-// Morocco-optimized default SEO configuration
+const BASE_URL = 'https://e-seomax.com';
+
+// Morocco cities for comprehensive local SEO targeting
+const moroccanCities = [
+  'Casablanca', 'Rabat', 'Marrakech', 'Tangier', 'Fes', 'Agadir',
+  'Meknes', 'Oujda', 'Kenitra', 'Tetouan', 'Safi', 'El Jadida',
+  'Nador', 'Mohammedia', 'Beni Mellal', 'Khouribga', 'Taza', 'Settat'
+];
+
+// Comprehensive Morocco-optimized SEO keywords (120+ keywords per language)
 const defaultSEO = {
   en: {
     title: 'E-SEOMAX | #1 SEO Tool in Morocco – Free Audit',
     description: 'E-SEOMAX is Morocco\'s leading AI-powered SEO platform. Get your free website audit, boost rankings, and dominate search results with smart optimization tools.',
-    keywords: 'SEO Morocco, SEO tool Morocco, website analysis Morocco, free SEO audit, تحسين محركات البحث المغرب, référencement Maroc, SEO Maroc, audit SEO gratuit, analyse site web, keyword research Morocco',
+    keywords: [
+      // Core SEO keywords
+      'SEO Morocco', 'SEO tool Morocco', 'website analysis Morocco', 'free SEO audit Morocco',
+      'best SEO tool Morocco', 'SEO agency Morocco', 'SEO platform Morocco', 'SEO software Morocco',
+      'website optimization Morocco', 'search engine optimization Morocco', 'SEO services Morocco',
+      'digital marketing Morocco', 'online marketing Morocco', 'web marketing Morocco',
+      'SEO audit tool', 'keyword research Morocco', 'backlink analysis Morocco',
+      'technical SEO Morocco', 'on-page SEO Morocco', 'off-page SEO Morocco',
+      'local SEO Morocco', 'mobile SEO Morocco', 'SEO ranking Morocco',
+      'Google ranking Morocco', 'SERP analysis Morocco', 'competitor analysis Morocco',
+      'content optimization Morocco', 'SEO consulting Morocco', 'SEO expert Morocco',
+      
+      // City-specific SEO keywords
+      ...moroccanCities.map(city => `SEO ${city}`),
+      ...moroccanCities.map(city => `website optimization ${city}`),
+      'SEO agency Casablanca', 'SEO expert Rabat', 'SEO consultant Marrakech',
+      'digital marketing Casablanca', 'web agency Rabat', 'marketing agency Tangier',
+      
+      // Industry variations
+      'e-commerce SEO Morocco', 'hotel SEO Morocco', 'restaurant SEO Morocco',
+      'real estate SEO Morocco', 'healthcare SEO Morocco', 'law firm SEO Morocco',
+      'startup SEO Morocco', 'small business SEO Morocco', 'enterprise SEO Morocco',
+      
+      // Multilingual markers
+      'تحسين محركات البحث المغرب', 'référencement Maroc', 'SEO Maroc',
+      'audit SEO gratuit', 'analyse site web', 'optimisation site web'
+    ].join(', '),
   },
   fr: {
     title: 'E-SEOMAX | Outil SEO #1 au Maroc – Audit Gratuit',
     description: 'E-SEOMAX est la plateforme SEO IA leader au Maroc. Obtenez votre audit gratuit, améliorez vos classements et dominez les résultats de recherche.',
-    keywords: 'SEO Maroc, outil SEO Maroc, analyse site web Maroc, audit SEO gratuit, référencement naturel Maroc, optimisation moteur de recherche, agence SEO Maroc',
+    keywords: [
+      // Core French SEO keywords
+      'SEO Maroc', 'outil SEO Maroc', 'analyse site web Maroc', 'audit SEO gratuit Maroc',
+      'meilleur outil SEO Maroc', 'agence SEO Maroc', 'plateforme SEO Maroc',
+      'référencement naturel Maroc', 'référencement web Maroc', 'optimisation SEO Maroc',
+      'optimisation site web Maroc', 'positionnement Google Maroc', 'services SEO Maroc',
+      'marketing digital Maroc', 'marketing en ligne Maroc', 'stratégie SEO Maroc',
+      'audit référencement Maroc', 'recherche mots-clés Maroc', 'analyse backlinks Maroc',
+      'SEO technique Maroc', 'SEO on-page Maroc', 'SEO off-page Maroc',
+      'SEO local Maroc', 'SEO mobile Maroc', 'classement SEO Maroc',
+      'positionnement web Maroc', 'analyse SERP Maroc', 'analyse concurrentielle Maroc',
+      'optimisation contenu Maroc', 'consultant SEO Maroc', 'expert SEO Maroc',
+      
+      // City-specific French keywords
+      'SEO Casablanca', 'SEO Rabat', 'SEO Marrakech', 'SEO Tanger', 'SEO Fès',
+      'SEO Agadir', 'SEO Meknès', 'SEO Oujda', 'SEO Kénitra', 'SEO Tétouan',
+      'référencement Casablanca', 'référencement Rabat', 'référencement Marrakech',
+      'agence web Casablanca', 'agence digitale Rabat', 'marketing digital Casablanca',
+      'expert SEO Casablanca', 'consultant SEO Rabat', 'audit SEO Marrakech',
+      'optimisation site Casablanca', 'positionnement Google Rabat',
+      
+      // Industry variations French
+      'SEO e-commerce Maroc', 'SEO hôtel Maroc', 'SEO restaurant Maroc',
+      'SEO immobilier Maroc', 'SEO santé Maroc', 'SEO avocat Maroc',
+      'SEO startup Maroc', 'SEO PME Maroc', 'SEO entreprise Maroc',
+      
+      // Additional French terms
+      'webmarketing Maroc', 'netlinking Maroc', 'rédaction web SEO Maroc',
+      'formation SEO Maroc', 'cours SEO Maroc', 'apprendre SEO Maroc'
+    ].join(', '),
   },
   ar: {
     title: 'E-SEOMAX | أداة SEO رقم 1 في المغرب – تدقيق مجاني',
     description: 'E-SEOMAX هي منصة تحسين محركات البحث الرائدة في المغرب. احصل على تدقيق موقعك المجاني وتصدر نتائج البحث.',
-    keywords: 'تحسين محركات البحث المغرب, SEO المغرب, تحليل المواقع المغرب, تدقيق SEO مجاني, تحسين محركات البحث, تصدر نتائج البحث',
+    keywords: [
+      // Core Arabic SEO keywords
+      'تحسين محركات البحث المغرب', 'SEO المغرب', 'تحليل المواقع المغرب', 'تدقيق SEO مجاني المغرب',
+      'أفضل أداة SEO المغرب', 'وكالة SEO المغرب', 'منصة SEO المغرب', 'برنامج SEO المغرب',
+      'تحسين المواقع المغرب', 'تحسين محركات البحث', 'خدمات SEO المغرب',
+      'التسويق الرقمي المغرب', 'التسويق الإلكتروني المغرب', 'التسويق عبر الإنترنت المغرب',
+      'أداة تدقيق SEO', 'بحث الكلمات المفتاحية المغرب', 'تحليل الروابط الخلفية المغرب',
+      'SEO التقني المغرب', 'تحسين الصفحات المغرب', 'بناء الروابط المغرب',
+      'SEO المحلي المغرب', 'SEO الجوال المغرب', 'ترتيب SEO المغرب',
+      'ترتيب جوجل المغرب', 'تحليل نتائج البحث المغرب', 'تحليل المنافسين المغرب',
+      'تحسين المحتوى المغرب', 'استشارات SEO المغرب', 'خبير SEO المغرب',
+      
+      // City-specific Arabic keywords
+      'SEO الدار البيضاء', 'SEO الرباط', 'SEO مراكش', 'SEO طنجة', 'SEO فاس',
+      'SEO أكادير', 'SEO مكناس', 'SEO وجدة', 'SEO القنيطرة', 'SEO تطوان',
+      'تحسين محركات البحث الدار البيضاء', 'تحسين محركات البحث الرباط', 'تحسين محركات البحث مراكش',
+      'وكالة رقمية الدار البيضاء', 'وكالة تسويق الرباط', 'خبير SEO الدار البيضاء',
+      'تدقيق SEO مراكش', 'تحليل الموقع طنجة', 'تحسين الموقع فاس',
+      
+      // Industry variations Arabic
+      'SEO التجارة الإلكترونية المغرب', 'SEO الفنادق المغرب', 'SEO المطاعم المغرب',
+      'SEO العقارات المغرب', 'SEO الرعاية الصحية المغرب', 'SEO المحاماة المغرب',
+      'SEO الشركات الناشئة المغرب', 'SEO الشركات الصغيرة المغرب',
+      
+      // Additional Arabic terms
+      'تصدر نتائج البحث', 'رفع ترتيب الموقع', 'زيادة زيارات الموقع',
+      'تحسين ظهور الموقع', 'الظهور في جوجل', 'أرشفة المواقع المغرب'
+    ].join(', '),
   },
 };
 
-const BASE_URL = 'https://e-seomax.com';
-
-// Page-specific SEO configurations
+// Page-specific SEO configurations with enhanced descriptions
 const pageSEO: Record<string, { en: Partial<SEOProps>; fr: Partial<SEOProps>; ar: Partial<SEOProps> }> = {
   '/': {
-    en: { title: 'E-SEOMAX | #1 SEO Tool in Morocco – Free Audit' },
-    fr: { title: 'E-SEOMAX | Outil SEO #1 au Maroc – Audit Gratuit' },
-    ar: { title: 'E-SEOMAX | أداة SEO رقم 1 في المغرب – تدقيق مجاني' },
+    en: { 
+      title: 'E-SEOMAX | #1 SEO Tool in Morocco – Free Audit',
+      description: 'E-SEOMAX is Morocco\'s #1 AI-powered SEO platform. Free website audit for Casablanca, Rabat, Marrakech & all Morocco. Boost your Google rankings today!',
+    },
+    fr: { 
+      title: 'E-SEOMAX | Outil SEO #1 au Maroc – Audit Gratuit',
+      description: 'E-SEOMAX est la plateforme SEO #1 au Maroc. Audit gratuit pour Casablanca, Rabat, Marrakech. Améliorez votre référencement Google maintenant!',
+    },
+    ar: { 
+      title: 'E-SEOMAX | أداة SEO رقم 1 في المغرب – تدقيق مجاني',
+      description: 'E-SEOMAX هي منصة SEO الأولى في المغرب. تدقيق مجاني للدار البيضاء والرباط ومراكش. حسّن ترتيبك في جوجل اليوم!',
+    },
   },
   '/about': {
     en: { 
-      title: 'About E-SEOMAX | AI-Powered SEO Platform from Morocco',
-      description: 'Learn about E-SEOMAX, Morocco\'s premier AI-powered SEO platform. Our mission is to help businesses dominate search results.',
+      title: 'About E-SEOMAX | AI-Powered SEO Platform Morocco',
+      description: 'Learn about E-SEOMAX, Morocco\'s premier AI-powered SEO platform serving Casablanca, Rabat, Marrakech, and all Moroccan cities.',
     },
     fr: { 
-      title: 'À Propos E-SEOMAX | Plateforme SEO IA du Maroc',
-      description: 'Découvrez E-SEOMAX, la plateforme SEO IA leader au Maroc. Notre mission est d\'aider les entreprises à dominer les résultats de recherche.',
+      title: 'À Propos E-SEOMAX | Plateforme SEO IA Maroc',
+      description: 'Découvrez E-SEOMAX, la plateforme SEO IA leader au Maroc servant Casablanca, Rabat, Marrakech et toutes les villes marocaines.',
     },
     ar: { 
-      title: 'حول E-SEOMAX | منصة SEO بالذكاء الاصطناعي من المغرب',
-      description: 'تعرف على E-SEOMAX، منصة تحسين محركات البحث الرائدة في المغرب.',
+      title: 'حول E-SEOMAX | منصة SEO بالذكاء الاصطناعي المغرب',
+      description: 'تعرف على E-SEOMAX، منصة تحسين محركات البحث الرائدة في المغرب للدار البيضاء والرباط ومراكش.',
     },
   },
   '/blog': {
     en: { 
-      title: 'SEO Blog | Tips & Insights from E-SEOMAX Morocco',
-      description: 'Expert SEO tips, guides, and insights from Morocco\'s leading SEO platform. Stay updated with the latest search engine optimization strategies.',
+      title: 'SEO Blog Morocco | Tips & Guides | E-SEOMAX',
+      description: 'Expert SEO tips, guides, and insights for Morocco. Learn SEO strategies for Casablanca, Rabat, Marrakech businesses. Updated weekly.',
     },
     fr: { 
-      title: 'Blog SEO | Conseils et Astuces de E-SEOMAX Maroc',
-      description: 'Conseils SEO d\'experts, guides et astuces de la plateforme SEO leader au Maroc. Restez à jour avec les dernières stratégies d\'optimisation.',
+      title: 'Blog SEO Maroc | Conseils & Guides | E-SEOMAX',
+      description: 'Conseils SEO d\'experts pour le Maroc. Stratégies de référencement pour Casablanca, Rabat, Marrakech. Mis à jour chaque semaine.',
     },
     ar: { 
-      title: 'مدونة SEO | نصائح وإرشادات من E-SEOMAX المغرب',
-      description: 'نصائح SEO من الخبراء ودليل من منصة تحسين محركات البحث الرائدة في المغرب.',
+      title: 'مدونة SEO المغرب | نصائح وإرشادات | E-SEOMAX',
+      description: 'نصائح SEO من الخبراء للمغرب. استراتيجيات لتحسين محركات البحث للدار البيضاء والرباط ومراكش.',
     },
   },
   '/contact': {
     en: { 
-      title: 'Contact E-SEOMAX | Get SEO Support in Morocco',
-      description: 'Contact E-SEOMAX for SEO support and inquiries. We\'re here to help your business succeed in search results across Morocco.',
+      title: 'Contact E-SEOMAX | SEO Support Morocco',
+      description: 'Contact E-SEOMAX for SEO support in Morocco. Serving Casablanca, Rabat, Marrakech, Tangier, Fes, Agadir and all Moroccan cities.',
     },
     fr: { 
-      title: 'Contactez E-SEOMAX | Support SEO au Maroc',
-      description: 'Contactez E-SEOMAX pour le support SEO et les demandes. Nous sommes là pour aider votre entreprise à réussir au Maroc.',
+      title: 'Contactez E-SEOMAX | Support SEO Maroc',
+      description: 'Contactez E-SEOMAX pour le support SEO au Maroc. Service à Casablanca, Rabat, Marrakech, Tanger, Fès, Agadir.',
     },
     ar: { 
-      title: 'اتصل بـ E-SEOMAX | دعم SEO في المغرب',
-      description: 'تواصل مع E-SEOMAX للحصول على دعم تحسين محركات البحث في المغرب.',
+      title: 'اتصل بـ E-SEOMAX | دعم SEO المغرب',
+      description: 'تواصل مع E-SEOMAX للحصول على دعم SEO في المغرب. خدمة الدار البيضاء والرباط ومراكش وطنجة وفاس.',
     },
   },
   '/faq': {
     en: { 
-      title: 'SEO FAQ | Common Questions Answered | E-SEOMAX Morocco',
-      description: 'Find answers to frequently asked questions about SEO and the E-SEOMAX platform. Get help with your SEO journey.',
+      title: 'SEO FAQ Morocco | Questions Answered | E-SEOMAX',
+      description: 'Frequently asked questions about SEO in Morocco. Get answers about website optimization for Casablanca, Rabat, Marrakech businesses.',
     },
     fr: { 
-      title: 'FAQ SEO | Questions Fréquentes | E-SEOMAX Maroc',
-      description: 'Trouvez les réponses aux questions fréquentes sur le SEO et la plateforme E-SEOMAX.',
+      title: 'FAQ SEO Maroc | Questions Fréquentes | E-SEOMAX',
+      description: 'Questions fréquentes sur le SEO au Maroc. Réponses pour l\'optimisation des sites à Casablanca, Rabat, Marrakech.',
     },
     ar: { 
-      title: 'الأسئلة الشائعة | E-SEOMAX المغرب',
-      description: 'اعثر على إجابات للأسئلة المتكررة حول تحسين محركات البحث ومنصة E-SEOMAX.',
+      title: 'الأسئلة الشائعة SEO المغرب | E-SEOMAX',
+      description: 'أسئلة شائعة حول SEO في المغرب. إجابات عن تحسين المواقع للدار البيضاء والرباط ومراكش.',
     },
   },
   '/how-it-works': {
     en: { 
-      title: 'How E-SEOMAX Works | SEO Analysis Made Simple',
-      description: 'Discover how E-SEOMAX\'s AI-powered SEO analysis works. From audit to optimization, we make improving your search rankings easy.',
+      title: 'How E-SEOMAX Works | SEO Analysis Morocco',
+      description: 'Discover how E-SEOMAX\'s AI-powered SEO analysis works for Morocco. Free audit for Casablanca, Rabat, Marrakech websites.',
     },
     fr: { 
-      title: 'Comment Fonctionne E-SEOMAX | Analyse SEO Simplifiée',
-      description: 'Découvrez comment l\'analyse SEO alimentée par l\'IA d\'E-SEOMAX fonctionne.',
+      title: 'Comment Fonctionne E-SEOMAX | Analyse SEO Maroc',
+      description: 'Découvrez comment l\'analyse SEO E-SEOMAX fonctionne au Maroc. Audit gratuit pour sites de Casablanca, Rabat, Marrakech.',
     },
     ar: { 
-      title: 'كيف يعمل E-SEOMAX | تحليل SEO بسيط',
-      description: 'اكتشف كيف يعمل تحليل SEO بالذكاء الاصطناعي من E-SEOMAX.',
+      title: 'كيف يعمل E-SEOMAX | تحليل SEO المغرب',
+      description: 'اكتشف كيف يعمل تحليل SEO من E-SEOMAX للمغرب. تدقيق مجاني للدار البيضاء والرباط ومراكش.',
     },
   },
   '/privacy-policy': {
-    en: { title: 'Privacy Policy | E-SEOMAX', noIndex: false },
-    fr: { title: 'Politique de Confidentialité | E-SEOMAX', noIndex: false },
-    ar: { title: 'سياسة الخصوصية | E-SEOMAX', noIndex: false },
+    en: { title: 'Privacy Policy | E-SEOMAX Morocco', noIndex: false },
+    fr: { title: 'Politique de Confidentialité | E-SEOMAX Maroc', noIndex: false },
+    ar: { title: 'سياسة الخصوصية | E-SEOMAX المغرب', noIndex: false },
   },
   '/terms-of-service': {
-    en: { title: 'Terms of Service | E-SEOMAX', noIndex: false },
-    fr: { title: 'Conditions d\'Utilisation | E-SEOMAX', noIndex: false },
-    ar: { title: 'شروط الخدمة | E-SEOMAX', noIndex: false },
+    en: { title: 'Terms of Service | E-SEOMAX Morocco', noIndex: false },
+    fr: { title: 'Conditions d\'Utilisation | E-SEOMAX Maroc', noIndex: false },
+    ar: { title: 'شروط الخدمة | E-SEOMAX المغرب', noIndex: false },
   },
   '/cookie-policy': {
-    en: { title: 'Cookie Policy | E-SEOMAX', noIndex: false },
-    fr: { title: 'Politique des Cookies | E-SEOMAX', noIndex: false },
-    ar: { title: 'سياسة ملفات تعريف الارتباط | E-SEOMAX', noIndex: false },
+    en: { title: 'Cookie Policy | E-SEOMAX Morocco', noIndex: false },
+    fr: { title: 'Politique des Cookies | E-SEOMAX Maroc', noIndex: false },
+    ar: { title: 'سياسة ملفات تعريف الارتباط | E-SEOMAX المغرب', noIndex: false },
   },
   '/disclaimer': {
-    en: { title: 'Disclaimer | E-SEOMAX', noIndex: false },
-    fr: { title: 'Avertissement | E-SEOMAX', noIndex: false },
-    ar: { title: 'إخلاء المسؤولية | E-SEOMAX', noIndex: false },
+    en: { title: 'Disclaimer | E-SEOMAX Morocco', noIndex: false },
+    fr: { title: 'Avertissement | E-SEOMAX Maroc', noIndex: false },
+    ar: { title: 'إخلاء المسؤولية | E-SEOMAX المغرب', noIndex: false },
   },
 };
 
@@ -144,6 +243,7 @@ const SEO = ({
   modifiedTime,
   author = 'E-SEOMAX',
   noIndex = false,
+  category,
 }: SEOProps) => {
   const location = useLocation();
   const { i18n } = useTranslation();
@@ -226,6 +326,7 @@ const SEO = ({
       if (publishedTime) updateMeta('article:published_time', publishedTime, true);
       if (modifiedTime) updateMeta('article:modified_time', modifiedTime, true);
       updateMeta('article:author', author, true);
+      if (category) updateMeta('article:section', category, true);
     }
 
     // Canonical URL
@@ -245,26 +346,41 @@ const SEO = ({
     return () => {
       // Cleanup is optional as tags will be updated on next render
     };
-  }, [finalTitle, finalDescription, finalKeywords, image, type, currentPath, lang, shouldNoIndex, author, publishedTime, modifiedTime]);
+  }, [finalTitle, finalDescription, finalKeywords, image, type, currentPath, lang, shouldNoIndex, author, publishedTime, modifiedTime, category]);
 
   return null;
 };
 
 export default SEO;
 
+// Export Morocco cities for other components
+export { moroccanCities };
+
 // Export for use in blog posts
 export const getBlogPostSEO = (post: {
   title: string;
   excerpt: string;
   slug: string;
+  category?: string;
   featured_image?: string;
   published_at?: string;
   updated_at?: string;
 }) => ({
-  title: `${post.title} | E-SEOMAX Blog`,
-  description: post.excerpt,
+  title: `${post.title} | E-SEOMAX Blog Morocco`,
+  description: post.excerpt?.slice(0, 160) || `Read ${post.title} on E-SEOMAX Blog. Expert SEO tips for Morocco.`,
   image: post.featured_image || 'https://e-seomax.com/og-image.png',
   type: 'article' as const,
   publishedTime: post.published_at,
   modifiedTime: post.updated_at,
+  category: post.category,
 });
+
+// Base Morocco keywords for blog posts
+export const getMoroccoBaseKeywords = (lang: 'en' | 'fr' | 'ar' = 'en') => {
+  const base = {
+    en: 'SEO Morocco, SEO Casablanca, SEO Rabat, SEO Marrakech, free SEO audit Morocco, website optimization Morocco',
+    fr: 'SEO Maroc, SEO Casablanca, SEO Rabat, SEO Marrakech, audit SEO gratuit Maroc, référencement Maroc',
+    ar: 'SEO المغرب, SEO الدار البيضاء, SEO الرباط, SEO مراكش, تدقيق SEO مجاني, تحسين محركات البحث المغرب',
+  };
+  return base[lang];
+};

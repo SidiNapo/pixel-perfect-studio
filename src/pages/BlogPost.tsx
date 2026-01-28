@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import SEO from '@/components/SEO';
+import { createBlogPostSchema } from '@/components/StructuredDataSchemas';
 import { motion } from 'framer-motion';
 import { Calendar, Clock, ArrowLeft, Loader2 } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
@@ -22,10 +24,13 @@ interface BlogPost {
   read_time: string | null;
   read_time_fr?: string | null;
   published_at: string | null;
+  updated_at: string;
   seo_title: string | null;
   seo_title_fr?: string | null;
   seo_description: string | null;
   seo_description_fr?: string | null;
+  seo_keywords: string | null;
+  seo_keywords_fr?: string | null;
 }
 
 const BlogPost = () => {
@@ -61,6 +66,40 @@ const BlogPost = () => {
     fetchPost();
   }, [slug]);
 
+  // Add/remove blog post schema
+  useEffect(() => {
+    if (!post) return;
+
+    const isFrench = i18n.language === 'fr';
+    const title = isFrench ? post.title_fr || post.title : post.title;
+    const description = isFrench ? post.excerpt_fr || post.excerpt : post.excerpt;
+    const category = isFrench ? post.category_fr || post.category : post.category;
+    const keywords = isFrench ? post.seo_keywords_fr || post.seo_keywords : post.seo_keywords;
+
+    const schema = createBlogPostSchema({
+      title,
+      description: description || '',
+      image: post.featured_image || 'https://e-seomax.com/og-image.png',
+      datePublished: post.published_at || post.updated_at,
+      dateModified: post.updated_at,
+      slug: post.slug,
+      author: 'E-SEOMAX Team',
+      category: category || 'SEO',
+      keywords: keywords || undefined,
+    });
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.setAttribute('data-blog-schema', 'true');
+    script.textContent = JSON.stringify(schema);
+    document.head.appendChild(script);
+
+    return () => {
+      const existingScript = document.querySelector('script[data-blog-schema]');
+      if (existingScript) existingScript.remove();
+    };
+  }, [post, i18n.language]);
+
   const formatDate = (dateString: string | null) => {
     if (!dateString) return '';
 
@@ -79,13 +118,16 @@ const BlogPost = () => {
   const readTime = post ? (isFrench ? post.read_time_fr || post.read_time : post.read_time) : null;
   const seoTitle = post ? (isFrench ? post.seo_title_fr || post.seo_title : post.seo_title) : null;
   const seoDescription = post ? (isFrench ? post.seo_description_fr || post.seo_description : post.seo_description) : null;
+  const seoKeywords = post ? (isFrench ? post.seo_keywords_fr || post.seo_keywords : post.seo_keywords) : null;
   const content = post ? (isFrench ? post.content_fr || post.content : post.content) : null;
 
-  // Update document title for SEO
-  useEffect(() => {
-    if (!post) return;
-    document.title = seoTitle || title;
-  }, [post, seoTitle, title]);
+  // Add Morocco base keywords to post keywords
+  const moroccoBaseKeywords = isFrench 
+    ? 'SEO Maroc, SEO Casablanca, SEO Rabat, référencement Maroc'
+    : 'SEO Morocco, SEO Casablanca, SEO Rabat, SEO Marrakech';
+  const finalKeywords = seoKeywords 
+    ? `${seoKeywords}, ${moroccoBaseKeywords}`
+    : moroccoBaseKeywords;
 
   if (loading) {
     return (
@@ -102,6 +144,10 @@ const BlogPost = () => {
   if (notFound || !post) {
     return (
       <main className="bg-background min-h-screen">
+        <SEO 
+          title={t('blog.notFoundTitle') + ' | E-SEOMAX Blog'}
+          description="The blog post you're looking for could not be found. Browse our SEO blog for tips on ranking in Morocco."
+        />
         <Navbar />
         <section className="pt-32 pb-16 px-6">
           <div className="max-w-3xl mx-auto text-center">
@@ -125,6 +171,17 @@ const BlogPost = () => {
 
   return (
     <main className="bg-background min-h-screen">
+      <SEO 
+        title={seoTitle || `${title} | E-SEOMAX Blog Morocco`}
+        description={seoDescription || excerpt || `Read ${title} on E-SEOMAX Blog. Expert SEO tips for Morocco.`}
+        keywords={finalKeywords}
+        image={post.featured_image || 'https://e-seomax.com/og-image.png'}
+        type="article"
+        publishedTime={post.published_at || undefined}
+        modifiedTime={post.updated_at}
+        author="E-SEOMAX Team"
+        category={category || undefined}
+      />
       <Navbar />
       
       <article className="pt-32 pb-16 px-6">
@@ -165,7 +222,7 @@ const BlogPost = () => {
               {post.published_at && (
                 <span className="flex items-center gap-2">
                   <Calendar className="w-4 h-4" />
-                  {formatDate(post.published_at)}
+                  <time dateTime={post.published_at}>{formatDate(post.published_at)}</time>
                 </span>
               )}
               {readTime && (
@@ -189,6 +246,7 @@ const BlogPost = () => {
                 src={post.featured_image}
                 alt={title}
                 className="w-full h-auto max-h-[500px] object-cover rounded-2xl border border-border"
+                loading="eager"
               />
             </motion.div>
           )}

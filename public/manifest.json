@@ -1,0 +1,66 @@
+{
+  "name": "E-SEOMAX - #1 SEO Tool in Morocco",
+  "short_name": "E-SEOMAX",
+  "description": "Morocco's leading AI-powered SEO platform. Free website audit for Casablanca, Rabat, Marrakech & all Morocco. Boost your Google rankings today!",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0b",
+  "theme_color": "#8b5cf6",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["business", "productivity", "utilities"],
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/og-image.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "label": "E-SEOMAX SEO Platform Dashboard"
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "shortcuts": [
+    {
+      "name": "Free SEO Audit",
+      "short_name": "Audit",
+      "description": "Get a free SEO audit for your website",
+      "url": "/#analyze",
+      "icons": [{ "src": "/favicon.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "SEO Blog",
+      "short_name": "Blog",
+      "description": "Read SEO tips and guides for Morocco",
+      "url": "/blog",
+      "icons": [{ "src": "/favicon.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Contact Us",
+      "short_name": "Contact",
+      "description": "Get SEO support in Morocco",
+      "url": "/contact",
+      "icons": [{ "src": "/favicon.png", "sizes": "96x96" }]
+    }
+  ]
+}
