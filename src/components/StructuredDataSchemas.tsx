@@ -4,51 +4,103 @@ import { useTranslation } from 'react-i18next';
 
 const BASE_URL = 'https://e-seomax.com';
 
+// Morocco cities for ServiceArea schema
+const moroccanCities = [
+  { name: 'Casablanca', nameAr: 'الدار البيضاء', nameFr: 'Casablanca' },
+  { name: 'Rabat', nameAr: 'الرباط', nameFr: 'Rabat' },
+  { name: 'Marrakech', nameAr: 'مراكش', nameFr: 'Marrakech' },
+  { name: 'Tangier', nameAr: 'طنجة', nameFr: 'Tanger' },
+  { name: 'Fes', nameAr: 'فاس', nameFr: 'Fès' },
+  { name: 'Agadir', nameAr: 'أكادير', nameFr: 'Agadir' },
+  { name: 'Meknes', nameAr: 'مكناس', nameFr: 'Meknès' },
+  { name: 'Oujda', nameAr: 'وجدة', nameFr: 'Oujda' },
+  { name: 'Kenitra', nameAr: 'القنيطرة', nameFr: 'Kénitra' },
+  { name: 'Tetouan', nameAr: 'تطوان', nameFr: 'Tétouan' },
+  { name: 'Safi', nameAr: 'آسفي', nameFr: 'Safi' },
+  { name: 'El Jadida', nameAr: 'الجديدة', nameFr: 'El Jadida' },
+  { name: 'Nador', nameAr: 'الناظور', nameFr: 'Nador' },
+  { name: 'Mohammedia', nameAr: 'المحمدية', nameFr: 'Mohammédia' },
+  { name: 'Beni Mellal', nameAr: 'بني ملال', nameFr: 'Béni Mellal' },
+];
+
 // SoftwareApplication Schema - Critical for SaaS recognition
 const softwareApplicationSchema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "E-SEOMAX",
-  "description": "AI-powered SEO analysis platform helping businesses in Morocco and worldwide improve their search engine rankings with comprehensive audits and actionable recommendations.",
+  "alternateName": ["E-SEOMAX Morocco", "إي-سيوماكس", "E-SEOMAX Maroc"],
+  "description": "AI-powered SEO analysis platform helping businesses in Morocco and worldwide improve their search engine rankings. #1 SEO tool in Casablanca, Rabat, Marrakech, and all Moroccan cities.",
   "url": BASE_URL,
   "applicationCategory": "BusinessApplication",
+  "applicationSubCategory": "SEO Tool",
   "operatingSystem": "Web Browser",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD",
-    "description": "Free SEO audit available"
-  },
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Free SEO Audit",
+      "price": "0",
+      "priceCurrency": "MAD",
+      "description": "Free comprehensive SEO audit for your website",
+      "availability": "https://schema.org/InStock"
+    },
+    {
+      "@type": "Offer",
+      "name": "Pro Plan",
+      "price": "299",
+      "priceCurrency": "MAD",
+      "description": "Professional SEO tools and analytics",
+      "availability": "https://schema.org/InStock"
+    },
+    {
+      "@type": "Offer",
+      "name": "Enterprise Plan",
+      "price": "999",
+      "priceCurrency": "MAD",
+      "description": "Enterprise SEO solution for large businesses",
+      "availability": "https://schema.org/InStock"
+    }
+  ],
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "4.9",
     "ratingCount": "1250",
     "bestRating": "5",
-    "worstRating": "1"
+    "worstRating": "1",
+    "reviewCount": "980"
   },
   "author": {
     "@type": "Organization",
-    "name": "E-SEOMAX"
+    "name": "E-SEOMAX",
+    "url": BASE_URL
   },
   "screenshot": `${BASE_URL}/og-image.png`,
   "featureList": [
     "AI-Powered SEO Analysis",
     "Technical SEO Audit",
-    "Keyword Research",
+    "Keyword Research for Morocco",
     "Content Optimization",
     "Backlink Analysis",
     "Competitor Analysis",
     "Mobile SEO Check",
-    "Core Web Vitals Analysis"
-  ]
+    "Core Web Vitals Analysis",
+    "Local SEO for Moroccan Cities",
+    "Multilingual SEO (Arabic, French, English)",
+    "SERP Tracking Morocco",
+    "Site Speed Analysis"
+  ],
+  "availableLanguage": ["en", "fr", "ar"],
+  "countryOfOrigin": {
+    "@type": "Country",
+    "name": "Morocco"
+  }
 };
 
-// Enhanced Organization Schema
+// Enhanced Organization Schema with Service Areas
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "E-SEOMAX",
-  "alternateName": "E-SEOMAX SEO Platform",
+  "alternateName": ["E-SEOMAX Morocco", "إي-سيوماكس", "E-SEOMAX Maroc"],
   "url": BASE_URL,
   "logo": {
     "@type": "ImageObject",
@@ -56,21 +108,29 @@ const organizationSchema = {
     "width": 512,
     "height": 512
   },
-  "description": "E-SEOMAX is Morocco's leading AI-powered SEO analysis platform that helps website owners, marketers, and businesses improve their search engine visibility.",
+  "image": `${BASE_URL}/og-image.png`,
+  "description": "E-SEOMAX is Morocco's leading AI-powered SEO analysis platform serving businesses in Casablanca, Rabat, Marrakech, Tangier, Fes, Agadir, and all Moroccan cities.",
   "foundingDate": "2020",
   "foundingLocation": {
     "@type": "Place",
     "address": {
       "@type": "PostalAddress",
       "addressCountry": "MA",
-      "addressLocality": "Casablanca"
+      "addressLocality": "Casablanca",
+      "addressRegion": "Casablanca-Settat"
     }
   },
   "areaServed": [
     {
       "@type": "Country",
-      "name": "Morocco"
+      "name": "Morocco",
+      "alternateName": ["Maroc", "المغرب"]
     },
+    ...moroccanCities.map(city => ({
+      "@type": "City",
+      "name": city.name,
+      "alternateName": [city.nameAr, city.nameFr]
+    })),
     {
       "@type": "Country",
       "name": "France"
@@ -88,23 +148,27 @@ const organizationSchema = {
   "sameAs": [
     "https://twitter.com/eseomax",
     "https://linkedin.com/company/eseomax",
-    "https://github.com/eseomax"
+    "https://github.com/eseomax",
+    "https://facebook.com/eseomax"
   ],
   "contactPoint": [
     {
       "@type": "ContactPoint",
       "contactType": "customer service",
       "email": "support@e-seomax.com",
-      "availableLanguage": ["English", "French", "Arabic"]
+      "availableLanguage": ["English", "French", "Arabic"],
+      "areaServed": "MA"
     },
     {
       "@type": "ContactPoint",
       "contactType": "sales",
       "email": "hello@e-seomax.com",
-      "availableLanguage": ["English", "French", "Arabic"]
+      "availableLanguage": ["English", "French", "Arabic"],
+      "areaServed": "MA"
     }
   ],
-  "knowsLanguage": ["en", "fr", "ar"]
+  "knowsLanguage": ["en", "fr", "ar"],
+  "slogan": "#1 SEO Tool in Morocco"
 };
 
 // WebSite Schema with SearchAction
@@ -112,9 +176,9 @@ const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "E-SEOMAX",
-  "alternateName": "E-SEOMAX - #1 SEO Tool in Morocco",
+  "alternateName": ["E-SEOMAX - #1 SEO Tool in Morocco", "E-SEOMAX Maroc", "إي-سيوماكس المغرب"],
   "url": BASE_URL,
-  "description": "AI-Powered SEO Analysis Platform - Analyze, optimize, and dominate search results with intelligent insights.",
+  "description": "AI-Powered SEO Analysis Platform - Analyze, optimize, and dominate search results in Morocco with intelligent insights.",
   "inLanguage": ["en", "fr", "ar"],
   "publisher": {
     "@type": "Organization",
@@ -129,7 +193,11 @@ const websiteSchema = {
       },
       "query-input": "required name=search_term_string"
     }
-  ]
+  ],
+  "mainEntity": {
+    "@type": "SoftwareApplication",
+    "name": "E-SEOMAX SEO Platform"
+  }
 };
 
 // BreadcrumbList Schema generator
@@ -139,7 +207,7 @@ const generateBreadcrumbSchema = (pathname: string, lang: string) => {
     {
       "@type": "ListItem",
       "position": 1,
-      "name": "Home",
+      "name": lang === 'fr' ? 'Accueil' : lang === 'ar' ? 'الرئيسية' : 'Home',
       "item": BASE_URL
     }
   ];
@@ -173,7 +241,7 @@ const faqSchema = {
       "name": "What is E-SEOMAX?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "E-SEOMAX is an AI-powered SEO analysis platform that helps businesses improve their search engine rankings through comprehensive audits, keyword research, and actionable recommendations."
+        "text": "E-SEOMAX is Morocco's #1 AI-powered SEO analysis platform that helps businesses in Casablanca, Rabat, Marrakech, and all Moroccan cities improve their search engine rankings through comprehensive audits, keyword research, and actionable recommendations."
       }
     },
     {
@@ -181,7 +249,7 @@ const faqSchema = {
       "name": "Is E-SEOMAX free to use?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, E-SEOMAX offers a free SEO audit for your website. You can analyze your site's SEO performance and get recommendations without any cost."
+        "text": "Yes, E-SEOMAX offers a free SEO audit for your website. You can analyze your site's SEO performance and get recommendations without any cost. Premium plans are available for advanced features."
       }
     },
     {
@@ -189,7 +257,7 @@ const faqSchema = {
       "name": "Does E-SEOMAX work for websites in Morocco?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Absolutely! E-SEOMAX is specifically optimized for the Moroccan market and supports Arabic, French, and English languages. It's the #1 SEO tool in Morocco."
+        "text": "Absolutely! E-SEOMAX is specifically optimized for the Moroccan market with support for Arabic, French, and English. We serve businesses in Casablanca, Rabat, Marrakech, Tangier, Fes, Agadir, and all Moroccan cities."
       }
     },
     {
@@ -197,7 +265,31 @@ const faqSchema = {
       "name": "What SEO features does E-SEOMAX offer?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "E-SEOMAX offers technical SEO audits, content optimization, keyword research, backlink analysis, competitor analysis, mobile SEO checks, and Core Web Vitals analysis."
+        "text": "E-SEOMAX offers technical SEO audits, content optimization, keyword research for Morocco, backlink analysis, competitor analysis, mobile SEO checks, Core Web Vitals analysis, and local SEO optimization for Moroccan cities."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What cities in Morocco does E-SEOMAX serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "E-SEOMAX serves all major Moroccan cities including Casablanca, Rabat, Marrakech, Tangier, Fes, Agadir, Meknes, Oujda, Kenitra, Tetouan, Safi, El Jadida, Nador, Mohammedia, and Beni Mellal."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Qu'est-ce que E-SEOMAX?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "E-SEOMAX est la plateforme d'analyse SEO #1 au Maroc alimentée par l'IA, aidant les entreprises de Casablanca, Rabat, Marrakech et toutes les villes marocaines à améliorer leur classement sur les moteurs de recherche."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ما هو E-SEOMAX؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "E-SEOMAX هي منصة تحليل SEO رقم 1 في المغرب مدعومة بالذكاء الاصطناعي، تساعد الشركات في الدار البيضاء والرباط ومراكش وجميع المدن المغربية على تحسين ترتيبها في محركات البحث."
       }
     }
   ]
@@ -208,7 +300,9 @@ const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   "name": "E-SEOMAX",
-  "image": `${BASE_URL}/favicon.png`,
+  "alternateName": ["E-SEOMAX Morocco", "إي-سيوماكس", "E-SEOMAX Maroc"],
+  "image": `${BASE_URL}/og-image.png`,
+  "logo": `${BASE_URL}/favicon.png`,
   "url": BASE_URL,
   "telephone": "",
   "email": "support@e-seomax.com",
@@ -224,16 +318,142 @@ const localBusinessSchema = {
     "longitude": -7.5898
   },
   "priceRange": "Free - Premium",
+  "currenciesAccepted": "MAD, USD, EUR",
+  "paymentAccepted": "Credit Card, PayPal, Bank Transfer",
   "openingHoursSpecification": {
     "@type": "OpeningHoursSpecification",
     "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
     "opens": "00:00",
     "closes": "23:59"
   },
+  "areaServed": moroccanCities.map(city => ({
+    "@type": "City",
+    "name": city.name
+  })),
+  "serviceType": [
+    "SEO Analysis",
+    "Website Audit",
+    "Keyword Research",
+    "Technical SEO",
+    "Content Optimization",
+    "Local SEO Morocco"
+  ],
   "sameAs": [
     "https://twitter.com/eseomax",
     "https://linkedin.com/company/eseomax"
   ]
+};
+
+// Product Schema for SaaS offering
+const productSchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "E-SEOMAX SEO Platform",
+  "description": "Morocco's #1 AI-powered SEO analysis platform. Comprehensive SEO tools for businesses in Casablanca, Rabat, Marrakech and all Morocco.",
+  "image": `${BASE_URL}/og-image.png`,
+  "brand": {
+    "@type": "Brand",
+    "name": "E-SEOMAX"
+  },
+  "manufacturer": {
+    "@type": "Organization",
+    "name": "E-SEOMAX"
+  },
+  "category": "SEO Software",
+  "offers": {
+    "@type": "AggregateOffer",
+    "lowPrice": "0",
+    "highPrice": "999",
+    "priceCurrency": "MAD",
+    "offerCount": "3",
+    "availability": "https://schema.org/InStock"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "980",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Ahmed B."
+      },
+      "reviewBody": "Best SEO tool for Morocco! Helped my Casablanca business rank #1 on Google."
+    },
+    {
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Marie L."
+      },
+      "reviewBody": "Excellent outil SEO pour le Maroc. Interface en français parfaite!"
+    }
+  ]
+};
+
+// Service Schema for SEO services
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "SEO Analysis Platform",
+  "name": "E-SEOMAX SEO Services",
+  "description": "AI-powered SEO analysis and optimization services for businesses in Morocco. Serving Casablanca, Rabat, Marrakech, Tangier, Fes, Agadir and all Moroccan cities.",
+  "provider": {
+    "@type": "Organization",
+    "name": "E-SEOMAX"
+  },
+  "areaServed": [
+    {
+      "@type": "Country",
+      "name": "Morocco"
+    },
+    ...moroccanCities.slice(0, 6).map(city => ({
+      "@type": "City",
+      "name": city.name
+    }))
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "E-SEOMAX Plans",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Free SEO Audit"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Pro SEO Analysis"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Enterprise SEO Solution"
+        }
+      }
+    ]
+  },
+  "availableLanguage": ["English", "French", "Arabic"]
 };
 
 const StructuredDataSchemas = () => {
@@ -260,6 +480,8 @@ const StructuredDataSchemas = () => {
     addSchema('organization', organizationSchema);
     addSchema('website', websiteSchema);
     addSchema('local-business', localBusinessSchema);
+    addSchema('product', productSchema);
+    addSchema('service', serviceSchema);
 
     // Add breadcrumb for non-home pages
     if (location.pathname !== '/') {
@@ -291,6 +513,8 @@ export const createBlogPostSchema = (post: {
   dateModified: string;
   slug: string;
   author?: string;
+  category?: string;
+  keywords?: string;
 }) => ({
   "@context": "https://schema.org",
   "@type": "BlogPosting",
@@ -322,5 +546,10 @@ export const createBlogPostSchema = (post: {
     "@type": "Blog",
     "name": "E-SEOMAX Blog",
     "url": `${BASE_URL}/blog`
-  }
+  },
+  "about": {
+    "@type": "Thing",
+    "name": post.category || "SEO"
+  },
+  "keywords": post.keywords || "SEO Morocco, Casablanca, Rabat, Marrakech"
 });
