@@ -58,8 +58,7 @@ Allow: /
 User-agent: *
 Allow: /
 
-# Disallow admin and private areas
-Disallow: /admin/
+# Disallow private areas (no specific paths exposed)
 Disallow: /api/
 Disallow: /*.json$
 Disallow: /supabase/

@@ -4,8 +4,9 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { motion } from 'framer-motion';
-import { Lock, Mail, AlertCircle, Loader2 } from 'lucide-react';
-import { useAuth } from '@/hooks/useAuth';
+import { Lock, Mail, AlertCircle, Loader2, Clock, ShieldAlert } from 'lucide-react';
+import { useSecureAuth } from '@/hooks/useSecureAuth';
+import { getAdminPaths } from '@/config/adminConfig';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import {
@@ -27,10 +28,20 @@ type LoginFormData = z.infer<typeof loginSchema>;
 
 const AdminLogin = () => {
   const navigate = useNavigate();
-  const { signIn, user, isAdmin, loading } = useAuth();
+  const { 
+    user, 
+    isAdmin, 
+    loading, 
+    secureSignIn, 
+    isLockedOut, 
+    remainingAttempts, 
+    lockoutEndTime 
+  } = useSecureAuth();
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [authError, setAuthError] = useState<string | null>(null);
+  const [lockoutCountdown, setLockoutCountdown] = useState<string>('');
+  const adminPaths = getAdminPaths();
 
   const form = useForm<LoginFormData>({
     resolver: zodResolver(loginSchema),
@@ -42,15 +53,42 @@ const AdminLogin = () => {
 
   useEffect(() => {
     if (!loading && user && isAdmin) {
-      navigate('/admin/dashboard');
+      navigate(adminPaths.dashboard);
     }
-  }, [user, isAdmin, loading, navigate]);
+  }, [user, isAdmin, loading, navigate, adminPaths.dashboard]);
+
+  // Lockout countdown timer
+  useEffect(() => {
+    if (!lockoutEndTime) {
+      setLockoutCountdown('');
+      return;
+    }
+
+    const updateCountdown = () => {
+      const remaining = lockoutEndTime - Date.now();
+      if (remaining <= 0) {
+        setLockoutCountdown('');
+        return;
+      }
+      const minutes = Math.floor(remaining / 60000);
+      const seconds = Math.floor((remaining % 60000) / 1000);
+      setLockoutCountdown(`${minutes}:${seconds.toString().padStart(2, '0')}`);
+    };
+
+    updateCountdown();
+    const interval = setInterval(updateCountdown, 1000);
+    return () => clearInterval(interval);
+  }, [lockoutEndTime]);
 
   const onSubmit = async (data: LoginFormData) => {
+    if (isLockedOut) {
+      return;
+    }
+
     setIsSubmitting(true);
     setAuthError(null);
 
-    const { error } = await signIn(data.email, data.password);
+    const { error } = await secureSignIn(data.email, data.password);
 
     if (error) {
       setAuthError(error.message);
@@ -89,7 +127,7 @@ const AdminLogin = () => {
           <h1 className="text-3xl font-bold text-foreground mb-2">
             E-<span className="text-primary">SEOMAX</span>
           </h1>
-          <p className="text-muted-foreground">Admin Dashboard</p>
+          <p className="text-muted-foreground">Secure Admin Portal</p>
         </div>
 
         {/* Login Card */}
@@ -104,7 +142,39 @@ const AdminLogin = () => {
             </div>
           </div>
 
-          {authError && (
+          {/* Lockout Warning */}
+          {isLockedOut && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              className="flex items-center gap-2 p-4 mb-6 bg-destructive/10 border border-destructive/20 rounded-lg"
+            >
+              <ShieldAlert className="w-5 h-5 text-destructive flex-shrink-0" />
+              <div>
+                <p className="text-sm font-medium text-destructive">Account Temporarily Locked</p>
+                <p className="text-xs text-destructive/80 flex items-center gap-1 mt-1">
+                  <Clock className="w-3 h-3" />
+                  Try again in {lockoutCountdown}
+                </p>
+              </div>
+            </motion.div>
+          )}
+
+          {/* Remaining Attempts Warning */}
+          {!isLockedOut && remainingAttempts < 5 && remainingAttempts > 0 && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              className="flex items-center gap-2 p-4 mb-6 bg-yellow-500/10 border border-yellow-500/20 rounded-lg"
+            >
+              <AlertCircle className="w-5 h-5 text-yellow-500 flex-shrink-0" />
+              <p className="text-sm text-yellow-500">
+                {remainingAttempts} attempt{remainingAttempts !== 1 ? 's' : ''} remaining before lockout
+              </p>
+            </motion.div>
+          )}
+
+          {authError && !isLockedOut && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
@@ -130,7 +200,8 @@ const AdminLogin = () => {
                           {...field}
                           type="email"
                           placeholder="admin@example.com"
-                          className="pl-11 bg-input border-border focus:border-primary focus:ring-primary"
+                          disabled={isLockedOut}
+                          className="pl-11 bg-input border-border focus:border-primary focus:ring-primary disabled:opacity-50"
                         />
                       </div>
                     </FormControl>
@@ -152,7 +223,8 @@ const AdminLogin = () => {
                           {...field}
                           type="password"
                           placeholder="••••••••"
-                          className="pl-11 bg-input border-border focus:border-primary focus:ring-primary"
+                          disabled={isLockedOut}
+                          className="pl-11 bg-input border-border focus:border-primary focus:ring-primary disabled:opacity-50"
                         />
                       </div>
                     </FormControl>
@@ -163,13 +235,18 @@ const AdminLogin = () => {
 
               <Button
                 type="submit"
-                disabled={isSubmitting}
+                disabled={isSubmitting || isLockedOut}
                 className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-6"
               >
                 {isSubmitting ? (
                   <>
                     <Loader2 className="w-5 h-5 mr-2 animate-spin" />
                     Signing in...
+                  </>
+                ) : isLockedOut ? (
+                  <>
+                    <ShieldAlert className="w-5 h-5 mr-2" />
+                    Account Locked
                   </>
                 ) : (
                   'Sign In'

@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Plus, Edit, Trash2, Eye, Search, Loader2 } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
+import { getAdminPaths } from '@/config/adminConfig';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import {
@@ -43,6 +44,7 @@ const PostsList = () => {
   const [deletingId, setDeletingId] = useState<string | null>(null);
   const navigate = useNavigate();
   const { toast } = useToast();
+  const adminPaths = getAdminPaths();
 
   useEffect(() => {
     fetchPosts();
@@ -96,7 +98,7 @@ const PostsList = () => {
           <p className="text-muted-foreground">Manage your blog content</p>
         </div>
         <Button
-          onClick={() => navigate('/admin/posts/new')}
+          onClick={() => navigate(adminPaths.postNew)}
           className="bg-primary hover:bg-primary/90"
         >
           <Plus className="w-5 h-5 mr-2" />
@@ -191,7 +193,7 @@ const PostsList = () => {
                       <Button
                         variant="ghost"
                         size="icon"
-                        onClick={() => navigate(`/admin/posts/${post.id}`)}
+                        onClick={() => navigate(adminPaths.postEdit(post.id))}
                         className="text-muted-foreground hover:text-foreground"
                       >
                         <Edit className="w-4 h-4" />
