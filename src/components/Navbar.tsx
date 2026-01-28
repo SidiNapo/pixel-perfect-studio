@@ -5,12 +5,14 @@ import { useTranslation } from 'react-i18next';
 import { Menu, X } from 'lucide-react';
 import logo from '@/assets/e-seomax-logo.png';
 import LanguageSwitcher from './LanguageSwitcher';
+import { getDirection } from '@/i18n';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isRTL = getDirection(i18n.language) === 'rtl';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,10 +28,10 @@ export default function Navbar() {
   }, [location.pathname]);
 
   const navItems = [
-    { label: t('nav.home'), href: '/' },
-    { label: t('nav.blog'), href: '/blog' },
-    { label: t('nav.about'), href: '/about' },
-    { label: t('nav.contact'), href: '/contact' },
+    { label: t('common.nav.home'), href: '/' },
+    { label: t('common.nav.blog'), href: '/blog' },
+    { label: t('common.nav.about'), href: '/about' },
+    { label: t('common.nav.contact'), href: '/contact' },
   ];
 
   return (
@@ -42,13 +44,13 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="flex items-center justify-between h-20">
+        <div className={`flex items-center justify-between h-20 ${isRTL ? 'flex-row-reverse' : ''}`}>
           <Link to="/" className="flex items-center">
-            <img src={logo} alt="E-SEOMAX" className="h-16 md:h-20 w-auto" />
+            <img src={logo} alt={t('common.brand.logoAlt')} className="h-16 md:h-20 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className={`hidden md:flex items-center gap-8 ${isRTL ? 'flex-row-reverse' : ''}`}>
             {navItems.map((item) => (
               <Link
                 key={item.href}
@@ -64,7 +66,7 @@ export default function Navbar() {
             ))}
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className={`flex items-center gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
             <LanguageSwitcher />
             
             {/* Mobile menu button */}

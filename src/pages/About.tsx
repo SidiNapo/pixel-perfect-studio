@@ -3,104 +3,7 @@ import Footer from '@/components/Footer';
 import { motion, useInView } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
 import { Linkedin, Twitter, Target, Zap, Shield, TrendingUp, Users, Award, Globe, BarChart3, Search, Brain, Lightbulb, Rocket, CheckCircle } from 'lucide-react';
-
-const teamMembers = [
-  {
-    name: "Dr. Sarah Chen",
-    role: "CEO & Co-Founder",
-    bio: "Former Google Search Quality Engineer with 15 years of experience in AI and machine learning. Sarah led the development of core ranking algorithms that serve billions of searches daily.",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face"
-  },
-  {
-    name: "Marcus Rodriguez",
-    role: "CTO & Co-Founder",
-    bio: "Ex-Amazon principal engineer, specializing in scalable data systems and NLP technologies. Marcus architected systems processing petabytes of search data.",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face"
-  },
-  {
-    name: "Emily Zhang",
-    role: "Head of AI Research",
-    bio: "PhD in Computer Science from MIT, leading our proprietary SEO intelligence algorithms. Emily has published over 30 papers on machine learning and information retrieval.",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=face"
-  },
-  {
-    name: "David Kim",
-    role: "Lead Data Scientist",
-    bio: "Former Spotify data lead, expert in predictive analytics and trend forecasting. David brings expertise in understanding user behavior patterns at scale.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
-  }
-];
-
-const stats = [
-  { value: 10, suffix: "M+", label: "Pages Analyzed Monthly" },
-  { value: 5000, suffix: "+", label: "Happy Clients Worldwide" },
-  { value: 98, suffix: "%", label: "Client Satisfaction Rate" },
-  { value: 24, suffix: "/7", label: "Expert Support Available" }
-];
-
-const coreValues = [
-  {
-    icon: Lightbulb,
-    title: "Innovation First",
-    description: "We constantly push the boundaries of what's possible with AI and machine learning, delivering cutting-edge SEO solutions that keep our clients ahead of the competition."
-  },
-  {
-    icon: Target,
-    title: "Data-Driven Excellence",
-    description: "Every recommendation we make is backed by comprehensive data analysis. We believe in measurable results and transparent reporting for all our clients."
-  },
-  {
-    icon: Users,
-    title: "Client Success Focus",
-    description: "Your success is our success. We work as an extension of your team, providing personalized strategies that align with your unique business goals."
-  },
-  {
-    icon: Shield,
-    title: "Ethical SEO Practices",
-    description: "We only use white-hat SEO techniques that build sustainable, long-term rankings. No shortcuts, no black-hat tactics – just honest, effective optimization."
-  }
-];
-
-const seoServices = [
-  {
-    icon: Search,
-    title: "Technical SEO Audit",
-    description: "Comprehensive analysis of your website's technical infrastructure, including site speed, mobile optimization, crawlability, and indexation issues."
-  },
-  {
-    icon: Brain,
-    title: "AI-Powered Content Optimization",
-    description: "Leverage our proprietary AI algorithms to optimize your content for search engines while maintaining natural, engaging writing for your audience."
-  },
-  {
-    icon: BarChart3,
-    title: "Rank Tracking & Analytics",
-    description: "Real-time monitoring of your keyword rankings across search engines with detailed analytics and competitive benchmarking."
-  },
-  {
-    icon: Globe,
-    title: "International SEO",
-    description: "Expand your global reach with multi-language and multi-region SEO strategies tailored to different markets and search behaviors."
-  },
-  {
-    icon: TrendingUp,
-    title: "Link Building Intelligence",
-    description: "Strategic link acquisition powered by AI that identifies high-quality opportunities and builds authoritative backlink profiles."
-  },
-  {
-    icon: Rocket,
-    title: "Competitor Analysis",
-    description: "Deep-dive analysis of your competitors' SEO strategies, uncovering opportunities and gaps you can exploit for better rankings."
-  }
-];
-
-const milestones = [
-  { year: "2020", title: "Company Founded", description: "E-SEOMAX was born from a vision to democratize enterprise-grade SEO tools for businesses of all sizes." },
-  { year: "2021", title: "AI Engine Launch", description: "Released our first AI-powered SEO recommendation engine, processing over 50,000 ranking factors." },
-  { year: "2022", title: "Global Expansion", description: "Expanded operations to serve clients in 50+ countries with localized SEO strategies." },
-  { year: "2023", title: "1 Million Pages Milestone", description: "Reached the milestone of analyzing over 1 million web pages monthly for our clients." },
-  { year: "2024", title: "Next-Gen AI Platform", description: "Launched our revolutionary AI platform with predictive ranking algorithms and real-time optimization." }
-];
+import { useTranslation } from 'react-i18next';
 
 function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
   const [count, setCount] = useState(0);
@@ -130,6 +33,62 @@ function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
 }
 
 const About = () => {
+  const { t } = useTranslation();
+
+  const stats = [
+    { id: 'pagesAnalyzedMonthly', value: 10 },
+    { id: 'happyClientsWorldwide', value: 5000 },
+    { id: 'clientSatisfactionRate', value: 98 },
+    { id: 'expertSupportAvailable', value: 24 },
+  ] as const;
+
+  const coreValues = [
+    { id: 'innovationFirst', icon: Lightbulb },
+    { id: 'dataDrivenExcellence', icon: Target },
+    { id: 'clientSuccessFocus', icon: Users },
+    { id: 'ethicalSeoPractices', icon: Shield },
+  ] as const;
+
+  const seoServices = [
+    { id: 'technicalAudit', icon: Search },
+    { id: 'contentOptimization', icon: Brain },
+    { id: 'rankTracking', icon: BarChart3 },
+    { id: 'internationalSeo', icon: Globe },
+    { id: 'linkBuilding', icon: TrendingUp },
+    { id: 'competitorAnalysis', icon: Rocket },
+  ] as const;
+
+  const milestones = [
+    { id: 'founded', year: '2020' },
+    { id: 'aiEngineLaunch', year: '2021' },
+    { id: 'globalExpansion', year: '2022' },
+    { id: 'millionPages', year: '2023' },
+    { id: 'nextGenPlatform', year: '2024' },
+  ] as const;
+
+  const teamMembers = [
+    {
+      id: 'sarah',
+      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face',
+    },
+    {
+      id: 'marcus',
+      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face',
+    },
+    {
+      id: 'emily',
+      image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=face',
+    },
+    {
+      id: 'david',
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face',
+    },
+  ] as const;
+
+  const advantageBullets = t('common.about.advantage.section1.bullets', {
+    returnObjects: true,
+  }) as string[];
+
   return (
     <main className="bg-background min-h-screen">
       <Navbar />
@@ -147,25 +106,20 @@ const About = () => {
               transition={{ duration: 0.7 }}
             >
               <span className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
-                About E-SEOMAX
+                {t('common.about.hero.badge')}
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
-                Revolutionizing SEO with{' '}
-                <span className="text-primary">Artificial Intelligence</span>
+                {t('common.about.hero.title')}{' '}
+                <span className="text-primary">{t('common.about.hero.titleHighlight')}</span>
               </h1>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                Founded in 2020, E-SEOMAX emerged from a simple yet powerful belief: SEO shouldn't be guesswork. 
-                Our team of world-class engineers, data scientists, and SEO experts came together to build the most 
-                advanced AI-powered SEO platform ever created, giving businesses of all sizes the competitive edge they deserve.
+                {t('common.about.hero.paragraph1')}
               </p>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                We've analyzed over 10 million web pages, uncovering patterns and insights that human analysts 
-                would take years to discover. Our proprietary algorithms process 50,000+ ranking factors in real-time, 
-                delivering actionable insights that transform how businesses approach search visibility and digital marketing.
+                {t('common.about.hero.paragraph2')}
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Today, E-SEOMAX serves over 5,000 clients worldwide, from ambitious startups to Fortune 500 companies, 
-                helping them achieve and maintain top search rankings through the power of artificial intelligence.
+                {t('common.about.hero.paragraph3')}
               </p>
             </motion.div>
 
@@ -178,7 +132,7 @@ const About = () => {
               <div className="relative rounded-3xl overflow-hidden">
                 <img
                   src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop"
-                  alt="E-SEOMAX Team collaborating on AI-powered SEO solutions"
+                  alt={t('common.about.hero.imageAlt')}
                   className="w-full h-auto"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />
@@ -202,7 +156,7 @@ const About = () => {
           >
             {stats.map((stat, index) => (
               <motion.div
-                key={stat.label}
+                key={stat.id}
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -210,9 +164,9 @@ const About = () => {
                 className="text-center p-8 rounded-2xl bg-card/50 border border-border hover:border-primary/30 transition-all duration-300"
               >
                 <div className="text-4xl md:text-5xl font-bold text-primary mb-2">
-                  <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+                  <AnimatedCounter value={stat.value} suffix={t(`common.about.stats.${stat.id}.suffix`)} />
                 </div>
-                <div className="text-muted-foreground">{stat.label}</div>
+                <div className="text-muted-foreground">{t(`common.about.stats.${stat.id}.label`)}</div>
               </motion.div>
             ))}
           </motion.div>
@@ -232,14 +186,13 @@ const About = () => {
             className="text-center mb-16"
           >
             <span className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
-              Why Choose Us
+              {t('common.about.advantage.badge')}
             </span>
             <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
-              The E-SEOMAX <span className="text-primary">Advantage</span>
+              {t('common.about.advantage.title')} <span className="text-primary">{t('common.about.advantage.titleHighlight')}</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              What sets E-SEOMAX apart from traditional SEO tools and agencies? Our unique combination of 
-              cutting-edge AI technology, deep industry expertise, and unwavering commitment to client success.
+              {t('common.about.advantage.description')}
             </p>
           </motion.div>
 
@@ -252,7 +205,7 @@ const About = () => {
             >
               <img
                 src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop"
-                alt="Advanced SEO analytics dashboard showing real-time data"
+                alt={t('common.about.advantage.section1.imageAlt')}
                 className="rounded-2xl w-full h-auto shadow-2xl"
               />
             </motion.div>
@@ -265,21 +218,13 @@ const About = () => {
               className="space-y-6"
             >
               <h3 className="text-2xl md:text-3xl font-bold text-foreground">
-                AI-Powered SEO Intelligence That Delivers Results
+                {t('common.about.advantage.section1.title')}
               </h3>
               <p className="text-muted-foreground leading-relaxed">
-                Our proprietary AI engine analyzes millions of data points across the web, identifying patterns 
-                and opportunities that human analysts would miss. From technical SEO audits to content optimization 
-                and link building strategies, every recommendation is backed by comprehensive data analysis.
+                {t('common.about.advantage.section1.paragraph')}
               </p>
               <ul className="space-y-4">
-                {[
-                  "Real-time ranking updates and competitive monitoring",
-                  "Predictive analytics for search trend forecasting",
-                  "Automated technical SEO issue detection and fixes",
-                  "Content optimization with semantic analysis",
-                  "Intelligent link opportunity identification"
-                ].map((item, index) => (
+                {advantageBullets.map((item, index) => (
                   <motion.li
                     key={index}
                     initial={{ opacity: 0, x: 20 }}
@@ -305,24 +250,20 @@ const About = () => {
               className="space-y-6 order-2 lg:order-1"
             >
               <h3 className="text-2xl md:text-3xl font-bold text-foreground">
-                Enterprise-Grade Technology, Accessible to All
+                {t('common.about.advantage.section2.title')}
               </h3>
               <p className="text-muted-foreground leading-relaxed">
-                We believe every business deserves access to the same powerful SEO tools used by industry giants. 
-                Our platform democratizes enterprise-grade SEO intelligence, making sophisticated analysis and 
-                optimization accessible to startups, small businesses, and agencies alike.
+                {t('common.about.advantage.section2.paragraph1')}
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                Whether you're a solo entrepreneur looking to improve your website's visibility or a large 
-                corporation managing hundreds of domains, E-SEOMAX scales to meet your needs with customizable 
-                solutions and dedicated support.
+                {t('common.about.advantage.section2.paragraph2')}
               </p>
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { icon: Zap, label: "Fast Analysis" },
-                  { icon: Shield, label: "Secure Platform" },
-                  { icon: Globe, label: "Global Reach" },
-                  { icon: Award, label: "Award-Winning" }
+                  { icon: Zap, label: t('common.about.advantage.section2.highlights.fastAnalysis') },
+                  { icon: Shield, label: t('common.about.advantage.section2.highlights.securePlatform') },
+                  { icon: Globe, label: t('common.about.advantage.section2.highlights.globalReach') },
+                  { icon: Award, label: t('common.about.advantage.section2.highlights.awardWinning') }
                 ].map((item, index) => (
                   <motion.div
                     key={item.label}
@@ -348,7 +289,7 @@ const About = () => {
             >
               <img
                 src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop"
-                alt="Team analyzing SEO performance metrics on multiple screens"
+                alt={t('common.about.advantage.section2.imageAlt')}
                 className="rounded-2xl w-full h-auto shadow-2xl"
               />
             </motion.div>
@@ -367,21 +308,20 @@ const About = () => {
             className="text-center mb-16"
           >
             <span className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
-              Our Values
+              {t('common.about.values.badge')}
             </span>
             <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
-              What Drives <span className="text-primary">Our Team</span>
+              {t('common.about.values.title')} <span className="text-primary">{t('common.about.values.titleHighlight')}</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Our core values shape everything we do, from product development to customer service. 
-              These principles guide our decisions and define our company culture.
+              {t('common.about.values.description')}
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {coreValues.map((value, index) => (
               <motion.div
-                key={value.title}
+                key={value.id}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -391,8 +331,8 @@ const About = () => {
                 <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
                   <value.icon className="w-7 h-7 text-primary" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-3">{value.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{value.description}</p>
+                <h3 className="text-xl font-bold text-foreground mb-3">{t(`common.about.values.items.${value.id}.title`)}</h3>
+                <p className="text-muted-foreground leading-relaxed">{t(`common.about.values.items.${value.id}.description`)}</p>
               </motion.div>
             ))}
           </div>
@@ -412,21 +352,20 @@ const About = () => {
             className="text-center mb-16"
           >
             <span className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
-              Our Services
+              {t('common.about.services.badge')}
             </span>
             <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
-              Comprehensive SEO <span className="text-primary">Solutions</span>
+              {t('common.about.services.title')} <span className="text-primary">{t('common.about.services.titleHighlight')}</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              From technical audits to content strategy, we offer a complete suite of AI-powered SEO services 
-              designed to improve your search visibility and drive organic growth.
+              {t('common.about.services.description')}
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {seoServices.map((service, index) => (
               <motion.div
-                key={service.title}
+                key={service.id}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -436,8 +375,8 @@ const About = () => {
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
                   <service.icon className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-3">{service.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{service.description}</p>
+                <h3 className="text-xl font-bold text-foreground mb-3">{t(`common.about.services.items.${service.id}.title`)}</h3>
+                <p className="text-muted-foreground leading-relaxed">{t(`common.about.services.items.${service.id}.description`)}</p>
               </motion.div>
             ))}
           </div>
@@ -455,14 +394,13 @@ const About = () => {
             className="text-center mb-16"
           >
             <span className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
-              Our Journey
+              {t('common.about.timeline.badge')}
             </span>
             <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
-              Building the Future of <span className="text-primary">SEO</span>
+              {t('common.about.timeline.title')} <span className="text-primary">{t('common.about.timeline.titleHighlight')}</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              From a small startup to an industry leader, our journey has been defined by innovation, 
-              growth, and an unwavering commitment to excellence.
+              {t('common.about.timeline.description')}
             </p>
           </motion.div>
 
@@ -483,8 +421,8 @@ const About = () => {
                 <div className={`w-5/12 ${index % 2 === 0 ? 'text-right pr-12' : 'text-left pl-12'}`}>
                   <div className="p-6 rounded-2xl bg-card/50 border border-border hover:border-primary/30 transition-all duration-300">
                     <span className="text-primary font-bold text-lg">{milestone.year}</span>
-                    <h3 className="text-xl font-bold text-foreground mt-2 mb-2">{milestone.title}</h3>
-                    <p className="text-muted-foreground">{milestone.description}</p>
+                    <h3 className="text-xl font-bold text-foreground mt-2 mb-2">{t(`common.about.timeline.milestones.${milestone.id}.title`)}</h3>
+                    <p className="text-muted-foreground">{t(`common.about.timeline.milestones.${milestone.id}.description`)}</p>
                   </div>
                 </div>
                 <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-primary border-4 border-background" />
@@ -506,20 +444,16 @@ const About = () => {
             transition={{ duration: 0.6 }}
           >
             <span className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
-              Our Mission
+              {t('common.about.mission.badge')}
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-              Democratizing SEO Intelligence
+              {t('common.about.mission.title')}
             </h2>
             <p className="text-xl text-muted-foreground leading-relaxed mb-8">
-              "To democratize access to enterprise-grade SEO intelligence, empowering businesses 
-              of all sizes to compete on equal footing in the digital landscape. We believe that 
-              every business deserves the tools and insights needed to succeed in search."
+              {t('common.about.mission.quote')}
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-              Our platform combines the power of artificial intelligence with deep SEO expertise 
-              to deliver actionable insights that drive real results. We're not just building tools – 
-              we're building the future of search engine optimization.
+              {t('common.about.mission.paragraph')}
             </p>
           </motion.div>
         </div>
@@ -536,21 +470,24 @@ const About = () => {
             className="text-center mb-16"
           >
             <span className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
-              Our Team
+              {t('common.about.team.badge')}
             </span>
             <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
-              Meet the <span className="text-primary">Experts</span>
+              {t('common.about.team.title')} <span className="text-primary">{t('common.about.team.titleHighlight')}</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Our leadership team brings together decades of experience from the world's top technology 
-              companies, united by a shared passion for innovation and excellence in SEO.
+              {t('common.about.team.description')}
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {teamMembers.map((member, index) => (
+            {teamMembers.map((member, index) => {
+              const name = t(`common.about.team.members.${member.id}.name`);
+              const role = t(`common.about.team.members.${member.id}.role`);
+              const bio = t(`common.about.team.members.${member.id}.bio`);
+              return (
               <motion.div
-                key={member.name}
+                key={member.id}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -560,7 +497,7 @@ const About = () => {
                 <div className="relative mb-6 rounded-2xl overflow-hidden">
                   <img
                     src={member.image}
-                    alt={`${member.name} - ${member.role} at E-SEOMAX`}
+                    alt={t('common.about.team.memberAlt', { name, role })}
                     className="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -573,11 +510,12 @@ const About = () => {
                     </a>
                   </div>
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-1">{member.name}</h3>
-                <p className="text-primary font-medium mb-3">{member.role}</p>
-                <p className="text-muted-foreground text-sm leading-relaxed">{member.bio}</p>
+                <h3 className="text-xl font-bold text-foreground mb-1">{name}</h3>
+                <p className="text-primary font-medium mb-3">{role}</p>
+                <p className="text-muted-foreground text-sm leading-relaxed">{bio}</p>
               </motion.div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -594,24 +532,23 @@ const About = () => {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-              Ready to Transform Your SEO Strategy?
+              {t('common.about.cta.title')}
             </h2>
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Join thousands of businesses already using E-SEOMAX to dominate search rankings. 
-              Start your free trial today and experience the power of AI-driven SEO.
+              {t('common.about.cta.description')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="/contact"
                 className="px-8 py-4 rounded-xl bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-colors"
               >
-                Get Started Free
+                {t('common.about.cta.primaryButton')}
               </a>
               <a
                 href="/blog"
                 className="px-8 py-4 rounded-xl bg-secondary text-foreground border border-border font-semibold hover:border-primary/50 transition-colors"
               >
-                Read Our Blog
+                {t('common.about.cta.secondaryButton')}
               </a>
             </div>
           </motion.div>

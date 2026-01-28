@@ -6,10 +6,51 @@
     "contact": "Contact Us"
   },
   "hero": {
-    "badge": "AI-Powered SEO Analysis",
-    "title": "Smarter SEO",
-    "titleLine2": "Starts Here.",
-    "description": "Elevate your site's visibility effortlessly with AI, where smart technology meets user-friendly SEO tools."
+    "title": "Smarter SEO Starts Here",
+    "subtitle": "Elevate your site visibility with AI",
+    "placeholder": "Enter website URL"
+  },
+  "analyzer": {
+    "technicalSeo": "Technical SEO",
+    "onPageSeo": "On-Page SEO",
+    "contentAnalysis": "Content Analysis",
+    "overallScore": "Overall Score"
+  },
+  "metrics": {
+    "pageLoadSpeed": "Page Load Speed",
+    "mobileFriendly": "Mobile-Friendly",
+    "httpsStatus": "HTTPS Status",
+    "robotsTxt": "Robots.txt",
+    "sitemapXml": "Sitemap.xml",
+    "titleTag": "Title Tag",
+    "metaDescription": "Meta Description",
+    "h1Tags": "H1 Tags",
+    "imagesMissingAlt": "Images Missing Alt",
+    "internalLinks": "Internal Links",
+    "wordCount": "Word Count",
+    "keywordDensity": "Keyword Density",
+    "readabilityScore": "Readability Score"
+  },
+  "status": {
+    "secure": "Secure",
+    "found": "Found",
+    "notFound": "Not Found",
+    "responsive": "Responsive",
+    "good": "Good",
+    "fair": "Fair",
+    "poor": "Poor",
+    "needsAttention": "Needs attention",
+    "roomForImprovement": "Room for improvement"
+  },
+  "reports": {
+    "issuesFound": "Issues Found",
+    "recommendations": "Recommendations",
+    "highPriority": "High Priority",
+    "mediumPriority": "Medium Priority",
+    "lowPriority": "Low Priority",
+    "addMetaDescriptions": "Add meta descriptions",
+    "optimizeImages": "Optimize images",
+    "fixBrokenLinks": "Fix broken links"
   },
   "seoAnalyzer": {
     "placeholder": "Enter your website URL (e.g., https://example.com)",
@@ -31,6 +72,7 @@
     "good": "Good. Minor improvements needed.",
     "needsWork": "Needs work. Review recommendations.",
     "poor": "Needs significant optimization.",
+    "noIssues": "No issues found! Great job! 🎉",
     "technicalSeo": "Technical SEO",
     "onPageSeo": "On-Page SEO",
     "contentAnalysis": "Content Analysis",
@@ -38,6 +80,7 @@
     "issuesFound": "Issues Found",
     "recommendations": "Recommendations",
     "scoreBreakdown": "Score Breakdown",
+    "noRecommendations": "No additional recommendations. Your page is well-optimized! ✨",
     "points": "points",
     "metrics": {
       "httpsStatus": "HTTPS Status",
@@ -67,7 +110,37 @@
   },
   "features": {
     "title": "Powerful Features",
-    "subtitle": "Everything you need to dominate search rankings"
+    "subtitle": "Everything you need to dominate search rankings",
+    "badge": "Powerful Features",
+    "mainTitle": "Everything You Need to",
+    "mainTitleHighlight": "Dominate Search",
+    "description": "Our comprehensive suite of AI-powered tools gives you an unfair advantage in the competitive world of search engine optimization.",
+    "items": {
+      "aiAnalysis": {
+        "title": "AI Analysis",
+        "description": "Our proprietary machine learning algorithms analyze 50,000+ ranking factors in real-time, uncovering hidden opportunities your competitors miss."
+      },
+      "rankTracking": {
+        "title": "Rank Tracking",
+        "description": "Monitor your positions across 100+ search engines with hourly updates. Get instant alerts when rankings change significantly."
+      },
+      "competitorSpying": {
+        "title": "Competitor Spying",
+        "description": "Reverse-engineer your competitors' SEO strategies. See their backlinks, keywords, and content gaps in stunning detail."
+      },
+      "lightningFast": {
+        "title": "Lightning Fast",
+        "description": "Analyze any website in under 3 seconds. Our distributed infrastructure processes millions of pages daily without breaking a sweat."
+      },
+      "securityFirst": {
+        "title": "Security First",
+        "description": "Enterprise-grade security with SOC 2 compliance. Your data is encrypted at rest and in transit with zero compromises."
+      },
+      "smartReports": {
+        "title": "Smart Reports",
+        "description": "White-label reports that impress clients. Automated scheduling, custom branding, and actionable insights in every export."
+      }
+    }
   },
   "pricing": {
     "title": "Simple Pricing",
@@ -77,11 +150,129 @@
     "title": "What Our Users Say",
     "subtitle": "Join thousands of satisfied customers"
   },
+  "pricing": {
+    "title": "Pricing Plans",
+    "subtitle": "Choose Your Growth Plan",
+    "description": "Flexible pricing that scales with your business. Start free, upgrade when ready.",
+    "badge": "Pricing Plans",
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "price": "49",
+        "description": "Perfect for freelancers and small websites",
+        "features": [
+          "500 pages analyzed/month",
+          "10 competitor tracking",
+          "Basic rank tracking",
+          "Email reports",
+          "Community support"
+        ],
+        "cta": "Start Free Trial"
+      },
+      "professional": {
+        "name": "Professional",
+        "price": "149",
+        "description": "For growing businesses and agencies",
+        "features": [
+          "5,000 pages analyzed/month",
+          "50 competitor tracking",
+          "Advanced AI recommendations",
+          "White-label reports",
+          "API access",
+          "Priority support",
+          "Custom dashboards"
+        ],
+        "cta": "Start Free Trial",
+        "popular": "Most Popular"
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "price": "Custom",
+        "description": "For large teams with complex needs",
+        "features": [
+          "Unlimited page analysis",
+          "Unlimited competitors",
+          "Custom AI training",
+          "Dedicated account manager",
+          "SLA guarantee",
+          "SSO & advanced security",
+          "Custom integrations",
+          "On-premise deployment"
+        ],
+        "cta": "Contact Sales"
+      }
+    },
+    "perMonth": "/month"
+  },
   "footer": {
     "company": "Company",
     "legal": "Legal",
     "resources": "Resources",
+    "product": "Product",
+    "howItWorks": "How It Works",
+    "pricing": "Pricing",
+    "faq": "FAQ",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "cookies": "Cookies",
+    "disclaimer": "Disclaimer",
+    "description": "The most advanced AI-powered SEO platform. Analyze, optimize, and dominate search results.",
     "copyright": "© {{year}} E-SEOMAX. All rights reserved."
+  },
+  "testimonials": {
+    "title": "Success Stories",
+    "subtitle": "Loved by 10,000+ SEO Professionals",
+    "description": "Join thousands of marketers who have transformed their organic growth with E-SEOMAX.",
+    "badge": "Success Stories",
+    "items": [
+      {
+        "name": "Jennifer Morrison",
+        "role": "CMO at TechFlow Inc.",
+        "content": "E-SEOMAX completely transformed our organic traffic strategy. Within 3 months, we saw a 340% increase in qualified leads. The AI recommendations are incredibly accurate."
+      },
+      {
+        "name": "Michael Chang",
+        "role": "Founder of Growth Labs",
+        "content": "As an agency owner, I've tried every SEO tool on the market. Nothing comes close to the depth of analysis E-SEOMAX provides. It's become indispensable for our client work."
+      },
+      {
+        "name": "Sarah Williams",
+        "role": "SEO Director at Retail Giant",
+        "content": "The competitor analysis feature alone is worth 10x the subscription. We discovered content gaps that generated $2M in additional revenue last quarter."
+      },
+      {
+        "name": "David Park",
+        "role": "VP Marketing at SaaS Co",
+        "content": "From technical audits to content optimization, E-SEOMAX handles it all. Our team productivity increased by 60% after switching from our previous tool."
+      }
+    ]
+  },
+  "blog": {
+    "badge": "Content",
+    "title": "The E-SEOMAX",
+    "titleHighlight": "Blog",
+    "description": "Stay ahead of the curve with expert insights, industry trends, and actionable SEO strategies from our team of specialists.",
+    "emptyTitle": "No Articles Yet",
+    "emptyDescription": "We're working on bringing you amazing content. Check back soon for the latest SEO insights and strategies.",
+    "readMore": "Read More",
+    "backToBlog": "Back to Blog",
+    "notFoundTitle": "Post Not Found",
+    "notFoundDescription": "The article you're looking for doesn't exist or has been removed."
+  },
+  "cookies": {
+    "banner": {
+      "title": "We use cookies",
+      "description": "We use cookies to improve your experience and analyze our traffic.",
+      "cookiePolicy": "Cookie Policy",
+      "privacyPolicy": "Privacy Policy",
+      "and": "and",
+      "learnMore": "Learn more"
+    },
+    "actions": {
+      "acceptAll": "Accept all",
+      "rejectNonEssential": "Reject non-essential",
+      "managePreferences": "Manage preferences"
+    }
   },
   "common": {
     "learnMore": "Learn More",

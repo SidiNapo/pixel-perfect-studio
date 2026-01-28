@@ -1,0 +1,263 @@
+{
+  "common": {
+    "brand": {
+      "name": "E-SEOMAX",
+      "logoAlt": "E-SEOMAX"
+    },
+    "nav": {
+      "home": "Home",
+      "blog": "Blog",
+      "about": "About Us",
+      "contact": "Contact Us"
+    },
+    "language": {
+      "switcherLabel": "Language",
+      "en": "EN",
+      "fr": "FR",
+      "ar": "AR"
+    },
+    "hero": {
+      "badgePill": "NEW",
+      "badge": "AI-powered SEO",
+      "title": "Smarter SEO Starts Here",
+      "subtitle": "Elevate your site visibility with AI"
+    },
+    "footer": {
+      "product": "Product",
+      "company": "Company",
+      "resources": "Resources",
+      "legal": "Legal",
+      "howItWorks": "How It Works",
+      "pricing": "Pricing",
+      "faq": "FAQ",
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "cookies": "Cookies",
+      "disclaimer": "Disclaimer",
+      "description": "The most advanced AI-powered SEO platform. Analyze, optimize, and dominate search results.",
+      "copyright": "© {{year}} E-SEOMAX. All rights reserved."
+    },
+    "social": {
+      "twitter": "Twitter",
+      "linkedin": "LinkedIn",
+      "github": "GitHub",
+      "email": "Email"
+    },
+    "about": {
+      "hero": {
+        "badge": "About E-SEOMAX",
+        "title": "Revolutionizing SEO with",
+        "titleHighlight": "Artificial Intelligence",
+        "paragraph1": "Founded in 2020, E-SEOMAX emerged from a simple yet powerful belief: SEO shouldn't be guesswork. Our team of world-class engineers, data scientists, and SEO experts came together to build the most advanced AI-powered SEO platform ever created, giving businesses of all sizes the competitive edge they deserve.",
+        "paragraph2": "We've analyzed over 10 million web pages, uncovering patterns and insights that human analysts would take years to discover. Our proprietary algorithms process 50,000+ ranking factors in real-time, delivering actionable insights that transform how businesses approach search visibility and digital marketing.",
+        "paragraph3": "Today, E-SEOMAX serves over 5,000 clients worldwide, from ambitious startups to Fortune 500 companies, helping them achieve and maintain top search rankings through the power of artificial intelligence.",
+        "imageAlt": "E-SEOMAX team collaborating on AI-powered SEO solutions"
+      },
+      "stats": {
+        "pagesAnalyzedMonthly": { "label": "Pages Analyzed Monthly", "suffix": "M+" },
+        "happyClientsWorldwide": { "label": "Happy Clients Worldwide", "suffix": "+" },
+        "clientSatisfactionRate": { "label": "Client Satisfaction Rate", "suffix": "%" },
+        "expertSupportAvailable": { "label": "Expert Support Available", "suffix": "/7" }
+      },
+      "advantage": {
+        "badge": "Why Choose Us",
+        "title": "The E-SEOMAX",
+        "titleHighlight": "Advantage",
+        "description": "What sets E-SEOMAX apart from traditional SEO tools and agencies? Our unique combination of cutting-edge AI technology, deep industry expertise, and unwavering commitment to client success.",
+        "section1": {
+          "title": "AI-Powered SEO Intelligence That Delivers Results",
+          "paragraph": "Our proprietary AI engine analyzes millions of data points across the web, identifying patterns and opportunities that human analysts would miss. From technical SEO audits to content optimization and link building strategies, every recommendation is backed by comprehensive data analysis.",
+          "bullets": [
+            "Real-time ranking updates and competitive monitoring",
+            "Predictive analytics for search trend forecasting",
+            "Automated technical SEO issue detection and fixes",
+            "Content optimization with semantic analysis",
+            "Intelligent link opportunity identification"
+          ],
+          "imageAlt": "Advanced SEO analytics dashboard showing real-time data"
+        },
+        "section2": {
+          "title": "Enterprise-Grade Technology, Accessible to All",
+          "paragraph1": "We believe every business deserves access to the same powerful SEO tools used by industry giants. Our platform democratizes enterprise-grade SEO intelligence, making sophisticated analysis and optimization accessible to startups, small businesses, and agencies alike.",
+          "paragraph2": "Whether you're a solo entrepreneur looking to improve your website's visibility or a large corporation managing hundreds of domains, E-SEOMAX scales to meet your needs with customizable solutions and dedicated support.",
+          "highlights": {
+            "fastAnalysis": "Fast Analysis",
+            "securePlatform": "Secure Platform",
+            "globalReach": "Global Reach",
+            "awardWinning": "Award-Winning"
+          },
+          "imageAlt": "Team analyzing SEO performance metrics on multiple screens"
+        }
+      },
+      "values": {
+        "badge": "Our Values",
+        "title": "What Drives",
+        "titleHighlight": "Our Team",
+        "description": "Our core values shape everything we do, from product development to customer service. These principles guide our decisions and define our company culture.",
+        "items": {
+          "innovationFirst": {
+            "title": "Innovation First",
+            "description": "We constantly push the boundaries of what's possible with AI and machine learning, delivering cutting-edge SEO solutions that keep our clients ahead of the competition."
+          },
+          "dataDrivenExcellence": {
+            "title": "Data-Driven Excellence",
+            "description": "Every recommendation we make is backed by comprehensive data analysis. We believe in measurable results and transparent reporting for all our clients."
+          },
+          "clientSuccessFocus": {
+            "title": "Client Success Focus",
+            "description": "Your success is our success. We work as an extension of your team, providing personalized strategies that align with your unique business goals."
+          },
+          "ethicalSeoPractices": {
+            "title": "Ethical SEO Practices",
+            "description": "We only use white-hat SEO techniques that build sustainable, long-term rankings. No shortcuts, no black-hat tactics – just honest, effective optimization."
+          }
+        }
+      },
+      "services": {
+        "badge": "Our Services",
+        "title": "Comprehensive SEO",
+        "titleHighlight": "Solutions",
+        "description": "From technical audits to content strategy, we offer a complete suite of AI-powered SEO services designed to improve your search visibility and drive organic growth.",
+        "items": {
+          "technicalAudit": {
+            "title": "Technical SEO Audit",
+            "description": "Comprehensive analysis of your website's technical infrastructure, including site speed, mobile optimization, crawlability, and indexation issues."
+          },
+          "contentOptimization": {
+            "title": "AI-Powered Content Optimization",
+            "description": "Leverage our proprietary AI algorithms to optimize your content for search engines while maintaining natural, engaging writing for your audience."
+          },
+          "rankTracking": {
+            "title": "Rank Tracking & Analytics",
+            "description": "Real-time monitoring of your keyword rankings across search engines with detailed analytics and competitive benchmarking."
+          },
+          "internationalSeo": {
+            "title": "International SEO",
+            "description": "Expand your global reach with multi-language and multi-region SEO strategies tailored to different markets and search behaviors."
+          },
+          "linkBuilding": {
+            "title": "Link Building Intelligence",
+            "description": "Strategic link acquisition powered by AI that identifies high-quality opportunities and builds authoritative backlink profiles."
+          },
+          "competitorAnalysis": {
+            "title": "Competitor Analysis",
+            "description": "Deep-dive analysis of your competitors' SEO strategies, uncovering opportunities and gaps you can exploit for better rankings."
+          }
+        }
+      },
+      "timeline": {
+        "badge": "Our Journey",
+        "title": "Building the Future of",
+        "titleHighlight": "SEO",
+        "description": "From a small startup to an industry leader, our journey has been defined by innovation, growth, and an unwavering commitment to excellence.",
+        "milestones": {
+          "founded": {
+            "title": "Company Founded",
+            "description": "E-SEOMAX was born from a vision to democratize enterprise-grade SEO tools for businesses of all sizes."
+          },
+          "aiEngineLaunch": {
+            "title": "AI Engine Launch",
+            "description": "Released our first AI-powered SEO recommendation engine, processing over 50,000 ranking factors."
+          },
+          "globalExpansion": {
+            "title": "Global Expansion",
+            "description": "Expanded operations to serve clients in 50+ countries with localized SEO strategies."
+          },
+          "millionPages": {
+            "title": "1 Million Pages Milestone",
+            "description": "Reached the milestone of analyzing over 1 million web pages monthly for our clients."
+          },
+          "nextGenPlatform": {
+            "title": "Next-Gen AI Platform",
+            "description": "Launched our revolutionary AI platform with predictive ranking algorithms and real-time optimization."
+          }
+        }
+      },
+      "mission": {
+        "badge": "Our Mission",
+        "title": "Democratizing SEO Intelligence",
+        "quote": "\"To democratize access to enterprise-grade SEO intelligence, empowering businesses of all sizes to compete on equal footing in the digital landscape. We believe that every business deserves the tools and insights needed to succeed in search.\"",
+        "paragraph": "Our platform combines the power of artificial intelligence with deep SEO expertise to deliver actionable insights that drive real results. We're not just building tools – we're building the future of search engine optimization."
+      },
+      "team": {
+        "badge": "Our Team",
+        "title": "Meet the",
+        "titleHighlight": "Experts",
+        "description": "Our leadership team brings together decades of experience from the world's top technology companies, united by a shared passion for innovation and excellence in SEO.",
+        "memberAlt": "{{name}} - {{role}} at E-SEOMAX",
+        "members": {
+          "sarah": {
+            "name": "Dr. Sarah Chen",
+            "role": "CEO & Co-Founder",
+            "bio": "Former Google Search Quality Engineer with 15 years of experience in AI and machine learning. Sarah led the development of core ranking algorithms that serve billions of searches daily."
+          },
+          "marcus": {
+            "name": "Marcus Rodriguez",
+            "role": "CTO & Co-Founder",
+            "bio": "Ex-Amazon principal engineer, specializing in scalable data systems and NLP technologies. Marcus architected systems processing petabytes of search data."
+          },
+          "emily": {
+            "name": "Emily Zhang",
+            "role": "Head of AI Research",
+            "bio": "PhD in Computer Science from MIT, leading our proprietary SEO intelligence algorithms. Emily has published over 30 papers on machine learning and information retrieval."
+          },
+          "david": {
+            "name": "David Kim",
+            "role": "Lead Data Scientist",
+            "bio": "Former Spotify data lead, expert in predictive analytics and trend forecasting. David brings expertise in understanding user behavior patterns at scale."
+          }
+        }
+      },
+      "cta": {
+        "title": "Ready to Transform Your SEO Strategy?",
+        "description": "Join thousands of businesses already using E-SEOMAX to dominate search rankings. Start your free trial today and experience the power of AI-driven SEO.",
+        "primaryButton": "Get Started Free",
+        "secondaryButton": "Read Our Blog"
+      }
+    },
+    "contact": {
+      "hero": {
+        "badge": "Get in Touch",
+        "title": "Let's Start a",
+        "titleHighlight": "Conversation",
+        "description": "Have questions about our platform? Want to discuss enterprise solutions? We'd love to hear from you."
+      },
+      "sections": {
+        "reachOutTitle": "Reach Out Directly"
+      },
+      "info": {
+        "email": { "label": "Email Us", "description": "We'll respond within 24 hours" },
+        "discord": { "label": "Discord Community", "description": "Join 5,000+ SEO professionals" },
+        "twitter": { "label": "Twitter", "description": "Follow for daily SEO tips" },
+        "phone": { "label": "Phone", "description": "Mon-Fri, 9am-6pm EST" }
+      },
+      "location": {
+        "title": "Headquarters",
+        "address": {
+          "line1": "123 Innovation Drive, Suite 500",
+          "line2": "San Francisco, CA 94107",
+          "line3": "United States"
+        }
+      },
+      "form": {
+        "title": "Send us a Message",
+        "fields": {
+          "name": "Your Name",
+          "email": "Email Address",
+          "subject": "Subject",
+          "message": "Your Message"
+        },
+        "button": {
+          "send": "Send Message",
+          "sending": "Sending..."
+        }
+      },
+      "toasts": {
+        "successTitle": "Message Sent!",
+        "successDescription": "Thank you for contacting us. We'll get back to you within 24 hours.",
+        "errorTitle": "Error",
+        "sendFailedFallback": "Failed to send message. Please try again."
+      }
+    }
+  }
+}

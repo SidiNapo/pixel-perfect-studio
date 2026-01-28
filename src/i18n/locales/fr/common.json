@@ -1,0 +1,263 @@
+{
+  "common": {
+    "brand": {
+      "name": "E-SEOMAX",
+      "logoAlt": "E-SEOMAX"
+    },
+    "nav": {
+      "home": "Accueil",
+      "blog": "Blog",
+      "about": "À propos",
+      "contact": "Contact"
+    },
+    "language": {
+      "switcherLabel": "Langue",
+      "en": "EN",
+      "fr": "FR",
+      "ar": "AR"
+    },
+    "hero": {
+      "badgePill": "NOUVEAU",
+      "badge": "SEO propulsé par l’IA",
+      "title": "Le SEO plus intelligent commence ici",
+      "subtitle": "Élevez la visibilité de votre site avec l'IA"
+    },
+    "footer": {
+      "product": "Produit",
+      "company": "Entreprise",
+      "resources": "Ressources",
+      "legal": "Mentions légales",
+      "howItWorks": "Comment ça marche",
+      "pricing": "Tarification",
+      "faq": "FAQ",
+      "privacy": "Confidentialité",
+      "terms": "Conditions",
+      "cookies": "Cookies",
+      "disclaimer": "Avis de non-responsabilité",
+      "description": "La plateforme SEO la plus avancée alimentée par l'IA. Analysez, optimisez et dominez les résultats de recherche.",
+      "copyright": "© {{year}} E-SEOMAX. Tous droits réservés."
+    },
+    "social": {
+      "twitter": "Twitter",
+      "linkedin": "LinkedIn",
+      "github": "GitHub",
+      "email": "Email"
+    },
+    "about": {
+      "hero": {
+        "badge": "À propos d’E-SEOMAX",
+        "title": "Révolutionner le SEO grâce à",
+        "titleHighlight": "l’intelligence artificielle",
+        "paragraph1": "Fondée en 2020, E-SEOMAX est née d’une conviction simple et puissante : le SEO ne devrait pas être une affaire de suppositions. Notre équipe d’ingénieurs, de data scientists et d’experts SEO de classe mondiale s’est réunie pour créer la plateforme SEO la plus avancée, propulsée par l’IA, afin d’offrir à toutes les entreprises l’avantage concurrentiel qu’elles méritent.",
+        "paragraph2": "Nous avons analysé plus de 10 millions de pages web, révélant des schémas et des insights que des analystes humains mettraient des années à découvrir. Nos algorithmes propriétaires traitent plus de 50 000 facteurs de classement en temps réel et fournissent des recommandations actionnables qui transforment la manière dont les entreprises abordent la visibilité sur les moteurs de recherche et le marketing digital.",
+        "paragraph3": "Aujourd’hui, E-SEOMAX accompagne plus de 5 000 clients dans le monde — des startups ambitieuses aux entreprises du Fortune 500 — en les aidant à atteindre et à maintenir les meilleures positions grâce à la puissance de l’intelligence artificielle.",
+        "imageAlt": "L’équipe E-SEOMAX collaborant sur des solutions SEO propulsées par l’IA"
+      },
+      "stats": {
+        "pagesAnalyzedMonthly": { "label": "Pages analysées par mois", "suffix": "M+" },
+        "happyClientsWorldwide": { "label": "Clients satisfaits dans le monde", "suffix": "+" },
+        "clientSatisfactionRate": { "label": "Taux de satisfaction client", "suffix": "%" },
+        "expertSupportAvailable": { "label": "Support expert disponible", "suffix": "/7" }
+      },
+      "advantage": {
+        "badge": "Pourquoi nous choisir",
+        "title": "L’avantage",
+        "titleHighlight": "E-SEOMAX",
+        "description": "Qu’est-ce qui différencie E-SEOMAX des outils et agences SEO traditionnels ? Une combinaison unique d’IA de pointe, d’une expertise profonde du secteur et d’un engagement total pour la réussite de nos clients.",
+        "section1": {
+          "title": "Une intelligence SEO propulsée par l’IA qui délivre des résultats",
+          "paragraph": "Notre moteur IA propriétaire analyse des millions de points de données sur le web afin d’identifier des opportunités que les analystes humains pourraient manquer. Des audits techniques à l’optimisation de contenu et aux stratégies de netlinking, chaque recommandation est soutenue par une analyse de données exhaustive.",
+          "bullets": [
+            "Mises à jour de position en temps réel et suivi concurrentiel",
+            "Analyses prédictives pour anticiper les tendances de recherche",
+            "Détection automatique des problèmes SEO techniques et recommandations de correction",
+            "Optimisation de contenu avec analyse sémantique",
+            "Identification intelligente d’opportunités de liens"
+          ],
+          "imageAlt": "Tableau de bord SEO avancé affichant des données en temps réel"
+        },
+        "section2": {
+          "title": "Technologie de niveau entreprise, accessible à tous",
+          "paragraph1": "Nous pensons que chaque entreprise doit pouvoir accéder aux mêmes outils SEO puissants que les leaders du secteur. Notre plateforme démocratise l’intelligence SEO de niveau entreprise, rendant l’analyse et l’optimisation avancées accessibles aux startups, PME et agences.",
+          "paragraph2": "Que vous soyez un entrepreneur solo souhaitant améliorer la visibilité de votre site ou une grande entreprise gérant des centaines de domaines, E-SEOMAX s’adapte à vos besoins avec des solutions personnalisables et un support dédié.",
+          "highlights": {
+            "fastAnalysis": "Analyse rapide",
+            "securePlatform": "Plateforme sécurisée",
+            "globalReach": "Portée mondiale",
+            "awardWinning": "Récompensée"
+          },
+          "imageAlt": "Équipe analysant des métriques de performance SEO sur plusieurs écrans"
+        }
+      },
+      "values": {
+        "badge": "Nos valeurs",
+        "title": "Ce qui anime",
+        "titleHighlight": "notre équipe",
+        "description": "Nos valeurs fondamentales façonnent tout ce que nous faisons, du développement produit au support client. Elles guident nos décisions et définissent notre culture.",
+        "items": {
+          "innovationFirst": {
+            "title": "Innovation avant tout",
+            "description": "Nous repoussons sans cesse les limites de l’IA et du machine learning pour offrir des solutions SEO de pointe qui maintiennent nos clients en tête de la concurrence."
+          },
+          "dataDrivenExcellence": {
+            "title": "Excellence guidée par les données",
+            "description": "Chaque recommandation est appuyée par une analyse de données complète. Nous croyons aux résultats mesurables et à la transparence du reporting."
+          },
+          "clientSuccessFocus": {
+            "title": "Réussite client",
+            "description": "Votre réussite est la nôtre. Nous travaillons comme une extension de votre équipe, avec des stratégies personnalisées alignées sur vos objectifs."
+          },
+          "ethicalSeoPractices": {
+            "title": "Pratiques SEO éthiques",
+            "description": "Nous utilisons uniquement des techniques white-hat pour bâtir des positions durables. Pas de raccourcis, pas de black-hat : seulement une optimisation honnête et efficace."
+          }
+        }
+      },
+      "services": {
+        "badge": "Nos services",
+        "title": "Solutions SEO",
+        "titleHighlight": "complètes",
+        "description": "De l’audit technique à la stratégie de contenu, nous proposons une suite complète de services SEO propulsés par l’IA pour améliorer votre visibilité et accélérer votre croissance organique.",
+        "items": {
+          "technicalAudit": {
+            "title": "Audit SEO technique",
+            "description": "Analyse complète de l’infrastructure technique de votre site : vitesse, mobile, crawlabilité et problèmes d’indexation."
+          },
+          "contentOptimization": {
+            "title": "Optimisation de contenu propulsée par l’IA",
+            "description": "Exploitez nos algorithmes IA propriétaires pour optimiser vos contenus pour les moteurs de recherche tout en conservant une rédaction naturelle et engageante."
+          },
+          "rankTracking": {
+            "title": "Suivi de position & analytics",
+            "description": "Suivi en temps réel de vos positions sur les moteurs de recherche, avec analytics détaillés et benchmarking concurrentiel."
+          },
+          "internationalSeo": {
+            "title": "SEO international",
+            "description": "Développez votre présence à l’international grâce à des stratégies SEO multi-langues et multi-régions adaptées à chaque marché."
+          },
+          "linkBuilding": {
+            "title": "Intelligence de netlinking",
+            "description": "Acquisition de liens stratégique propulsée par l’IA, identifiant des opportunités de qualité pour construire un profil de backlinks autoritaire."
+          },
+          "competitorAnalysis": {
+            "title": "Analyse concurrentielle",
+            "description": "Analyse approfondie des stratégies SEO de vos concurrents afin d’identifier opportunités et failles à exploiter pour mieux vous positionner."
+          }
+        }
+      },
+      "timeline": {
+        "badge": "Notre parcours",
+        "title": "Construire le futur du",
+        "titleHighlight": "SEO",
+        "description": "D’une petite startup à un leader du secteur, notre parcours est marqué par l’innovation, la croissance et un engagement sans faille pour l’excellence.",
+        "milestones": {
+          "founded": {
+            "title": "Création de l’entreprise",
+            "description": "E-SEOMAX est née d’une vision : démocratiser les outils SEO de niveau entreprise pour les organisations de toutes tailles."
+          },
+          "aiEngineLaunch": {
+            "title": "Lancement du moteur IA",
+            "description": "Mise en ligne de notre premier moteur de recommandations SEO propulsé par l’IA, traitant plus de 50 000 facteurs de classement."
+          },
+          "globalExpansion": {
+            "title": "Expansion mondiale",
+            "description": "Déploiement de nos services dans plus de 50 pays grâce à des stratégies SEO localisées."
+          },
+          "millionPages": {
+            "title": "Cap du million de pages",
+            "description": "Atteinte du cap d’un million de pages analysées chaque mois pour nos clients."
+          },
+          "nextGenPlatform": {
+            "title": "Plateforme IA nouvelle génération",
+            "description": "Lancement de notre plateforme révolutionnaire avec algorithmes prédictifs et optimisation en temps réel."
+          }
+        }
+      },
+      "mission": {
+        "badge": "Notre mission",
+        "title": "Démocratiser l’intelligence SEO",
+        "quote": "\"Démocratiser l’accès à une intelligence SEO de niveau entreprise, pour permettre aux organisations de toutes tailles de rivaliser à armes égales dans le paysage numérique. Nous croyons que chaque entreprise mérite les outils et les insights nécessaires pour réussir sur les moteurs de recherche.\"",
+        "paragraph": "Notre plateforme associe la puissance de l’intelligence artificielle à une expertise SEO approfondie afin de fournir des recommandations actionnables et génératrices de résultats. Nous ne construisons pas seulement des outils : nous construisons l’avenir du SEO."
+      },
+      "team": {
+        "badge": "Notre équipe",
+        "title": "Rencontrez les",
+        "titleHighlight": "experts",
+        "description": "Notre équipe dirigeante réunit des décennies d’expérience issues des plus grandes entreprises technologiques, autour d’une passion commune pour l’innovation et l’excellence en SEO.",
+        "memberAlt": "{{name}} - {{role}} chez E-SEOMAX",
+        "members": {
+          "sarah": {
+            "name": "Dr Sarah Chen",
+            "role": "CEO & cofondatrice",
+            "bio": "Ancienne ingénieure Google (Search Quality) avec 15 ans d’expérience en IA et machine learning. Sarah a contribué au développement d’algorithmes de classement au cœur de milliards de recherches quotidiennes."
+          },
+          "marcus": {
+            "name": "Marcus Rodriguez",
+            "role": "CTO & cofondateur",
+            "bio": "Ancien principal engineer chez Amazon, spécialisé dans les systèmes de données scalables et les technologies NLP. Marcus a architecturé des systèmes traitant des pétaoctets de données de recherche."
+          },
+          "emily": {
+            "name": "Emily Zhang",
+            "role": "Directrice de la recherche IA",
+            "bio": "Docteure en informatique (MIT), elle pilote nos algorithmes propriétaires d’intelligence SEO. Emily a publié plus de 30 articles sur le machine learning et la recherche d’information."
+          },
+          "david": {
+            "name": "David Kim",
+            "role": "Responsable data science",
+            "bio": "Ancien lead data chez Spotify, expert en analytique prédictive et prévision des tendances. David maîtrise l’analyse des comportements utilisateurs à grande échelle."
+          }
+        }
+      },
+      "cta": {
+        "title": "Prêt à transformer votre stratégie SEO ?",
+        "description": "Rejoignez des milliers d’entreprises qui utilisent déjà E-SEOMAX pour dominer les classements. Démarrez votre essai gratuit et découvrez la puissance d’un SEO piloté par l’IA.",
+        "primaryButton": "Commencer gratuitement",
+        "secondaryButton": "Lire notre blog"
+      }
+    },
+    "contact": {
+      "hero": {
+        "badge": "Contact",
+        "title": "Commençons une",
+        "titleHighlight": "conversation",
+        "description": "Vous avez des questions sur notre plateforme ? Vous souhaitez discuter d’une solution entreprise ? Nous serions ravis d’échanger avec vous."
+      },
+      "sections": {
+        "reachOutTitle": "Contactez-nous directement"
+      },
+      "info": {
+        "email": { "label": "Écrivez-nous", "description": "Réponse sous 24 h" },
+        "discord": { "label": "Communauté Discord", "description": "Rejoignez plus de 5 000 pros du SEO" },
+        "twitter": { "label": "Twitter", "description": "Suivez-nous pour des conseils SEO quotidiens" },
+        "phone": { "label": "Téléphone", "description": "Lun–Ven, 9h–18h (EST)" }
+      },
+      "location": {
+        "title": "Siège social",
+        "address": {
+          "line1": "123 Innovation Drive, Suite 500",
+          "line2": "San Francisco, CA 94107",
+          "line3": "États-Unis"
+        }
+      },
+      "form": {
+        "title": "Envoyez-nous un message",
+        "fields": {
+          "name": "Votre nom",
+          "email": "Adresse e-mail",
+          "subject": "Objet",
+          "message": "Votre message"
+        },
+        "button": {
+          "send": "Envoyer le message",
+          "sending": "Envoi…"
+        }
+      },
+      "toasts": {
+        "successTitle": "Message envoyé !",
+        "successDescription": "Merci de nous avoir contactés. Nous vous répondrons sous 24 heures.",
+        "errorTitle": "Erreur",
+        "sendFailedFallback": "Impossible d’envoyer le message. Veuillez réessayer."
+      }
+    }
+  }
+}
