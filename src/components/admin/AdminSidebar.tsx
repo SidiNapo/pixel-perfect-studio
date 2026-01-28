@@ -3,6 +3,7 @@ import { LayoutDashboard, FileText, LogOut, ChevronLeft, ChevronRight } from 'lu
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '@/hooks/useAuth';
+import { getAdminPaths } from '@/config/adminConfig';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { getDirection } from '@/i18n';
@@ -13,15 +14,16 @@ const AdminSidebar = () => {
   const navigate = useNavigate();
   const { i18n } = useTranslation();
   const isRTL = getDirection(i18n.language) === 'rtl';
+  const adminPaths = getAdminPaths();
 
   const handleSignOut = async () => {
     await signOut();
-    navigate('/admin/login');
+    navigate(adminPaths.login);
   };
 
   const navItems = [
-    { icon: LayoutDashboard, label: 'Dashboard', path: '/admin/dashboard' },
-    { icon: FileText, label: 'Blog Posts', path: '/admin/posts' },
+    { icon: LayoutDashboard, label: 'Dashboard', path: adminPaths.dashboard },
+    { icon: FileText, label: 'Blog Posts', path: adminPaths.posts },
   ];
 
   return (

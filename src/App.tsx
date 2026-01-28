@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "@/hooks/useAuth";
+import { getAdminBasePath } from "@/config/adminConfig";
 import ScrollToTop from "./components/ScrollToTop";
 import CookieConsent from "./components/CookieConsent";
 import SEO from "./components/SEO";
@@ -27,6 +28,9 @@ import PostsList from "./pages/admin/PostsList";
 import PostEditor from "./pages/admin/PostEditor";
 
 const queryClient = new QueryClient();
+
+// Get dynamic admin path from environment or use secure default
+const adminBasePath = getAdminBasePath();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -53,9 +57,9 @@ const App = () => (
             <Route path="/cookie-policy" element={<CookiePolicy />} />
             <Route path="/disclaimer" element={<Disclaimer />} />
             
-            {/* Admin Routes */}
-            <Route path="/admin/login" element={<AdminLogin />} />
-            <Route path="/admin" element={<AdminLayout />}>
+            {/* Admin Routes - Dynamic path from environment */}
+            <Route path={`${adminBasePath}/login`} element={<AdminLogin />} />
+            <Route path={adminBasePath} element={<AdminLayout />}>
               <Route path="dashboard" element={<Dashboard />} />
               <Route path="posts" element={<PostsList />} />
               <Route path="posts/:id" element={<PostEditor />} />

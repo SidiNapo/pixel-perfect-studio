@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import { ArrowLeft, Save, Send, Loader2 } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/hooks/useAuth';
+import { getAdminPaths } from '@/config/adminConfig';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -64,6 +65,7 @@ const PostEditor = () => {
   const [saving, setSaving] = useState(false);
   const [publishing, setPublishing] = useState(false);
   const isEditing = Boolean(id && id !== 'new');
+  const adminPaths = getAdminPaths();
 
   const form = useForm<PostFormData>({
     resolver: zodResolver(postSchema),
@@ -126,7 +128,7 @@ const PostEditor = () => {
         title: 'Error',
         description: 'Failed to load post.',
       });
-      navigate('/admin/posts');
+      navigate(adminPaths.posts);
     } else if (data) {
       // Cast to any to handle columns not yet in generated types
       const postData = data as Record<string, unknown>;
@@ -211,7 +213,7 @@ const PostEditor = () => {
         title: 'Success',
         description: isPublishing ? 'Post published!' : 'Post saved as draft.',
       });
-      navigate('/admin/posts');
+      navigate(adminPaths.posts);
     }
 
     if (isPublishing) {
@@ -241,7 +243,7 @@ const PostEditor = () => {
             <Button
               variant="ghost"
               size="icon"
-              onClick={() => navigate('/admin/posts')}
+              onClick={() => navigate(adminPaths.posts)}
               className="text-muted-foreground hover:text-foreground"
             >
               <ArrowLeft className="w-5 h-5" />
