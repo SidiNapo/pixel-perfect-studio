@@ -1,12 +1,15 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, Loader2, Settings, FileText, Type, RefreshCw, Globe, Shield, Link2 } from 'lucide-react';
+import { Search, Loader2, Settings, FileText, Type, Globe, Link2 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { SEOResults } from './types';
-import SEOScoreCard from './SEOScoreCard';
+import SEOResultsHeader from './SEOResultsHeader';
 import SEOMetricCard from './SEOMetricCard';
 import SEOIssuesCard from './SEOIssuesCard';
 import SEORecommendationsCard from './SEORecommendationsCard';
+import SEOScoreBreakdown from './SEOScoreBreakdown';
+import SEOFullReport from './SEOFullReport';
+import SEOLoadingState from './SEOLoadingState';
 import { supabase } from '@/integrations/supabase/client';
 
 export default function SEOAnalyzer() {
@@ -65,7 +68,13 @@ export default function SEOAnalyzer() {
         return;
       }
 
-      setResults(data.data);
+      // Add scan timestamp
+      const resultsWithTimestamp = {
+        ...data.data,
+        scanTimestamp: new Date().toISOString(),
+      };
+
+      setResults(resultsWithTimestamp);
     } catch (err) {
       console.error('Error analyzing SEO:', err);
       setError(t('seoAnalyzer.errors.unexpected'));
@@ -100,7 +109,7 @@ export default function SEOAnalyzer() {
             }}
             onKeyPress={handleKeyPress}
             disabled={isLoading}
-            className="w-full px-6 py-4 bg-white/5 border border-purple-500/30 rounded-2xl text-white placeholder:text-white/40 focus:outline-none focus:border-purple-500/60 focus:bg-white/[0.08] transition-all duration-200 text-base disabled:opacity-50"
+            className="w-full px-6 py-4 bg-white/5 border border-purple-500/30 rounded-2xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-purple-500/60 focus:bg-white/[0.08] transition-all duration-200 text-base disabled:opacity-50"
             dir="ltr"
           />
         </div>
@@ -108,9 +117,9 @@ export default function SEOAnalyzer() {
         <motion.button
           onClick={handleAnalyze}
           disabled={isLoading}
-          whileHover={{ scale: isLoading ? 1 : 1.05 }}
+          whileHover={{ scale: isLoading ? 1 : 1.02 }}
           whileTap={{ scale: isLoading ? 1 : 0.98 }}
-          className="px-8 py-4 bg-gradient-to-r from-purple-600 to-purple-800 text-white font-semibold rounded-2xl hover:from-purple-500 hover:to-purple-700 transition-all duration-200 flex items-center justify-center gap-2 whitespace-nowrap disabled:opacity-70 min-w-[160px]"
+          className="px-8 py-4 bg-gradient-to-r from-purple-600 to-purple-800 text-white font-semibold rounded-2xl hover:from-purple-500 hover:to-purple-700 transition-all duration-200 flex items-center justify-center gap-2 whitespace-nowrap disabled:opacity-70 min-w-[160px] shadow-lg shadow-purple-500/25"
         >
           {isLoading ? (
             <>
@@ -133,7 +142,7 @@ export default function SEOAnalyzer() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="mt-3 text-sm text-red-400"
+            className="mt-3 text-sm text-destructive"
           >
             {error}
           </motion.p>
@@ -142,21 +151,7 @@ export default function SEOAnalyzer() {
 
       {/* Loading State */}
       <AnimatePresence>
-        {isLoading && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 20 }}
-            className="mt-12 text-center"
-          >
-            <div className="inline-flex items-center gap-3 px-6 py-4 bg-white/5 rounded-2xl border border-purple-500/20">
-              <Loader2 className="w-6 h-6 animate-spin text-purple-400" />
-              <span className="text-muted-foreground">
-                {t('seoAnalyzer.crawling')}
-              </span>
-            </div>
-          </motion.div>
-        )}
+        {isLoading && <SEOLoadingState />}
       </AnimatePresence>
 
       {/* Results Section */}
@@ -167,44 +162,34 @@ export default function SEOAnalyzer() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 30 }}
             transition={{ duration: 0.5 }}
-            className="mt-12"
+            className="mt-12 space-y-8"
           >
-            {/* Analyzed URL & Analyze Again Button */}
-            <div className="flex items-center justify-between mb-6 flex-wrap gap-4">
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Globe className="w-4 h-4" />
-                <span>{t('seoAnalyzer.analyzed')}: </span>
-                <a 
-                  href={results.url} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-purple-400 hover:text-purple-300 underline"
-                  dir="ltr"
-                >
-                  {results.url}
-                </a>
-              </div>
-              <motion.button
-                onClick={handleAnalyzeAgain}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.98 }}
-                className="flex items-center gap-2 px-4 py-2 text-sm text-purple-400 hover:text-purple-300 border border-purple-500/30 rounded-lg hover:border-purple-500/50 transition-all"
-              >
-                <RefreshCw className="w-4 h-4" />
-                {t('seoAnalyzer.analyzeAnother')}
-              </motion.button>
+            {/* Results Header with Score */}
+            <SEOResultsHeader results={results} onAnalyzeAgain={handleAnalyzeAgain} />
+
+            {/* Main Content Grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              {/* Issues - Full width on mobile, left column on desktop */}
+              <SEOIssuesCard issues={results.issues} delay={0.2} />
+
+              {/* Recommendations */}
+              <SEORecommendationsCard recommendations={results.recommendations} delay={0.3} />
             </div>
 
-            {/* Results Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {/* Main Score Card */}
-              <SEOScoreCard score={results.score} delay={0} />
+            {/* Score Breakdown */}
+            {results.scoreBreakdown && results.scoreBreakdown.length > 0 && (
+              <SEOScoreBreakdown breakdown={results.scoreBreakdown} delay={0.4} />
+            )}
 
-              {/* Technical SEO */}
+            {/* Full Report with Tabs */}
+            <SEOFullReport results={results} delay={0.5} />
+
+            {/* Quick Stats Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               <SEOMetricCard
                 title={t('analyzer.technicalSeo')}
                 icon={Settings}
-                delay={0.1}
+                delay={0.6}
                 metrics={[
                   { label: t('metrics.httpsStatus'), value: results.technical.https.value, passed: results.technical.https.passed },
                   { label: t('metrics.mobileFriendly'), value: results.technical.mobileFriendly.value, passed: results.technical.mobileFriendly.passed },
@@ -213,92 +198,40 @@ export default function SEOAnalyzer() {
                 ]}
               />
 
-              {/* On-Page SEO */}
               <SEOMetricCard
                 title={t('analyzer.onPageSeo')}
                 icon={FileText}
-                delay={0.2}
+                delay={0.7}
                 metrics={[
                   { label: t('metrics.titleTag'), value: `${results.onPage.titleTag.length} ${t('seoResults.metrics.chars')}`, passed: results.onPage.titleTag.passed, subtitle: results.onPage.titleTag.value },
-                  { label: t('metrics.metaDescription'), value: `${results.onPage.metaDescription.length} ${t('seoResults.metrics.chars')}`, passed: results.onPage.metaDescription.passed, subtitle: results.onPage.metaDescription.value.substring(0, 80) + (results.onPage.metaDescription.value.length > 80 ? '...' : '') },
+                  { label: t('metrics.metaDescription'), value: `${results.onPage.metaDescription.length} ${t('seoResults.metrics.chars')}`, passed: results.onPage.metaDescription.passed },
                   { label: t('metrics.h1Tags'), value: results.onPage.h1Count, passed: results.onPage.h1Count === 1 },
                   { label: t('metrics.imagesMissingAlt'), value: `${results.onPage.imageAltTexts.missing}/${results.onPage.imageAltTexts.total}`, passed: results.onPage.imageAltTexts.missing === 0 },
-                  { label: t('seoResults.metrics.canonicalUrl'), value: results.onPage.canonicalUrl.present ? t('seoResults.metrics.present') : t('seoResults.metrics.missing'), passed: results.onPage.canonicalUrl.present },
                 ]}
               />
 
-              {/* Content Analysis */}
               <SEOMetricCard
                 title={t('analyzer.contentAnalysis')}
                 icon={Type}
-                delay={0.3}
+                delay={0.8}
                 metrics={[
                   { label: t('metrics.wordCount'), value: results.content.wordCount.toLocaleString(), passed: results.content.wordCount >= 300 },
                   { label: t('metrics.readabilityScore'), value: `${results.content.readabilityScore}/100`, passed: results.content.readabilityScore >= 50 },
                   { label: t('seoResults.metrics.contentQuality'), value: results.content.contentQuality, passed: results.content.contentQuality !== 'Poor' },
-                  { label: t('seoResults.metrics.thinContent'), value: results.content.isThinContent ? t('seoResults.metrics.yes') : t('seoResults.metrics.no'), passed: !results.content.isThinContent },
                 ]}
               />
 
-              {/* Links & Open Graph */}
               <SEOMetricCard
                 title={t('seoResults.linksSocial')}
                 icon={Link2}
-                delay={0.35}
+                delay={0.9}
                 metrics={[
                   { label: t('metrics.internalLinks'), value: results.onPage.internalLinks, passed: results.onPage.internalLinks >= 3 },
                   { label: t('seoResults.metrics.externalLinks'), value: results.onPage.externalLinks },
                   { label: t('seoResults.metrics.ogTitle'), value: results.openGraph.hasOgTitle ? t('seoResults.metrics.present') : t('seoResults.metrics.missing'), passed: results.openGraph.hasOgTitle },
-                  { label: t('seoResults.metrics.ogDescription'), value: results.openGraph.hasOgDescription ? t('seoResults.metrics.present') : t('seoResults.metrics.missing'), passed: results.openGraph.hasOgDescription },
-                  { label: t('seoResults.metrics.ogImage'), value: results.openGraph.hasOgImage ? t('seoResults.metrics.present') : t('seoResults.metrics.missing'), passed: results.openGraph.hasOgImage },
                 ]}
               />
-
-              {/* Issues Found */}
-              <SEOIssuesCard issues={results.issues} delay={0.4} />
-
-              {/* Recommendations */}
-              <SEORecommendationsCard recommendations={results.recommendations} delay={0.5} />
             </div>
-
-            {/* Score Breakdown */}
-            {results.scoreBreakdown && results.scoreBreakdown.length > 0 && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.6 }}
-                className="mt-6 p-6 rounded-2xl bg-white/5 backdrop-blur-xl border border-purple-500/20"
-              >
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="p-2 rounded-lg bg-gradient-to-br from-purple-500/20 to-purple-600/20">
-                    <Shield className="w-5 h-5 text-purple-400" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-foreground">{t('seoResults.scoreBreakdown')}</h3>
-                  <span className="ms-auto text-sm text-muted-foreground">
-                    {results.score}/100 {t('seoResults.points')}
-                  </span>
-                </div>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-                  {results.scoreBreakdown.map((item) => (
-                    <div 
-                      key={item.category}
-                      className="p-3 rounded-lg bg-white/5 border border-white/10"
-                    >
-                      <div className="text-xs text-muted-foreground mb-1">{item.category}</div>
-                      <div className="flex items-baseline gap-1">
-                        <span className={`text-lg font-bold ${item.points === item.maxPoints ? 'text-green-400' : item.points === 0 ? 'text-red-400' : 'text-yellow-400'}`}>
-                          {item.points}
-                        </span>
-                        <span className="text-xs text-muted-foreground">/ {item.maxPoints}</span>
-                      </div>
-                      <div className="text-xs text-muted-foreground mt-1 truncate" title={item.details}>
-                        {item.details}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            )}
           </motion.div>
         )}
       </AnimatePresence>

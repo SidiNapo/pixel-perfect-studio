@@ -108,6 +108,67 @@
       "no": "Non"
     }
   },
+  "seoEnhanced": {
+    "grade": "Note",
+    "passedChecks": "Vérifications réussies",
+    "issuesFound": "Problèmes trouvés",
+    "recommendations": "Recommandations",
+    "shareResults": "Partager les résultats",
+    "downloadReport": "Télécharger le rapport",
+    "scoreBreakdown": "Détail du Score",
+    "categoryDetails": "Cliquez pour développer les détails",
+    "analyzingWebsite": "Analyse de Votre Site Web",
+    "stages": {
+      "connecting": "Connexion au site web...",
+      "technical": "Analyse du SEO technique...",
+      "content": "Vérification de la qualité du contenu...",
+      "recommendations": "Génération des recommandations..."
+    },
+    "technical": "Technique",
+    "content": "Contenu",
+    "links": "Liens",
+    "social": "Social",
+    "passed": "Réussi",
+    "failed": "Échoué",
+    "optimal": "Optimal",
+    "viewFile": "Voir le fichier",
+    "notSet": "Non défini",
+    "whyMatters": {
+      "https": "HTTPS protège les données utilisateur et est un facteur de classement.",
+      "mobile": "La compatibilité mobile est cruciale car la plupart des utilisateurs naviguent sur mobile."
+    },
+    "headingsStructure": "Structure des Titres",
+    "firstH1": "Premier H1",
+    "minRecommended": "Min. recommandé",
+    "outboundLinks": "Liens sortants vers des sites externes",
+    "imageAltText": "Texte Alt des Images",
+    "imagesMissing": "images sans texte alt",
+    "ogTitleDesc": "Utilisé lors du partage sur les réseaux sociaux",
+    "ogDescriptionDesc": "Description affichée dans les aperçus sociaux",
+    "ogImageDesc": "Image affichée lors du partage sur les plateformes sociales",
+    "socialReadiness": "Préparation aux Réseaux Sociaux",
+    "prioritizedList": "Priorisé par sévérité",
+    "critical": "critique",
+    "total": "total",
+    "evidence": "Preuve",
+    "howToFix": "Comment corriger",
+    "codeExample": "Exemple de code",
+    "impact": "Impact",
+    "impactTooltip": "À quel point la correction améliorera votre SEO",
+    "severityHigh": "Haute",
+    "severityMedium": "Moyenne",
+    "severityLow": "Basse",
+    "actionableSteps": "Étapes d'amélioration concrètes",
+    "noted": "noté",
+    "steps": "Étapes à suivre",
+    "example": "Exemple",
+    "codeSnippet": "Extrait de code",
+    "markAsNoted": "Marquer comme noté",
+    "impactHigh": "Impact Élevé",
+    "impactMedium": "Impact Moyen",
+    "impactLow": "Impact Faible",
+    "improvement": "Amélioration"
+  },
   "features": {
     "title": "Fonctionnalités Puissantes",
     "subtitle": "Tout ce dont vous avez besoin pour dominer les classements",
@@ -141,14 +202,6 @@
         "description": "Rapports en marque blanche qui impressionnent les clients. Planification automatisée, branding personnalisé et insights actionnables dans chaque export."
       }
     }
-  },
-  "pricing": {
-    "title": "Tarification Simple",
-    "subtitle": "Choisissez le plan adapté à vos besoins"
-  },
-  "testimonials": {
-    "title": "Ce Que Disent Nos Utilisateurs",
-    "subtitle": "Rejoignez des milliers de clients satisfaits"
   },
   "pricing": {
     "title": "Plans Tarifaires",
@@ -251,13 +304,13 @@
     "badge": "Contenu",
     "title": "Le blog",
     "titleHighlight": "E-SEOMAX",
-    "description": "Gardez une longueur d’avance avec des analyses d’experts, des tendances du secteur et des stratégies SEO actionnables partagées par notre équipe.",
+    "description": "Gardez une longueur d'avance avec des analyses d'experts, des tendances du secteur et des stratégies SEO actionnables partagées par notre équipe.",
     "emptyTitle": "Aucun article pour le moment",
     "emptyDescription": "Nous préparons du contenu de qualité. Revenez bientôt pour découvrir les dernières analyses et stratégies SEO.",
     "readMore": "Lire la suite",
     "backToBlog": "Retour au blog",
     "notFoundTitle": "Article introuvable",
-    "notFoundDescription": "L’article que vous cherchez n’existe pas ou a été supprimé."
+    "notFoundDescription": "L'article que vous cherchez n'existe pas ou a été supprimé."
   },
   "cookies": {
     "banner": {
