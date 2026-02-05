@@ -108,6 +108,67 @@
       "no": "No"
     }
   },
+  "seoEnhanced": {
+    "grade": "Grade",
+    "passedChecks": "Passed Checks",
+    "issuesFound": "Issues Found",
+    "recommendations": "Recommendations",
+    "shareResults": "Share Results",
+    "downloadReport": "Download Report",
+    "scoreBreakdown": "Score Breakdown",
+    "categoryDetails": "Click to expand category details",
+    "analyzingWebsite": "Analyzing Your Website",
+    "stages": {
+      "connecting": "Connecting to website...",
+      "technical": "Analyzing technical SEO...",
+      "content": "Checking content quality...",
+      "recommendations": "Generating recommendations..."
+    },
+    "technical": "Technical",
+    "content": "Content",
+    "links": "Links",
+    "social": "Social",
+    "passed": "Passed",
+    "failed": "Failed",
+    "optimal": "Optimal",
+    "viewFile": "View file",
+    "notSet": "Not set",
+    "whyMatters": {
+      "https": "HTTPS protects user data and is a ranking factor for search engines.",
+      "mobile": "Mobile-friendliness is crucial as most users browse on mobile devices."
+    },
+    "headingsStructure": "Headings Structure",
+    "firstH1": "First H1",
+    "minRecommended": "Min. recommended",
+    "outboundLinks": "Outbound links to external sites",
+    "imageAltText": "Image Alt Text",
+    "imagesMissing": "images missing alt text",
+    "ogTitleDesc": "Used when shared on social media platforms",
+    "ogDescriptionDesc": "Description shown in social media previews",
+    "ogImageDesc": "Image displayed when sharing on social platforms",
+    "socialReadiness": "Social Media Readiness",
+    "prioritizedList": "Prioritized by severity",
+    "critical": "critical",
+    "total": "total",
+    "evidence": "Evidence",
+    "howToFix": "How to fix",
+    "codeExample": "Code example",
+    "impact": "Impact",
+    "impactTooltip": "How much fixing this will improve your SEO",
+    "severityHigh": "High",
+    "severityMedium": "Medium",
+    "severityLow": "Low",
+    "actionableSteps": "Actionable improvement steps",
+    "noted": "noted",
+    "steps": "Steps to implement",
+    "example": "Example",
+    "codeSnippet": "Code snippet",
+    "markAsNoted": "Mark as noted",
+    "impactHigh": "High Impact",
+    "impactMedium": "Medium Impact",
+    "impactLow": "Low Impact",
+    "improvement": "Improvement"
+  },
   "features": {
     "title": "Powerful Features",
     "subtitle": "Everything you need to dominate search rankings",
@@ -141,14 +202,6 @@
         "description": "White-label reports that impress clients. Automated scheduling, custom branding, and actionable insights in every export."
       }
     }
-  },
-  "pricing": {
-    "title": "Simple Pricing",
-    "subtitle": "Choose the plan that fits your needs"
-  },
-  "testimonials": {
-    "title": "What Our Users Say",
-    "subtitle": "Join thousands of satisfied customers"
   },
   "pricing": {
     "title": "Pricing Plans",
