@@ -26,6 +26,7 @@ import AdminLayout from "./components/admin/AdminLayout";
 import Dashboard from "./pages/admin/Dashboard";
 import PostsList from "./pages/admin/PostsList";
 import PostEditor from "./pages/admin/PostEditor";
+import CategoriesManager from "./pages/admin/CategoriesManager";
 
 const queryClient = new QueryClient();
 
@@ -63,6 +64,7 @@ const App = () => (
               <Route path="dashboard" element={<Dashboard />} />
               <Route path="posts" element={<PostsList />} />
               <Route path="posts/:id" element={<PostEditor />} />
+              <Route path="categories" element={<CategoriesManager />} />
             </Route>
             
             <Route path="*" element={<NotFound />} />

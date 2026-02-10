@@ -40,6 +40,7 @@ export const getAdminPaths = () => {
     login: `${basePath}/login`,
     dashboard: `${basePath}/dashboard`,
     posts: `${basePath}/posts`,
+    categories: `${basePath}/categories`,
     postEdit: (id: string) => `${basePath}/posts/${id}`,
     postNew: `${basePath}/posts/new`,
   };
