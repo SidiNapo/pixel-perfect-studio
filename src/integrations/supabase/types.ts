@@ -98,6 +98,27 @@ export type Database = {
         }
         Relationships: []
       }
+      categories: {
+        Row: {
+          created_at: string
+          id: string
+          name: string
+          name_fr: string | null
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          name: string
+          name_fr?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          name?: string
+          name_fr?: string | null
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           created_at: string

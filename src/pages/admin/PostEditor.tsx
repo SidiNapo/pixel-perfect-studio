@@ -54,7 +54,7 @@ const postSchema = z.object({
 
 type PostFormData = z.infer<typeof postSchema>;
 
-const categories = ['AI', 'Tutorial', 'Algorithm', 'Content', 'Link Building', 'Voice SEO', 'Technical'];
+// Categories fetched from database
 
 const PostEditor = () => {
   const { id } = useParams();
@@ -64,6 +64,7 @@ const PostEditor = () => {
   const [loading, setLoading] = useState(false);
   const [saving, setSaving] = useState(false);
   const [publishing, setPublishing] = useState(false);
+  const [categories, setCategories] = useState<string[]>([]);
   const isEditing = Boolean(id && id !== 'new');
   const adminPaths = getAdminPaths();
 
@@ -106,6 +107,20 @@ const PostEditor = () => {
       setValue('slug', generatedSlug);
     }
   }, [title, isEditing, setValue]);
+
+  // Fetch categories from database
+  useEffect(() => {
+    const fetchCategories = async () => {
+      const { data } = await supabase
+        .from('categories')
+        .select('name')
+        .order('name');
+      if (data) {
+        setCategories(data.map((c: { name: string }) => c.name));
+      }
+    };
+    fetchCategories();
+  }, []);
 
   // Fetch existing post
   useEffect(() => {

@@ -1,5 +1,5 @@
 import { NavLink, useNavigate } from 'react-router-dom';
-import { LayoutDashboard, FileText, LogOut, ChevronLeft, ChevronRight } from 'lucide-react';
+import { LayoutDashboard, FileText, Tag, LogOut, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '@/hooks/useAuth';
@@ -24,6 +24,7 @@ const AdminSidebar = () => {
   const navItems = [
     { icon: LayoutDashboard, label: 'Dashboard', path: adminPaths.dashboard },
     { icon: FileText, label: 'Blog Posts', path: adminPaths.posts },
+    { icon: Tag, label: 'Categories', path: adminPaths.categories },
   ];
 
   return (
