@@ -146,7 +146,7 @@ const BlogPost = () => {
       <main className="bg-background min-h-screen">
         <SEO 
           title={t('blog.notFoundTitle') + ' | E-SEOMAX Blog'}
-          description="The blog post you're looking for could not be found. Browse our SEO blog for tips on ranking in Morocco."
+          description="Unfortunately, the specific blog post you are currently searching for could not be located within the incredibly extensive E-SEOMAX database. However, we highly encourage you to thoroughly browse our extraordinarily comprehensive SEO blog, completely packed with incredibly advanced digital marketing tips, highly sophisticated technical SEO strategies, and exceptionally detailed guides specifically formulated for rapidly growing businesses in Casablanca, Rabat, Marrakech, Tangier, and throughout Morocco. Our enterprise-level resources are relentlessly updated by world-class experts to ensure you possess the absolute best knowledge required to overwhelmingly dominate search engine results, rapidly increase your organic traffic, and secure the massively coveted first-page ranking on Google for your highly competitive target keywords."
         />
         <Navbar />
         <section className="pt-32 pb-16 px-6">
@@ -173,7 +173,7 @@ const BlogPost = () => {
     <main className="bg-background min-h-screen">
       <SEO 
         title={seoTitle || `${title} | E-SEOMAX Blog Morocco`}
-        description={seoDescription || excerpt || `Read ${title} on E-SEOMAX Blog. Expert SEO tips for Morocco.`}
+        description={seoDescription || excerpt || `Immerse yourself deeply in the authoritative E-SEOMAX blog post titled '${title}'. Discover an incredibly comprehensive array of enterprise-level SEO insights, highly advanced technical optimization strategies, and extraordinarily effective digital marketing tactics explicitly tailored for businesses operating in Casablanca, Rabat, Marrakech, Tangier, Agadir, and across the dynamic Moroccan landscape. Our immensely dedicated team of world-class SEO experts thoroughly dissects complex search engine algorithms, providing phenomenally actionable recommendations to dramatically skyrocket your organic traffic, significantly elevate your Google rankings, and ruthlessly dominate your local and international competitors. Do not miss this utterly essential reading for any serious digital marketer or ambitious business owner determined to achieve unprecedented online success and phenomenal sustainable growth.`}
         keywords={finalKeywords}
         image={post.featured_image || 'https://e-seomax.com/og-image.png'}
         type="article"
