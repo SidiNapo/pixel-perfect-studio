@@ -41,6 +41,7 @@ export default function Navbar() {
 
   const navItems = [
     { label: t('common.nav.home'), href: '/' },
+    { label: 'Tools', href: '/tools' },
     { label: t('common.nav.blog'), href: '/blog' },
     { label: t('common.nav.about'), href: '/about' },
     { label: t('common.nav.contact'), href: '/contact' },

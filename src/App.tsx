@@ -21,6 +21,10 @@ import TermsOfService from "./pages/TermsOfService";
 import CookiePolicy from "./pages/CookiePolicy";
 import Disclaimer from "./pages/Disclaimer";
 import NotFound from "./pages/NotFound";
+import ToolsCatalog from "./pages/tools/ToolsCatalog";
+import WordCounter from "./pages/tools/WordCounter";
+import SeoAudit from "./pages/tools/SeoAudit";
+import BacklinkChecker from "./pages/tools/BacklinkChecker";
 import AdminLogin from "./pages/admin/AdminLogin";
 import AdminLayout from "./components/admin/AdminLayout";
 import Dashboard from "./pages/admin/Dashboard";
@@ -57,6 +61,10 @@ const App = () => (
             <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route path="/cookie-policy" element={<CookiePolicy />} />
             <Route path="/disclaimer" element={<Disclaimer />} />
+            <Route path="/tools" element={<ToolsCatalog />} />
+            <Route path="/tools/word-counter" element={<WordCounter />} />
+            <Route path="/tools/seo-audit" element={<SeoAudit />} />
+            <Route path="/tools/backlink-checker" element={<BacklinkChecker />} />
             
             {/* Admin Routes - Dynamic path from environment */}
             <Route path={`${adminBasePath}/login`} element={<AdminLogin />} />
